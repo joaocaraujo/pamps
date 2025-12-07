@@ -111,7 +111,7 @@
         </h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <NuxtLink
-            to="/eventos"
+            to="/events"
             class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
           >
             <div class="w-12 h-12 bg-primary/10 rounded-base flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -126,7 +126,7 @@
           </NuxtLink>
 
           <NuxtLink
-            to="/eventos"
+            to="/events"
             class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
           >
             <div class="w-12 h-12 bg-secondary/20 rounded-base flex items-center justify-center mb-4 group-hover:bg-secondary/30 transition-colors">
@@ -141,7 +141,7 @@
           </NuxtLink>
 
           <NuxtLink
-            to="/eventos"
+            to="/events"
             class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
           >
             <div class="w-12 h-12 bg-accent/20 rounded-base flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
@@ -156,7 +156,7 @@
           </NuxtLink>
 
           <NuxtLink
-            to="/eventos"
+            to="/events"
             class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
           >
             <div class="w-12 h-12 bg-primary/10 rounded-base flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -263,7 +263,7 @@
               <span>{{ $t('home.ctaSecondary.contact') }}</span>
             </a>
             <NuxtLink
-              to="/contato"
+              to="/contact"
               class="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-surface text-text-main font-body font-semibold text-base rounded-base border-2 border-primary shadow-base hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
             >
               <span>{{ $t('home.ctaSecondary.visit') }}</span>

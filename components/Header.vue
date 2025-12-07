@@ -211,11 +211,11 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 const { t } = useI18n()
 
 const menuItems = computed(() => [
-  { label: t('navigation.events'), path: '/eventos' },
-  { label: t('navigation.space'), path: '/espaco' },
+  { label: t('navigation.events'), path: '/events' },
+  { label: t('navigation.space'), path: '/space' },
   { label: t('navigation.buffet'), path: '/buffet' },
-  { label: t('navigation.packages'), path: '/pacotes' },
-  { label: t('navigation.contact'), path: '/contato' }
+  { label: t('navigation.packages'), path: '/packages' },
+  { label: t('navigation.contact'), path: '/contact' }
 ])
 
 const whatsappLink = computed(() => {

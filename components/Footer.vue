@@ -141,7 +141,7 @@
           </h3>
           <div class="flex flex-col space-y-2 text-sm text-text-body">
             <NuxtLink
-              to="/contato"
+              to="/contact"
               class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
             >
               {{ $t('footer.info.schedule') }}
@@ -160,13 +160,13 @@
           </p>
           <div class="flex items-center space-x-6 text-sm text-text-light">
             <NuxtLink
-              to="/contato"
+              to="/contact"
               class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
             >
               {{ $t('footer.privacy') }}
             </NuxtLink>
             <NuxtLink
-              to="/contato"
+              to="/contact"
               class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
             >
               {{ $t('footer.terms') }}
@@ -189,11 +189,11 @@ const whatsappLink = computed(() => {
 })
 
 const menuItems = computed(() => [
-  { label: t('navigation.events'), path: '/eventos' },
-  { label: t('navigation.space'), path: '/espaco' },
+  { label: t('navigation.events'), path: '/events' },
+  { label: t('navigation.space'), path: '/space' },
   { label: t('navigation.buffet'), path: '/buffet' },
-  { label: t('navigation.packages'), path: '/pacotes' },
-  { label: t('navigation.contact'), path: '/contato' }
+  { label: t('navigation.packages'), path: '/packages' },
+  { label: t('navigation.contact'), path: '/contact' }
 ])
 </script>
 
