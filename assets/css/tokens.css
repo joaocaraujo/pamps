@@ -107,7 +107,26 @@
   --breakpoint-2xl: 1536px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
+[data-theme="dark"] {
+  --color-highlight: #1A1612;
+  --color-light: #2A241F;
+  --color-surface: #1F1B17;
+  --color-surface-dark: #1A1612;
+  
+  --color-text-main: #FFF9E5;
+  --color-text-body: #E8E0D0;
+  --color-text-light: #C4B8A8;
+  --color-text-inverse: #4E342E;
+  
+  --color-border: #3A342E;
+  --color-border-light: #2A241F;
+  --color-border-dark: #4A443E;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-base: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.7);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.8);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }

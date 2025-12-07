@@ -39,7 +39,8 @@
           </NuxtLink>
         </div>
 
-        <div class="hidden lg:block">
+        <div class="hidden lg:flex items-center space-x-4">
+          <ColorModeToggle />
           <a
             :href="whatsappLink"
             target="_blank"
@@ -62,6 +63,7 @@
         </div>
 
         <div class="flex items-center space-x-3 lg:hidden">
+          <ColorModeToggle />
           <a
             :href="whatsappLink"
             target="_blank"
@@ -135,7 +137,7 @@
     >
       <div
         v-if="isMobileMenuOpen"
-        class="fixed inset-0 bg-black bg-opacity-40 z-modal-backdrop top-16"
+        class="fixed inset-0 bg-black/40 dark:bg-black/60 z-modal-backdrop top-16"
         @click="closeMobileMenu"
         aria-hidden="true"
       />
