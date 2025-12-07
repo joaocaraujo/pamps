@@ -5,6 +5,7 @@
       'fixed top-0 left-0 right-0 z-fixed bg-light transition-all duration-300',
       isScrolled ? 'shadow-base py-3' : 'shadow-sm py-4'
     ]"
+    style="background-color: var(--color-light) !important;"
     role="banner"
   >
     <div class="container mx-auto px-4">
@@ -23,7 +24,7 @@
               src="/logo.png"
               :alt="$t('brand.alt')"
               class="h-10 w-auto md:h-12 object-contain"
-            />
+            />  
           </div>
         </NuxtLink>
 
@@ -157,6 +158,7 @@
         v-if="isMobileMenuOpen"
         id="mobile-menu"
         class="fixed top-16 left-0 right-0 bg-light border-b border-border shadow-lg z-modal"
+        style="background-color: var(--color-light) !important;"
         role="navigation"
         :aria-label="$t('navigation.mobileMenu')"
       >

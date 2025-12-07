@@ -12,18 +12,68 @@
     "mobileMenu": "Menú de navegación móvil"
   },
   "cta": {
-    "whatsapp": "Contactar por WhatsApp",
+    "whatsapp": "WhatsApp",
     "whatsappLabel": "Contactar a Pamps por WhatsApp",
     "whatsappMessage": "¡Hola! Me gustaría saber más sobre los eventos de Pamps."
   },
   "brand": {
     "name": "Pamps",
     "fullName": "Pamps - Casa y Espacio de Eventos",
+    "pageTitle": "Pamps Eventos",
     "alt": "Pamps - Casa y Espacio de Eventos"
   },
   "colorMode": {
     "switchToLight": "Cambiar a modo claro",
     "switchToDark": "Cambiar a modo oscuro"
+  },
+  "home": {
+    "hero": {
+      "headline": "La fiesta de los sueños de tu hijo comienza aquí",
+      "subheadline": "Especialistas en fiestas infantiles con espacio completo, climatizado y parque infantil en Belo Horizonte. También realizamos eventos adultos y sociales.",
+      "ctaPrimary": "Contactar a Pamps",
+      "imageAlt": "Espacio Pamps - Casa y Espacio de Eventos para fiestas infantiles"
+    },
+    "about": {
+      "title": "Especialistas en Fiestas Infantiles",
+      "paragraph1": "Pamps es un espacio de eventos ubicado en la zona noble de Belo Horizonte, cerca del Estadio Mineirão, especializado en fiestas infantiles inolvidables. Con parque infantil fijo, recreación y estructura completa, creamos momentos mágicos para los niños.",
+      "paragraph2": "También realizamos eventos adultos, sociales y confraternizaciones. Nuestro espacio cuenta con infraestructura completa, climatizado por decenas de equipos, ambiente cerrado, seguro y recientemente renovado, con capacidad para hasta 150 personas."
+    },
+    "eventTypes": {
+      "title": "Nuestros Eventos",
+      "children": {
+        "title": "Fiesta Infantil",
+        "description": "¡Nuestra especialidad! Espacio completo con parque infantil fijo, recreación y toda la estructura para una fiesta inolvidable"
+      },
+      "adult": {
+        "title": "Cumpleaños Adulto",
+        "description": "Estructura climatizada y personalizable para su evento"
+      },
+      "corporate": {
+        "title": "Confraternización",
+        "description": "Ideal para eventos corporativos y sociales"
+      },
+      "themed": {
+        "title": "Eventos Temáticos",
+        "description": "Personalización total según su necesidad"
+      }
+    },
+    "features": {
+      "title": "Nuestras Ventajas",
+      "climate": "Climatización completa",
+      "playground": "Parque infantil fijo y destacado",
+      "parking": "Garaje para hasta 10 coches",
+      "reception": "Recepción con atendente exclusivo",
+      "beverage": "Máquina de refresco opcional",
+      "accessibility": "Accesibilidad para sillas de ruedas",
+      "capacity": "Capacidad para hasta 150 personas",
+      "licensed": "Totalmente regularizado"
+    },
+    "ctaSecondary": {
+      "title": "¿Listo para la fiesta de los sueños?",
+      "subtitle": "Ponte en contacto y descubre cómo podemos hacer la fiesta de tu hijo inolvidable. También realizamos eventos adultos y sociales.",
+      "visit": "Agendar una visita",
+      "contact": "Contactar por WhatsApp"
+    }
   }
 }
 

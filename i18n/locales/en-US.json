@@ -12,18 +12,68 @@
     "mobileMenu": "Mobile navigation menu"
   },
   "cta": {
-    "whatsapp": "Contact on WhatsApp",
+    "whatsapp": "WhatsApp",
     "whatsappLabel": "Contact Pamps on WhatsApp",
     "whatsappMessage": "Hello! I would like to know more about Pamps events."
   },
   "brand": {
     "name": "Pamps",
     "fullName": "Pamps - House & Event Space",
+    "pageTitle": "Pamps Events",
     "alt": "Pamps - House & Event Space"
   },
   "colorMode": {
     "switchToLight": "Switch to light mode",
     "switchToDark": "Switch to dark mode"
+  },
+  "home": {
+    "hero": {
+      "headline": "Your child's dream party starts here",
+      "subheadline": "Specialists in children's parties with complete, climate-controlled space and playground in Belo Horizonte. We also host adult and social events.",
+      "ctaPrimary": "Contact Pamps",
+      "imageAlt": "Pamps Space - House & Event Space for children's parties"
+    },
+    "about": {
+      "title": "Children's Party Specialists",
+      "paragraph1": "Pamps is an event space located in the upscale region of Belo Horizonte, near Mineirão Stadium, specialized in unforgettable children's parties. With fixed playground, recreation and complete structure, we create magical moments for children.",
+      "paragraph2": "We also host adult events, social gatherings and corporate events. Our space features complete infrastructure, climate-controlled by dozens of units, enclosed environment, secure and recently renovated, with capacity for up to 150 people."
+    },
+    "eventTypes": {
+      "title": "Our Events",
+      "children": {
+        "title": "Children's Party",
+        "description": "Our specialty! Complete space with fixed playground, recreation and full structure for an unforgettable party"
+      },
+      "adult": {
+        "title": "Adult Birthday",
+        "description": "Climate-controlled and customizable structure for your event"
+      },
+      "corporate": {
+        "title": "Corporate Event",
+        "description": "Ideal for corporate and social events"
+      },
+      "themed": {
+        "title": "Themed Events",
+        "description": "Full customization according to your needs"
+      }
+    },
+    "features": {
+      "title": "Our Advantages",
+      "climate": "Complete climate control",
+      "playground": "Fixed and striking playground",
+      "parking": "Parking for up to 10 cars",
+      "reception": "Reception with exclusive attendant",
+      "beverage": "Optional beverage machine",
+      "accessibility": "Wheelchair accessibility",
+      "capacity": "Capacity for up to 150 people",
+      "licensed": "Fully licensed"
+    },
+    "ctaSecondary": {
+      "title": "Ready for the dream party?",
+      "subtitle": "Get in touch and discover how we can make your child's party unforgettable. We also host adult and social events.",
+      "visit": "Schedule a visit",
+      "contact": "Contact on WhatsApp"
+    }
   }
 }
 
