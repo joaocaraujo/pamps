@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NuxtPage />
+    <Header />
+    <main>
+      <NuxtPage />
+    </main>
   </div>
 </template>
 
