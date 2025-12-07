@@ -7,6 +7,22 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: ''
+        }
+      ]
+    }
+  }
 })
 

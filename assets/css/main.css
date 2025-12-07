@@ -1,4 +1,26 @@
+/* Import Design Tokens */
+@import './tokens.css';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-body);
+    line-height: var(--line-height-normal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-main);
+    line-height: var(--line-height-tight);
+    font-weight: var(--font-weight-semibold);
+  }
+}
 
