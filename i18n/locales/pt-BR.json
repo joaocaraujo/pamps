@@ -74,6 +74,27 @@
       "visit": "Agendar uma visita",
       "contact": "Falar no WhatsApp"
     }
+  },
+  "footer": {
+    "description": "Especialistas em festas infantis em Belo Horizonte. Espaço completo, climatizado e com brinquedão fixo para momentos inesquecíveis.",
+    "navigation": {
+      "title": "Navegação"
+    },
+    "contact": {
+      "title": "Contato",
+      "address": "Belo Horizonte, MG - Próximo ao Estádio Mineirão",
+      "phone": "(31) 99999-9999",
+      "email": "contato{'@'}pamps.com.br"
+    },
+    "info": {
+      "title": "Informações",
+      "schedule": "Agendar uma visita",
+      "capacity": "Capacidade: até 150 pessoas",
+      "hours": "Atendimento: Segunda a Domingo"
+    },
+    "copyright": "© {year} Pamps - Casa & Espaço de Eventos. Todos os direitos reservados.",
+    "privacy": "Privacidade",
+    "terms": "Termos de Uso"
   }
 }
 

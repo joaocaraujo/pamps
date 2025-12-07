@@ -39,6 +39,9 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
       alwaysRedirect: false
+    },
+    compilation: {
+      strictMessage: false
     }
   },
 

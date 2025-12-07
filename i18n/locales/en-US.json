@@ -74,6 +74,27 @@
       "visit": "Schedule a visit",
       "contact": "Contact on WhatsApp"
     }
+  },
+  "footer": {
+    "description": "Specialists in children's parties in Belo Horizonte. Complete, climate-controlled space with fixed playground for unforgettable moments.",
+    "navigation": {
+      "title": "Navigation"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Belo Horizonte, MG - Near Mineirão Stadium",
+      "phone": "+55 31 99999-9999",
+      "email": "contact{'@'}pamps.com.br"
+    },
+    "info": {
+      "title": "Information",
+      "schedule": "Schedule a visit",
+      "capacity": "Capacity: up to 150 people",
+      "hours": "Service: Monday to Sunday"
+    },
+    "copyright": "© {year} Pamps - House & Event Space. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms of Use"
   }
 }
 

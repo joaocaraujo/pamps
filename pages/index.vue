@@ -67,6 +67,21 @@
                 <!-- Animated gradient overlay -->
                 <div class="absolute inset-0 hero-gradient-overlay opacity-20"></div>
               </div>
+              <!-- Capybara Mascot - Part of the frame -->
+              <div class="capybara-mascot capybara-bottom-left">
+                <img
+                  src="/cap.png"
+                  alt="Mascote Pamps - Capivara"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="capybara-mascot capybara-top-right">
+                <img
+                  src="/cap.png"
+                  alt="Mascote Pamps - Capivara"
+                  class="w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -405,6 +420,53 @@ useHead({
 
 .hero-image-container:hover {
   transform: rotate(0deg) scale(1.02);
+}
+
+.capybara-mascot {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: capybaraFloat 4s infinite ease-in-out;
+}
+
+.capybara-bottom-left {
+  bottom: -20px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  animation-delay: 0s;
+  --capybara-rotation: -15deg;
+  transform: rotate(-15deg);
+}
+
+.capybara-top-right {
+  top: -25px;
+  right: -35px;
+  width: 100px;
+  height: 100px;
+  animation-delay: -2s;
+  --capybara-rotation: 20deg;
+  transform: rotate(20deg);
+}
+
+.capybara-top-right img {
+  transform: scaleX(-1) rotate(0deg);
+}
+
+@keyframes capybaraFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--capybara-rotation, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--capybara-rotation, 0deg));
+  }
+}
+
+@media (max-width: 1024px) {
+  .capybara-mascot {
+    display: none;
+  }
 }
 
 .hero-image {
