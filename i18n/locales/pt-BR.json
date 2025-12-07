@@ -92,9 +92,134 @@
       "capacity": "Capacidade: até 150 pessoas",
       "hours": "Atendimento: Segunda a Domingo"
     },
-    "copyright": "© {year} Pamps - Casa & Espaço de Eventos. Todos os direitos reservados.",
+    "copyright": "© {year} Pamps - Espaço de Eventos. Todos os direitos reservados.",
     "privacy": "Privacidade",
     "terms": "Termos de Uso"
+  },
+  "packages": {
+    "title": "Nossos Pacotes",
+    "subtitle": "Escolha o pacote ideal para tornar sua festa inesquecível",
+    "common": {
+      "payment": "Pagamento em até 3x sem juros",
+      "receptionist": "Recepcionista por 2h iniciais",
+      "valet": "Manobrista durante todo o evento",
+      "cta": "Quero saber mais",
+      "ctaCorporate": "Solicitar orçamento corporativo",
+      "from": "A partir de",
+      "guests": "convidados",
+      "duration": "Duração",
+      "includes": "Inclui",
+      "capacity": "Capacidade",
+      "hours": "h",
+      "customPrice": "Sob consulta",
+      "fullyCustomizable": "Pacote totalmente personalizado! Escolha todos os itens conforme sua necessidade.",
+      "availableItems": "Itens disponíveis para escolha",
+      "andMore": "... e muito mais! Consulte todas as opções disponíveis."
+    },
+    "tags": {
+      "bestSeller": "Mais Vendido",
+      "bestValue": "Melhor Custo Benefício",
+      "premium": "Premium"
+    },
+    "items": {
+      "fixedPlayground": "Brinquedo fixo",
+      "totó": "Totó",
+      "snooker": "Sinuca",
+      "sodaMachine": "Máquina de refrigerante",
+      "buffet": "Buffet",
+      "nonAlcoholic": "Bebidas não alcoólicas",
+      "alcoholic": "Bebidas alcoólicas",
+      "chopUnlimited": "Chopp à vontade",
+      "thematicDecoration": "Decoração temática",
+      "fullBuffet": "Buffet completo (doces, salgados, bolo fake e corte)"
+    },
+    "plans": {
+      "realeza": {
+        "name": "Capibaby",
+        "price": "2500,00",
+        "capacity": "Até 45",
+        "duration": "4",
+        "includes": ["fixedPlayground", "totó", "buffet", "nonAlcoholic"],
+        "notes": "Consultar opções de buffet e bebidas",
+        "tag": null,
+        "savings": null
+      },
+      "mundoMagico": {
+        "name": "Mundo Mágico",
+        "price": "4900,00",
+        "capacity": "Até 95",
+        "duration": "4",
+        "includes": ["fixedPlayground", "totó", "thematicDecoration", "buffet", "nonAlcoholic"],
+        "notes": "Consultar opções de decoração temática, buffet e bebidas",
+        "tag": "bestValue",
+        "savings": "Economize até R$ 300 com pagamento à vista"
+      },
+      "hakunaMatata": {
+        "name": "Hakuna Matata",
+        "price": "5500,00",
+        "capacity": "Até 95",
+        "duration": "6",
+        "includes": ["fixedPlayground", "totó", "snooker", "thematicDecoration", "buffet", "nonAlcoholic"],
+        "notes": "Consultar opções de decoração temática, buffet e bebidas",
+        "tag": "bestSeller",
+        "savings": null
+      },
+      "superPamps": {
+        "name": "Super Pamps",
+        "price": "10500,00",
+        "capacity": "Máximo (150)",
+        "duration": "6",
+        "includes": ["fixedPlayground", "totó", "snooker", "sodaMachine", "fullBuffet", "nonAlcoholic", "alcoholic", "chopUnlimited"],
+        "notes": "Chopp à vontade para até 80 pessoas. Consulte política para convidados adicionais, consumo e restrições",
+        "tag": "premium",
+        "savings": null,
+        "isCorporate": true
+      },
+      "fendaBiquini": {
+        "name": "Fenda do Biquíni",
+        "price": "3800,00",
+        "capacity": "Até 60",
+        "duration": "4",
+        "includes": ["fixedPlayground", "totó", "thematicDecoration", "buffet", "nonAlcoholic"],
+        "notes": "Tema aquático disponível. Consultar opções de decoração temática",
+        "tag": null,
+        "savings": null
+      },
+      "siriCascudo": {
+        "name": "Siri Cascudo",
+        "price": "3200,00",
+        "capacity": "Até 50",
+        "duration": "4",
+        "includes": ["fixedPlayground", "totó", "buffet", "nonAlcoholic"],
+        "notes": "Ideal para festas temáticas marinhas. Consultar opções",
+        "tag": null,
+        "savings": null
+      },
+      "aoInfinito": {
+        "name": "Ao Infinito e Além",
+        "price": "6800,00",
+        "capacity": "Até 100",
+        "duration": "5",
+        "includes": ["fixedPlayground", "totó", "snooker", "thematicDecoration", "buffet", "nonAlcoholic"],
+        "notes": "Tema espacial disponível. Consultar opções de decoração temática completa",
+        "tag": null,
+        "savings": "Economize até R$ 200 com pagamento à vista"
+      },
+      "euEscolhoVoce": {
+        "name": "Eu Escolho Você!",
+        "price": "",
+        "capacity": "Máximo 150",
+        "duration": "",
+        "includes": [],
+        "notes": "Pacote totalmente personalizado! Escolha tudo conforme sua necessidade: decoração, buffet, bebidas, brinquedos e muito mais. Vamos criar a festa dos seus sonhos juntos!",
+        "tag": null,
+        "savings": null
+      }
+    },
+    "carousel": {
+      "previous": "Pacote anterior",
+      "next": "Próximo pacote"
+    }
   }
 }
 

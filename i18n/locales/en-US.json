@@ -92,9 +92,111 @@
       "capacity": "Capacity: up to 150 people",
       "hours": "Service: Monday to Sunday"
     },
-    "copyright": "© {year} Pamps - House & Event Space. All rights reserved.",
+    "copyright": "© {year} Pamps - Event Space. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms of Use"
+  },
+  "packages": {
+    "title": "Our Packages",
+    "subtitle": "Choose the perfect package to make your party unforgettable",
+    "common": {
+      "payment": "Payment in up to 3 installments without interest",
+      "receptionist": "Receptionist for initial 2h",
+      "valet": "Valet during entire event",
+      "cta": "I want to know more",
+      "ctaCorporate": "Request corporate quote",
+      "from": "From",
+      "guests": "guests",
+      "duration": "Duration",
+      "includes": "Includes",
+      "capacity": "Capacity",
+      "hours": "h",
+      "customPrice": "Upon request",
+      "fullyCustomizable": "Fully customizable package! Choose all items according to your needs.",
+      "availableItems": "Available items to choose from",
+      "andMore": "... and much more! Consult all available options."
+    },
+    "tags": {
+      "bestSeller": "Best Seller",
+      "bestValue": "Best Value",
+      "premium": "Premium"
+    },
+    "items": {
+      "fixedPlayground": "Fixed playground",
+      "totó": "Table football",
+      "snooker": "Snooker",
+      "sodaMachine": "Soda machine",
+      "buffet": "Buffet",
+      "nonAlcoholic": "Non-alcoholic beverages",
+      "alcoholic": "Alcoholic beverages",
+      "chopUnlimited": "Unlimited draft beer",
+      "thematicDecoration": "Thematic decoration",
+      "fullBuffet": "Full buffet (sweets, savory, fake cake and cutting)"
+    },
+    "plans": {
+      "realeza": {
+        "name": "Capibaby",
+        "price": "2500.00",
+        "capacity": "Up to 45",
+        "duration": "4",
+        "notes": "Consult buffet and beverage options"
+      },
+      "mundoMagico": {
+        "name": "Magic World",
+        "price": "4900.00",
+        "capacity": "Up to 95",
+        "duration": "4",
+        "notes": "Consult thematic decoration, buffet and beverage options",
+        "savings": "Save up to R$ 300 with cash payment"
+      },
+      "hakunaMatata": {
+        "name": "Hakuna Matata",
+        "price": "5500.00",
+        "capacity": "Up to 95",
+        "duration": "6",
+        "notes": "Consult thematic decoration, buffet and beverage options"
+      },
+      "fendaBiquini": {
+        "name": "Bikini Bottom",
+        "price": "3800.00",
+        "capacity": "Up to 60",
+        "duration": "4",
+        "notes": "Aquatic theme available. Consult thematic decoration options"
+      },
+      "siriCascudo": {
+        "name": "Mr. Krabs",
+        "price": "3200.00",
+        "capacity": "Up to 50",
+        "duration": "4",
+        "notes": "Ideal for marine themed parties. Consult options"
+      },
+      "aoInfinito": {
+        "name": "To Infinity and Beyond",
+        "price": "6800.00",
+        "capacity": "Up to 100",
+        "duration": "5",
+        "notes": "Space theme available. Consult complete thematic decoration options",
+        "savings": "Save up to R$ 200 with cash payment"
+      },
+      "superPamps": {
+        "name": "Super Pamps",
+        "price": "10500.00",
+        "capacity": "Maximum (150)",
+        "duration": "6",
+        "notes": "Unlimited draft beer for up to 80 people. Consult policy for additional guests, consumption and restrictions"
+      },
+      "euEscolhoVoce": {
+        "name": "I Choose You!",
+        "price": "",
+        "capacity": "Maximum 150",
+        "duration": "",
+        "notes": "Fully customizable package! Choose everything according to your needs: decoration, buffet, beverages, toys and much more. Let's create the party of your dreams together!"
+      }
+    },
+    "carousel": {
+      "previous": "Previous package",
+      "next": "Next package"
+    }
   }
 }
 

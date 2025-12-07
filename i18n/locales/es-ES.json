@@ -92,9 +92,111 @@
       "capacity": "Capacidad: hasta 150 personas",
       "hours": "Atención: Lunes a Domingo"
     },
-    "copyright": "© {year} Pamps - Casa y Espacio de Eventos. Todos los derechos reservados.",
+    "copyright": "© {year} Pamps - Espacio de Eventos. Todos los derechos reservados.",
     "privacy": "Privacidad",
     "terms": "Términos de Uso"
+  },
+  "packages": {
+    "title": "Nuestros Paquetes",
+    "subtitle": "Elige el paquete perfecto para hacer tu fiesta inolvidable",
+    "common": {
+      "payment": "Pago en hasta 3 cuotas sin intereses",
+      "receptionist": "Recepcionista por 2h iniciales",
+      "valet": "Valet durante todo el evento",
+      "cta": "Quiero saber más",
+      "ctaCorporate": "Solicitar cotización corporativa",
+      "from": "Desde",
+      "guests": "invitados",
+      "duration": "Duración",
+      "includes": "Incluye",
+      "capacity": "Capacidad",
+      "hours": "h",
+      "customPrice": "Bajo consulta",
+      "fullyCustomizable": "¡Paquete totalmente personalizable! Elige todos los elementos según tu necesidad.",
+      "availableItems": "Elementos disponibles para elegir",
+      "andMore": "... y mucho más! Consulta todas las opciones disponibles."
+    },
+    "tags": {
+      "bestSeller": "Más Vendido",
+      "bestValue": "Mejor Relación Precio-Calidad",
+      "premium": "Premium"
+    },
+    "items": {
+      "fixedPlayground": "Parque infantil fijo",
+      "totó": "Fútbol de mesa",
+      "snooker": "Billar",
+      "sodaMachine": "Máquina de refresco",
+      "buffet": "Buffet",
+      "nonAlcoholic": "Bebidas no alcohólicas",
+      "alcoholic": "Bebidas alcohólicas",
+      "chopUnlimited": "Cerveza de barril ilimitada",
+      "thematicDecoration": "Decoración temática",
+      "fullBuffet": "Buffet completo (dulces, salados, pastel falso y corte)"
+    },
+    "plans": {
+      "realeza": {
+        "name": "Capibaby",
+        "price": "2500,00",
+        "capacity": "Hasta 45",
+        "duration": "4",
+        "notes": "Consultar opciones de buffet y bebidas"
+      },
+      "mundoMagico": {
+        "name": "Mundo Mágico",
+        "price": "4900,00",
+        "capacity": "Hasta 95",
+        "duration": "4",
+        "notes": "Consultar opciones de decoración temática, buffet y bebidas",
+        "savings": "Ahorre hasta R$ 300 con pago en efectivo"
+      },
+      "hakunaMatata": {
+        "name": "Hakuna Matata",
+        "price": "5500,00",
+        "capacity": "Hasta 95",
+        "duration": "6",
+        "notes": "Consultar opciones de decoración temática, buffet y bebidas"
+      },
+      "fendaBiquini": {
+        "name": "Fondo de Bikini",
+        "price": "3800,00",
+        "capacity": "Hasta 60",
+        "duration": "4",
+        "notes": "Tema acuático disponible. Consultar opciones de decoración temática"
+      },
+      "siriCascudo": {
+        "name": "Don Cangrejo",
+        "price": "3200,00",
+        "capacity": "Hasta 50",
+        "duration": "4",
+        "notes": "Ideal para fiestas temáticas marinas. Consultar opciones"
+      },
+      "aoInfinito": {
+        "name": "Al Infinito y Más Allá",
+        "price": "6800,00",
+        "capacity": "Hasta 100",
+        "duration": "5",
+        "notes": "Tema espacial disponible. Consultar opciones de decoración temática completa",
+        "savings": "Ahorre hasta R$ 200 con pago en efectivo"
+      },
+      "superPamps": {
+        "name": "Super Pamps",
+        "price": "10500,00",
+        "capacity": "Máximo (150)",
+        "duration": "6",
+        "notes": "Cerveza de barril ilimitada para hasta 80 personas. Consultar política para invitados adicionales, consumo y restricciones"
+      },
+      "euEscolhoVoce": {
+        "name": "¡Te Elijo a Ti!",
+        "price": "",
+        "capacity": "Máximo 150",
+        "duration": "",
+        "notes": "¡Paquete totalmente personalizable! Elige todo según tu necesidad: decoración, buffet, bebidas, juguetes y mucho más. ¡Creemos juntos la fiesta de tus sueños!"
+      }
+    },
+    "carousel": {
+      "previous": "Paquete anterior",
+      "next": "Siguiente paquete"
+    }
   }
 }
 
