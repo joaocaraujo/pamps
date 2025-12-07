@@ -1,0 +1,29 @@
+{
+  "navigation": {
+    "main": "Navegación principal",
+    "home": "Página de inicio",
+    "events": "Eventos",
+    "space": "Espacio",
+    "buffet": "Buffet",
+    "packages": "Paquetes",
+    "contact": "Contacto",
+    "navigateTo": "Navegar a {label}",
+    "openMenu": "Abrir menú de navegación",
+    "mobileMenu": "Menú de navegación móvil"
+  },
+  "cta": {
+    "whatsapp": "Contactar por WhatsApp",
+    "whatsappLabel": "Contactar a Pamps por WhatsApp",
+    "whatsappMessage": "¡Hola! Me gustaría saber más sobre los eventos de Pamps."
+  },
+  "brand": {
+    "name": "Pamps",
+    "fullName": "Pamps - Casa y Espacio de Eventos",
+    "alt": "Pamps - Casa y Espacio de Eventos"
+  },
+  "colorMode": {
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro"
+  }
+}
+
