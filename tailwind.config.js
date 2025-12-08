@@ -30,6 +30,7 @@ export default {
           dark: 'var(--color-accent-dark)',
         },
         highlight: 'var(--color-highlight)',
+        light: 'var(--color-light)',
         surface: {
           DEFAULT: 'var(--color-surface)',
           dark: 'var(--color-surface-dark)',

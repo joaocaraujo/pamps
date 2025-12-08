@@ -57,6 +57,20 @@
         "description": "Personalización total según su necesidad"
       }
     },
+    "stats": {
+      "parties": {
+        "number": "50+",
+        "label": "Paquetes de eventos realizados"
+      },
+      "rating": {
+        "number": "4.9",
+        "label": "Calificación"
+      },
+      "capacity": {
+        "number": "150",
+        "label": "Capacidad máxima"
+      }
+    },
     "features": {
       "title": "Nuestras Ventajas",
       "climate": "Climatización completa",
@@ -197,6 +211,74 @@
       "previous": "Paquete anterior",
       "next": "Siguiente paquete"
     }
+  },
+  "calculator": {
+    "title": "Calculadora de Estimación",
+    "close": "Cerrar calculadora",
+    "requiredFields": "Información del Evento",
+    "optionalFields": "Servicios Opcionales",
+    "people": {
+      "label": "Cantidad de personas",
+      "unit": "personas"
+    },
+    "day": {
+      "label": "Día del evento",
+      "select": "Seleccione el día",
+      "weekday": "Lunes a Jueves",
+      "weekend": "Viernes o Domingo",
+      "saturday": "Sábado"
+    },
+    "package": {
+      "label": "Tipo de paquete",
+      "select": "Seleccione el paquete",
+      "simple": "Esencial",
+      "medium": "Clásico",
+      "top": "Premium"
+    },
+    "salgados": {
+      "label": "Cantidad de salados por persona",
+      "tip": "Recomendamos 5 a 7 salados por persona para eventos de 4h a 6h"
+    },
+    "doces": {
+      "label": "Cantidad de dulces por persona",
+      "tip": "Recomendamos 3 a 5 dulces por persona para eventos de 4h a 6h"
+    },
+    "food": {
+      "label": "Consumo por Persona",
+      "unit": "unidades"
+    },
+    "optional": {
+      "chopp": "Cerveza incluida",
+      "nonAlcoholic": "Bebidas no alcohólicas incluidas",
+      "dj": "DJ",
+      "lighting": "Iluminación de pista",
+      "recreator": "Recreador",
+      "photographer": "Fotógrafo"
+    },
+    "result": {
+      "estimated": "Valor Total Estimado",
+      "perPerson": "Por invitado",
+      "base": "Valor base",
+      "optional": "Opcionales",
+      "disclaimer": "Los valores son estimaciones promedio. Confirme los paquetes con un consultor."
+    },
+    "cta": {
+      "whatsapp": "Enviar cotización por WhatsApp",
+      "open": "Calcular Evento"
+    },
+    "steps": {
+      "eventInfo": "Información",
+      "food": "Consumo",
+      "optional": "Opcionales",
+      "result": "Resultado",
+      "next": "Siguiente",
+      "back": "Atrás"
+    },
+    "preview": {
+      "label": "Total Estimado"
+    },
+    "whatsappMessage": "Hola, hice una simulación en el sitio web. Mi evento tiene {people} personas, el día {day}, paquete {package}, con {salgados} salados y {doces} dulces por persona. Opcionales: {optionals}. Valor estimado: {total}.",
+    "none": "Ninguno"
   }
 }
 

@@ -1,5 +1,32 @@
 <template>
   <div class="min-h-screen bg-surface pt-24">
+    <!-- Calculator CTA Banner -->
+    <section class="py-8 bg-primary/10 border-b border-border">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <button
+            @click="isCalculatorOpen = true"
+            class="calculator-cta-button group relative w-full md:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-lg rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
+            :aria-label="$t('calculator.cta.open')"
+          >
+            <!-- Animated gradient background -->
+            <div class="absolute inset-0 calculator-gradient-bg"></div>
+            
+            <!-- Shine effect -->
+            <div class="absolute inset-0 calculator-shine"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex items-center space-x-2">
+              <svg class="w-6 h-6 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Packages Carousel Section -->
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
@@ -190,6 +217,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Calculator Modal -->
+    <CalculatorModal v-model:is-open="isCalculatorOpen" />
   </div>
 </template>
 
@@ -197,6 +227,8 @@
 import { ref, computed } from 'vue'
 
 const { t } = useI18n()
+
+const isCalculatorOpen = ref(false)
 
 const carouselRef = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
@@ -388,6 +420,96 @@ useHead({
     0 20px 40px -10px rgba(0, 0, 0, 0.2),
     0 8px 16px -4px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+/* Calculator CTA Button Styles */
+.calculator-cta-button {
+  position: relative;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculator-cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(247, 159, 31, 0.3), 0 0 15px rgba(247, 159, 31, 0.2);
+}
+
+.calculator-cta-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.calculator-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #f59e0b 0%,
+    #f97316 25%,
+    #ea580c 50%,
+    #f97316 75%,
+    #f59e0b 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.calculator-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.calculator-icon {
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: calculatorIconFloat 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes calculatorIconFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(2deg);
+  }
+}
+
+.calculator-cta-button:focus {
+  outline: none;
+  ring: 4px;
+  ring-color: rgba(247, 159, 31, 0.5);
+  ring-offset: 2px;
 }
 </style>
 

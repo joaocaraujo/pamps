@@ -57,6 +57,20 @@
         "description": "Full customization according to your needs"
       }
     },
+    "stats": {
+      "parties": {
+        "number": "50+",
+        "label": "Completed event packages"
+      },
+      "rating": {
+        "number": "4.9",
+        "label": "Rating"
+      },
+      "capacity": {
+        "number": "150",
+        "label": "Maximum capacity"
+      }
+    },
     "features": {
       "title": "Our Advantages",
       "climate": "Complete climate control",
@@ -197,6 +211,74 @@
       "previous": "Previous package",
       "next": "Next package"
     }
+  },
+  "calculator": {
+    "title": "Event Estimate Calculator",
+    "close": "Close calculator",
+    "requiredFields": "Event Information",
+    "optionalFields": "Optional Services",
+    "people": {
+      "label": "Number of people",
+      "unit": "people"
+    },
+    "day": {
+      "label": "Event day",
+      "select": "Select day",
+      "weekday": "Monday to Thursday",
+      "weekend": "Friday or Sunday",
+      "saturday": "Saturday"
+    },
+    "package": {
+      "label": "Package type",
+      "select": "Select package",
+      "simple": "Essential",
+      "medium": "Classic",
+      "top": "Premium"
+    },
+    "salgados": {
+      "label": "Number of savory items per person",
+      "tip": "We recommend 5 to 7 savory items per person for 4h to 6h events"
+    },
+    "doces": {
+      "label": "Number of sweets per person",
+      "tip": "We recommend 3 to 5 sweets per person for 4h to 6h events"
+    },
+    "food": {
+      "label": "Consumption per Person",
+      "unit": "units"
+    },
+    "optional": {
+      "chopp": "Beer included",
+      "nonAlcoholic": "Non-alcoholic drinks included",
+      "dj": "DJ",
+      "lighting": "Dance floor lighting",
+      "recreator": "Recreator",
+      "photographer": "Photographer"
+    },
+    "result": {
+      "estimated": "Estimated Total Value",
+      "perPerson": "Per guest",
+      "base": "Base value",
+      "optional": "Optionals",
+      "disclaimer": "Values are average estimates. Confirm packages with a consultant."
+    },
+    "cta": {
+      "whatsapp": "Send quote via WhatsApp",
+      "open": "Calculate Event"
+    },
+    "steps": {
+      "eventInfo": "Information",
+      "food": "Consumption",
+      "optional": "Optional",
+      "result": "Result",
+      "next": "Next",
+      "back": "Back"
+    },
+    "preview": {
+      "label": "Estimated Total"
+    },
+    "whatsappMessage": "Hello, I did a simulation on the website. My event has {people} people, on {day}, {package} package, with {salgados} savory items and {doces} sweets per person. Optionals: {optionals}. Estimated value: {total}.",
+    "none": "None"
   }
 }
 
