@@ -45,7 +45,7 @@
         "description": "Our specialty! Complete space with fixed playground, recreation and full structure for an unforgettable party"
       },
       "adult": {
-        "title": "Adult Birthday",
+        "title": "Social Events",
         "description": "Climate-controlled and customizable structure for your event"
       },
       "corporate": {
@@ -279,6 +279,67 @@
     },
     "whatsappMessage": "Hello, I did a simulation on the website. My event has {people} people, on {day}, {package} package, with {salgados} savory items and {doces} sweets per person. Optionals: {optionals}. Estimated value: {total}.",
     "none": "None"
+  },
+  "events": {
+    "subtitle": "Complete and climate-controlled space for all types of events. From your child's dream party to corporate gatherings.",
+    "cta": "Contact on WhatsApp",
+    "children": {
+      "title": "Children's Parties",
+      "description": "Celebrate your child's birthday in a magical, safe, and fun-ready space.",
+      "feature1": "Exclusive kids' area",
+      "feature2": "Thematic decoration",
+      "feature3": "Support team"
+    },
+    "babyShower": {
+      "title": "Baby Shower",
+      "description": "Celebrate the arrival of the new family member in a cozy and charming environment.",
+      "feature1": "Personalized decoration",
+      "feature2": "Play area",
+      "feature3": "Intimate atmosphere"
+    },
+    "gathering": {
+      "title": "Gatherings",
+      "description": "Company, friends, or family meetings in a versatile and comfortable space.",
+      "feature1": "Flexible capacity",
+      "feature2": "Sound equipment",
+      "feature3": "Parking"
+    },
+    "corporate": {
+      "title": "Corporate Events",
+      "description": "Workshops, launches, and corporate events with all necessary infrastructure.",
+      "feature1": "High-speed Wi-Fi",
+      "feature2": "Projector and screen",
+      "feature3": "Coffee break"
+    },
+    "themed": {
+      "title": "Themed Parties",
+      "description": "From Halloween to Carnival, we transform the space for any theme.",
+      "feature1": "Special lighting",
+      "feature2": "Professional sound",
+      "feature3": "Decoration included"
+    },
+    "photoShoot": {
+      "title": "Photo Shoots",
+      "description": "Perfect setting for family, maternity, and smash the cake photo shoots.",
+      "feature1": "Natural light",
+      "feature2": "Multiple environments",
+      "feature3": "Total privacy"
+    },
+    "benefits": {
+      "title": "Common Benefits",
+      "climateDesc": "Fully climate-controlled environment for maximum comfort",
+      "playgroundDesc": "Fixed and striking playground for guaranteed fun",
+      "parkingDesc": "Parking available for up to 10 vehicles",
+      "receptionDesc": "Exclusive and personalized service",
+      "capacityDesc": "Capacity for up to 150 people",
+      "licensedDesc": "Fully licensed and secure space"
+    },
+    "ctaSection": {
+      "title": "Ready for your event?",
+      "subtitle": "Get in touch and discover how we can make your event unforgettable.",
+      "whatsapp": "Contact on WhatsApp",
+      "packages": "View Packages"
+    }
   }
 }
 

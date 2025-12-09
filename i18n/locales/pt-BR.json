@@ -45,7 +45,7 @@
         "description": "Nossa especialidade! Espaço completo com brinquedão fixo, recreação e toda estrutura para uma festa inesquecível"
       },
       "adult": {
-        "title": "Aniversário Adulto",
+        "title": "Eventos Sociais",
         "description": "Estrutura climatizada e personalizável para seu evento"
       },
       "corporate": {
@@ -302,6 +302,67 @@
     },
     "whatsappMessage": "Olá, fiz uma simulação no site. Meu evento tem {people} pessoas, no dia {day}, pacote {package}, com {salgados} salgados e {doces} doces por pessoa. Opcionais: {optionals}. Valor estimado: {total}.",
     "none": "Nenhum"
+  },
+  "events": {
+    "subtitle": "Espaço completo e climatizado para todos os tipos de eventos. Da festa infantil dos sonhos até confraternizações corporativas.",
+    "cta": "Falar no WhatsApp",
+    "children": {
+      "title": "Festas Infantis",
+      "description": "Comemore o aniversário do seu filho em um espaço mágico, seguro e preparado para diversão.",
+      "feature1": "Área kids exclusiva",
+      "feature2": "Decoração temática",
+      "feature3": "Equipe de apoio"
+    },
+    "babyShower": {
+      "title": "Chá de Bebê",
+      "description": "Celebre a chegada do novo membro da família em um ambiente acolhedor e encantador.",
+      "feature1": "Decoração personalizada",
+      "feature2": "Espaço para brincadeiras",
+      "feature3": "Ambiente intimista"
+    },
+    "gathering": {
+      "title": "Confraternizações",
+      "description": "Reuniões de empresa, amigos ou família em um espaço versátil e confortável.",
+      "feature1": "Capacidade flexível",
+      "feature2": "Equipamentos de som",
+      "feature3": "Estacionamento"
+    },
+    "corporate": {
+      "title": "Eventos Corporativos",
+      "description": "Workshops, lançamentos e eventos empresariais com toda infraestrutura necessária.",
+      "feature1": "Wi-Fi de alta velocidade",
+      "feature2": "Projetor e tela",
+      "feature3": "Coffee break"
+    },
+    "themed": {
+      "title": "Festas Temáticas",
+      "description": "De Halloween a Carnaval, transformamos o espaço para qualquer tema.",
+      "feature1": "Iluminação especial",
+      "feature2": "Som profissional",
+      "feature3": "Decoração inclusa"
+    },
+    "photoShoot": {
+      "title": "Ensaios Fotográficos",
+      "description": "Cenário perfeito para ensaios de família, gestantes e smash the cake.",
+      "feature1": "Luz natural",
+      "feature2": "Múltiplos ambientes",
+      "feature3": "Privacidade total"
+    },
+    "benefits": {
+      "title": "Benefícios Comuns",
+      "climateDesc": "Ambiente totalmente climatizado para máximo conforto",
+      "playgroundDesc": "Brinquedão fixo e marcante para diversão garantida",
+      "parkingDesc": "Garagem disponível para até 10 veículos",
+      "receptionDesc": "Atendimento exclusivo e personalizado",
+      "capacityDesc": "Capacidade para até 150 pessoas",
+      "licensedDesc": "Espaço totalmente regularizado e seguro"
+    },
+    "ctaSection": {
+      "title": "Pronto para seu evento?",
+      "subtitle": "Entre em contato e descubra como podemos tornar seu evento inesquecível.",
+      "whatsapp": "Falar no WhatsApp",
+      "packages": "Ver Pacotes"
+    }
   }
 }
 
