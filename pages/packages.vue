@@ -1,52 +1,8 @@
 <template>
   <div class="min-h-screen bg-surface pt-24">
-    <!-- Calculator CTA Banner -->
-    <section class="py-8 bg-primary/10 border-b border-border">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <button
-            @click="isCalculatorOpen = true"
-            class="calculator-cta-button group relative w-full md:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-lg rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
-            :aria-label="$t('calculator.cta.open')"
-          >
-            <!-- Animated gradient background -->
-            <div class="absolute inset-0 calculator-gradient-bg"></div>
-            
-            <!-- Shine effect -->
-            <div class="absolute inset-0 calculator-shine"></div>
-            
-            <!-- Content -->
-            <div class="relative z-10 flex items-center space-x-2">
-              <svg class="w-6 h-6 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
-            </div>
-          </button>
-        </div>
-      </div>
-    </section>
-
     <!-- Packages Carousel Section -->
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
-        <!-- Common Benefits -->
-        <div class="max-w-4xl mx-auto mb-12 text-center">
-          <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base text-text-body">
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.payment') }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.receptionist') }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.valet') }}</span>
-            </div>
-          </div>
-        </div>
 
         <!-- Carousel -->
         <div class="relative">
@@ -54,49 +10,60 @@
           <button
             v-if="currentIndex > 0"
             @click="goToPrevious"
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 w-12 h-12 md:w-14 md:h-14 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
             :aria-label="$t('packages.carousel.previous')"
           >
-            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             v-if="currentIndex < packages.length - 1"
             @click="goToNext"
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 w-12 h-12 md:w-14 md:h-14 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
             :aria-label="$t('packages.carousel.next')"
           >
-            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
           <!-- Carousel Container -->
-          <div class="max-w-2xl mx-auto relative">
+          <div class="max-w-6xl mx-auto relative">
             <div
               ref="carouselRef"
-              class="carousel-container overflow-hidden"
+              class="carousel-container overflow-visible"
               @touchstart="handleTouchStart"
               @touchmove="handleTouchMove"
               @touchend="handleTouchEnd"
             >
               <div
                 class="flex transition-transform duration-500 ease-in-out"
-                :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+                :style="{ transform: `translateX(calc(50vw - ${currentIndex * 18}rem - 9rem))` }"
               >
                 <div
                   v-for="(pkg, index) in packages"
                   :key="index"
-                  class="package-card flex-shrink-0 w-full"
+                  class="package-card flex-shrink-0"
+                  :class="{
+                    'w-56 md:w-64': index !== currentIndex,
+                    'w-72 md:w-80 package-card-active': index === currentIndex
+                  }"
                 >
-                  <div class="bg-light/95 backdrop-blur-sm border border-border rounded-lg p-6 md:p-8 package-card-shadow hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                  <div 
+                    class="package-card-inner rounded-lg p-3 md:p-4 package-card-shadow transition-all duration-500 h-full flex flex-col"
+                    :class="{
+                      'bg-light/60 backdrop-blur-sm border border-border/50 scale-90 opacity-60': index !== currentIndex,
+                      'bg-primary border-2 border-primary scale-100 opacity-100': index === currentIndex && pkg.tag === 'bestSeller',
+                      'bg-light border-2 border-primary scale-100 opacity-100': index === currentIndex && pkg.tag !== 'bestSeller'
+                    }"
+                  >
                     <!-- Tag/Ribbon -->
-                    <div v-if="pkg.tag" class="mb-4">
+                    <div v-if="pkg.tag && index === currentIndex" class="mb-1.5">
                       <span
-                        class="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                        class="inline-block px-2 py-0.5 text-xs font-semibold rounded-full"
                         :class="{
-                          'bg-primary text-text-inverse': pkg.tag === 'bestSeller',
+                          'bg-white/20 text-white': pkg.tag === 'bestSeller' && index === currentIndex,
                           'bg-secondary text-text-main': pkg.tag === 'bestValue',
                           'bg-accent text-text-inverse': pkg.tag === 'premium'
                         }"
@@ -106,34 +73,62 @@
                     </div>
 
                     <!-- Package Name -->
-                    <h3 class="text-2xl md:text-3xl font-heading font-bold text-text-main mb-4">
+                    <h3 
+                      class="font-heading font-bold mb-1"
+                      :class="{
+                        'text-base md:text-lg text-white': index === currentIndex && pkg.tag === 'bestSeller',
+                        'text-base md:text-lg text-text-main': index !== currentIndex || pkg.tag !== 'bestSeller'
+                      }"
+                    >
                       {{ pkg.name }}
                     </h3>
 
                     <!-- Price -->
-                    <div class="mb-6">
-                      <div v-if="pkg.price" class="text-sm text-text-light mb-1">{{ $t('packages.common.from') }}</div>
-                      <div class="text-4xl md:text-5xl font-heading font-bold text-primary">
+                    <div class="mb-2">
+                      <div v-if="pkg.price" 
+                        class="text-xs mb-0.5"
+                        :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/80' : 'text-text-light'"
+                      >
+                        {{ $t('packages.common.from') }}
+                      </div>
+                      <div 
+                        class="font-heading font-bold"
+                        :class="{
+                          'text-xl md:text-2xl text-white': index === currentIndex && pkg.tag === 'bestSeller',
+                          'text-xl md:text-2xl text-primary': index !== currentIndex || pkg.tag !== 'bestSeller'
+                        }"
+                      >
                         <span v-if="pkg.price">R$ {{ pkg.price }}</span>
-                        <span v-else class="text-2xl md:text-3xl">{{ $t('packages.common.customPrice') }}</span>
+                        <span v-else class="text-base md:text-lg">{{ $t('packages.common.customPrice') }}</span>
                       </div>
                     </div>
 
                     <!-- Savings -->
-                    <div v-if="pkg.savings" class="mb-4 text-sm font-semibold text-secondary">
+                    <div v-if="pkg.savings" class="mb-1.5 text-xs font-semibold text-secondary">
                       {{ pkg.savings }}
                     </div>
 
                     <!-- Capacity & Duration -->
-                    <div class="flex items-center space-x-4 mb-6 text-sm text-text-body">
-                      <div v-if="pkg.capacity" class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div 
+                      class="flex items-center space-x-2 mb-2 text-xs"
+                      :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/90' : 'text-text-body'"
+                    >
+                      <div v-if="pkg.capacity" class="flex items-center space-x-1">
+                        <svg 
+                          class="w-3 h-3"
+                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         <span>{{ pkg.capacity }} {{ $t('packages.common.guests') }}</span>
                       </div>
-                      <div v-if="pkg.duration" class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div v-if="pkg.duration" class="flex items-center space-x-1">
+                        <svg 
+                          class="w-3 h-3"
+                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>{{ pkg.duration }}{{ $t('packages.common.hours') }}</span>
@@ -141,49 +136,58 @@
                     </div>
 
                     <!-- Includes List -->
-                    <div v-if="pkg.includes && pkg.includes.length > 0" class="mb-6 flex-grow">
-                      <h4 class="text-sm font-semibold text-text-main mb-3">{{ $t('packages.common.includes') }}:</h4>
-                      <ul class="space-y-2">
+                    <div v-if="pkg.includes && pkg.includes.length > 0" class="mb-2 flex-grow">
+                      <h4 
+                        class="text-xs font-semibold mb-1"
+                        :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-text-main'"
+                      >
+                        {{ $t('packages.common.includes') }}:
+                      </h4>
+                      <ul class="space-y-0.5">
                         <li
                           v-for="(item, itemIndex) in pkg.includes"
                           :key="itemIndex"
-                          class="flex items-start space-x-2 text-sm text-text-body"
+                          class="flex items-start space-x-1.5 text-xs leading-tight"
+                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/90' : 'text-text-body'"
                         >
-                          <span class="text-primary mt-0.5">•</span>
+                          <span 
+                            class="mt-0.5 flex-shrink-0"
+                            :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
+                          >✓</span>
                           <span>{{ $t(`packages.items.${item}`) }}</span>
                         </li>
                       </ul>
                     </div>
-                    <div v-else-if="pkg.isCustomizable" class="mb-6 flex-grow">
-                      <p class="text-sm text-text-body mb-4 italic">
+                    <div v-else-if="pkg.isCustomizable" class="mb-2 flex-grow">
+                      <p class="text-xs text-text-body mb-1.5 italic leading-tight">
                         {{ $t('packages.common.fullyCustomizable') }}
                       </p>
                       <div>
-                        <h4 class="text-sm font-semibold text-text-main mb-3">{{ $t('packages.common.availableItems') }}:</h4>
-                        <ul class="space-y-2">
+                        <h4 class="text-xs font-semibold text-text-main mb-1">{{ $t('packages.common.availableItems') }}:</h4>
+                        <ul class="space-y-0.5">
                           <li
                             v-for="(item, itemIndex) in availableItems"
                             :key="itemIndex"
-                            class="flex items-start space-x-2 text-sm text-text-body"
+                            class="flex items-start space-x-1.5 text-xs text-text-body leading-tight"
                           >
-                            <span class="text-primary mt-0.5">•</span>
+                            <span class="text-primary mt-0.5 flex-shrink-0">•</span>
                             <span>{{ $t(`packages.items.${item}`) }}</span>
                           </li>
-                          <li class="flex items-start space-x-2 text-sm text-text-body text-text-light italic">
-                            <span class="text-primary mt-0.5">•</span>
+                          <li class="flex items-start space-x-1.5 text-xs text-text-body text-text-light italic leading-tight">
+                            <span class="text-primary mt-0.5 flex-shrink-0">•</span>
                             <span>{{ $t('packages.common.andMore') }}</span>
                           </li>
                         </ul>
                       </div>
                     </div>
-                    <div v-else class="mb-6 flex-grow">
-                      <p class="text-sm text-text-body italic">
+                    <div v-else class="mb-2 flex-grow">
+                      <p class="text-xs text-text-body italic leading-tight">
                         {{ $t('packages.common.fullyCustomizable') }}
                       </p>
                     </div>
 
                     <!-- Notes -->
-                    <div v-if="pkg.notes" class="mb-6 text-xs text-text-light italic">
+                    <div v-if="pkg.notes" class="mb-2 text-xs text-text-light italic leading-tight">
                       {{ pkg.notes }}
                     </div>
 
@@ -192,7 +196,11 @@
                       :href="whatsappLink(pkg.name)"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-text-inverse font-body font-semibold rounded-base shadow-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-lg"
+                      class="mt-auto w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-body font-semibold rounded-base shadow-base focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300"
+                      :class="{
+                        'bg-white text-primary hover:bg-white/90 focus:ring-white': index === currentIndex && pkg.tag === 'bestSeller',
+                        'bg-primary text-text-inverse hover:bg-primary-hover focus:ring-primary': index !== currentIndex || pkg.tag !== 'bestSeller'
+                      }"
                     >
                       {{ pkg.isCorporate ? $t('packages.common.ctaCorporate') : $t('packages.common.cta') }}
                     </a>
@@ -214,6 +222,47 @@
             >
             </button>
           </div>
+        </div>
+
+        <!-- Common Benefits -->
+        <div class="max-w-4xl mx-auto mt-12 text-center">
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base text-text-body">
+            <div class="flex items-center space-x-2">
+              <span class="text-primary">✓</span>
+              <span>{{ $t('packages.common.payment') }}</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-primary">✓</span>
+              <span>{{ $t('packages.common.receptionist') }}</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-primary">✓</span>
+              <span>{{ $t('packages.common.valet') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator CTA -->
+        <div class="max-w-4xl mx-auto mt-8 text-center">
+          <button
+            @click="isCalculatorOpen = true"
+            class="calculator-cta-button group relative w-full md:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 font-body font-semibold text-base rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
+            :aria-label="$t('calculator.cta.open')"
+          >
+            <!-- Animated gradient background -->
+            <div class="absolute inset-0 calculator-gradient-bg"></div>
+            
+            <!-- Shine effect -->
+            <div class="absolute inset-0 calculator-shine"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex items-center space-x-2">
+              <svg class="w-5 h-5 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
+            </div>
+          </button>
         </div>
       </div>
     </section>
@@ -385,10 +434,28 @@ useHead({
 <style scoped>
 .carousel-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .package-card {
-  padding: 0 1rem;
+  margin: 0 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.package-card-inner {
+  filter: blur(0);
+  transition: all 0.5s ease;
+}
+
+.package-card {
+  position: relative;
+}
+
+.package-card:not(.package-card-active) .package-card-inner {
+  filter: blur(3px);
+  pointer-events: none;
 }
 
 @keyframes fadeIn {
