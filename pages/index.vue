@@ -78,6 +78,15 @@
                   <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
                 </div>
               </button>
+              <NuxtLink
+                to="/events"
+                class="w-14 h-14 sm:w-16 sm:h-16 inline-flex items-center justify-center bg-light border-2 border-primary text-primary rounded-full shadow-lg hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl hover:scale-110"
+                :aria-label="$t('events.gallery.view')"
+              >
+                <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </NuxtLink>
             </div>
           </div>
           <div class="hidden lg:block relative z-10">
@@ -831,6 +840,7 @@ useHead({
   );
   background-size: 200% 200%;
   animation: gradientFlow 3s ease infinite;
+  border-radius: inherit;
 }
 
 @keyframes gradientFlow {
@@ -855,6 +865,7 @@ useHead({
   background-size: 200% 100%;
   animation: shine 3s infinite;
   pointer-events: none;
+  border-radius: inherit;
 }
 
 @keyframes shine {

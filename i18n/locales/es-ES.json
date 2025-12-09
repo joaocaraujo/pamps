@@ -339,6 +339,12 @@
       "subtitle": "Ponte en contacto y descubre cómo podemos hacer tu evento inolvidable.",
       "whatsapp": "Contactar por WhatsApp",
       "packages": "Ver Paquetes"
+    },
+    "gallery": {
+      "view": "Ver Galería",
+      "close": "Cerrar galería",
+      "previous": "Imagen anterior",
+      "next": "Siguiente imagen"
     }
   }
 }

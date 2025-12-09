@@ -362,6 +362,12 @@
       "subtitle": "Entre em contato e descubra como podemos tornar seu evento inesquecível.",
       "whatsapp": "Falar no WhatsApp",
       "packages": "Ver Pacotes"
+    },
+    "gallery": {
+      "view": "Ver Galeria",
+      "close": "Fechar galeria",
+      "previous": "Imagem anterior",
+      "next": "Próxima imagem"
     }
   }
 }

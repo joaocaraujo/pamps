@@ -43,14 +43,25 @@
                 <span>{{ $t('events.children.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Festas Infantis')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('children')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Festas Infantis')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
 
           <!-- Chá de Bebê -->
@@ -92,14 +103,25 @@
                 <span>{{ $t('events.babyShower.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Chá de Bebê')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('babyShower')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-secondary text-secondary font-body font-semibold text-sm rounded-base hover:bg-secondary/5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Chá de Bebê')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
 
           <!-- Confraternizações -->
@@ -141,14 +163,25 @@
                 <span>{{ $t('events.gathering.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Confraternização')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('gathering')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Confraternização')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
 
           <!-- Eventos Corporativos -->
@@ -190,14 +223,25 @@
                 <span>{{ $t('events.corporate.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Eventos Corporativos')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('corporate')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Eventos Corporativos')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
 
           <!-- Festas Temáticas -->
@@ -239,14 +283,25 @@
                 <span>{{ $t('events.themed.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Festas Temáticas')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('themed')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-secondary text-secondary font-body font-semibold text-sm rounded-base hover:bg-secondary/5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Festas Temáticas')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
 
           <!-- Ensaios Fotográficos -->
@@ -289,25 +344,96 @@
                 <span>{{ $t('events.photoShoot.feature3') }}</span>
               </li>
             </ul>
-            <a
-              :href="whatsappLink('Ensaios Fotográficos')"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
-            >
-              {{ $t('events.cta') }}
-            </a>
+            <div class="flex flex-col gap-2">
+              <button
+                @click="openGallery('photoShoot')"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $t('events.gallery.view') }}
+              </button>
+              <a
+                :href="whatsappLink('Ensaios Fotográficos')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+              >
+                {{ $t('events.cta') }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Gallery Modal -->
+    <EventGalleryModal
+      v-model:is-open="isGalleryOpen"
+      :title="currentGalleryTitle"
+      :images="currentGalleryImages"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const { t } = useI18n()
+
+const isGalleryOpen = ref(false)
+const currentGalleryTitle = ref('')
+const currentGalleryImages = ref<string[]>([])
+
+// Event images mapping - você pode adicionar as imagens aqui
+const eventImages = {
+  children: [
+    '/images/events/children/festa-infantil-01.jpg',
+    '/images/events/children/festa-infantil-02.jpg',
+    '/images/events/children/festa-infantil-03.jpg'
+  ],
+  babyShower: [
+    '/images/events/baby-shower/cha-bebe-01.jpg',
+    '/images/events/baby-shower/cha-bebe-02.jpg',
+    '/images/events/baby-shower/cha-bebe-03.jpg'
+  ],
+  gathering: [
+    '/images/events/gathering/confraternizacao-01.jpg',
+    '/images/events/gathering/confraternizacao-02.jpg',
+    '/images/events/gathering/confraternizacao-03.jpg'
+  ],
+  corporate: [
+    '/images/events/corporate/evento-corporativo-01.jpg',
+    '/images/events/corporate/evento-corporativo-02.jpg',
+    '/images/events/corporate/evento-corporativo-03.jpg'
+  ],
+  themed: [
+    '/images/events/themed/festa-tematica-01.jpg',
+    '/images/events/themed/festa-tematica-02.jpg',
+    '/images/events/themed/festa-tematica-03.jpg'
+  ],
+  photoShoot: [
+    '/images/events/photo-shoot/ensaio-fotografico-01.jpg',
+    '/images/events/photo-shoot/ensaio-fotografico-02.jpg',
+    '/images/events/photo-shoot/ensaio-fotografico-03.jpg'
+  ]
+}
+
+const eventTitles = {
+  children: t('events.children.title'),
+  babyShower: t('events.babyShower.title'),
+  gathering: t('events.gathering.title'),
+  corporate: t('events.corporate.title'),
+  themed: t('events.themed.title'),
+  photoShoot: t('events.photoShoot.title')
+}
+
+const openGallery = (eventType: keyof typeof eventImages) => {
+  currentGalleryTitle.value = eventTitles[eventType]
+  currentGalleryImages.value = eventImages[eventType]
+  isGalleryOpen.value = true
+}
 
 const whatsappLink = (eventType: string) => {
   const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre ${eventType} na Pamps.`)

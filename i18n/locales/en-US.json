@@ -339,6 +339,12 @@
       "subtitle": "Get in touch and discover how we can make your event unforgettable.",
       "whatsapp": "Contact on WhatsApp",
       "packages": "View Packages"
+    },
+    "gallery": {
+      "view": "View Gallery",
+      "close": "Close gallery",
+      "previous": "Previous image",
+      "next": "Next image"
     }
   }
 }
