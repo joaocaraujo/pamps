@@ -346,6 +346,15 @@
       "previous": "Imagen anterior",
       "next": "Siguiente imagen"
     }
+  },
+  "space": {
+    "title": "Nuestro Espacio",
+    "comingSoon": "Próximamente",
+    "tourVirtual": "Tour Virtual",
+    "tourMessage": "¡Explora nuestro espacio completo sin salir de casa! Conoce cada detalle de nuestro ambiente climatizado, parque infantil y toda la estructura.",
+    "message": "Estamos preparando un tour virtual completo de nuestro espacio para que conozcas cada detalle. ¡Pronto podrás explorar nuestro ambiente climatizado, parque infantil y toda la estructura!",
+    "cta": "Contactar por WhatsApp",
+    "whatsappMessage": "¡Hola! Me gustaría saber más sobre el espacio de Pamps."
   }
 }
 

@@ -346,6 +346,15 @@
       "previous": "Previous image",
       "next": "Next image"
     }
+  },
+  "space": {
+    "title": "Our Space",
+    "comingSoon": "Coming Soon",
+    "tourVirtual": "Virtual Tour",
+    "tourMessage": "Explore our complete space without leaving home! Discover every detail of our climate-controlled environment, playground and all facilities.",
+    "message": "We are preparing a complete virtual tour of our space so you can see every detail. Soon you'll be able to explore our climate-controlled environment, playground and all the facilities!",
+    "cta": "Contact on WhatsApp",
+    "whatsappMessage": "Hello! I would like to know more about Pamps space."
   }
 }
 
