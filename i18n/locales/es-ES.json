@@ -457,6 +457,13 @@
     "message": "Estamos preparando un tour virtual completo de nuestro espacio para que conozcas cada detalle. ¡Pronto podrás explorar nuestro ambiente climatizado, parque infantil y toda la estructura!",
     "cta": "Contactar por WhatsApp",
     "whatsappMessage": "¡Hola! Me gustaría saber más sobre el espacio de Pamps."
+  },
+  "buffet": {
+    "title": "Buffet",
+    "underConstruction": "En Construcción",
+    "message": "Estamos preparando una sección completa sobre nuestro buffet. ¡Pronto podrás conocer nuestros menús, opciones personalizadas y mucho más!",
+    "cta": "Contactar por WhatsApp",
+    "whatsappMessage": "¡Hola! Me gustaría saber más sobre el buffet de Pamps."
   }
 }
 
