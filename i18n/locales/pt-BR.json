@@ -35,7 +35,7 @@
     },
     "about": {
       "title": "Especialistas em Festas Infantis",
-      "paragraph1": "A Pamps é um espaço de eventos localizado na região nobre de Belo Horizonte, próximo ao Estádio Mineirão, especializado em festas infantis inesquecíveis. Com brinquedão fixo, recreação e estrutura completa, criamos momentos mágicos para as crianças.",
+      "paragraph1": "A Pamps é um espaço de eventos localizado na Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, especializado em festas infantis inesquecíveis. Com brinquedão fixo, recreação e estrutura completa, criamos momentos mágicos para as crianças.",
       "paragraph2": "Também realizamos eventos adultos, sociais e confraternizações. Nosso espaço possui estrutura completa, climatizada por dezenas de aparelhos, ambiente fechado, seguro e recém-reformado, com capacidade para até 150 pessoas."
     },
     "eventTypes": {
@@ -89,6 +89,72 @@
       "contact": "Falar no WhatsApp"
     }
   },
+  "contact": {
+    "title": "Contato",
+    "metaDescription": "Entre em contato com a Pamps - Casa & Espaço de Eventos. WhatsApp, telefone, email e endereço em Belo Horizonte.",
+    "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
+    "phoneNumber": "(31) 99999-9999",
+    "emailAddress": "contato{'@'}pamps.com.br",
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "Fale conosco diretamente pelo WhatsApp. Resposta rápida e atendimento personalizado!",
+      "button": "Abrir WhatsApp"
+    },
+    "phoneInfo": {
+      "title": "Telefone",
+      "description": "Ligue para nós e tire suas dúvidas sobre nossos pacotes e disponibilidade."
+    },
+    "emailInfo": {
+      "title": "E-mail",
+      "description": "Envie-nos um e-mail com suas dúvidas ou solicitações. Responderemos o mais breve possível."
+    },
+    "addressInfo": {
+      "title": "Endereço",
+      "description": "Estamos localizados na Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "Siga-nos no Instagram e acompanhe nossos eventos, festas e novidades!",
+      "button": "Seguir no Instagram",
+      "handle": "pampsbh"
+    },
+    "schedule": {
+      "title": "Horário de Atendimento",
+      "weekdays": "Segunda a Sexta",
+      "weekdaysHours": "9h às 18h",
+      "weekend": "Sábado e Domingo",
+      "weekendHours": "9h às 17h",
+      "note": "Para agendar uma visita ou tirar dúvidas, entre em contato através de um dos canais acima."
+    },
+    "whatsappMessage": "Olá! Gostaria de saber mais sobre os eventos da Pamps.",
+    "topCards": {
+      "address": {
+        "title": "Endereço"
+      },
+      "phone": {
+        "title": "Telefone",
+        "whatsapp": "WhatsApp disponível"
+      },
+      "email": {
+        "title": "E-mail",
+        "response": "Respondemos em até 24h"
+      },
+      "schedule": {
+        "title": "Horário",
+        "weekdays": "Seg a Sex: 9h às 18h",
+        "saturday": "Sáb: 9h às 14h"
+      }
+    },
+    "whatsappCard": {
+      "title": "Prefere WhatsApp?",
+      "description": "Resposta rápida e atendimento personalizado. Clique abaixo e fale diretamente com nossa equipe.",
+      "button": "Chamar no WhatsApp"
+    },
+    "locationCard": {
+      "title": "Nossa Localização",
+      "mapComingSoon": "Mapa em breve"
+    }
+  },
   "footer": {
     "description": "Especialistas em festas infantis em Belo Horizonte. Espaço completo, climatizado e com brinquedão fixo para momentos inesquecíveis.",
     "navigation": {
@@ -96,9 +162,45 @@
     },
     "contact": {
       "title": "Contato",
-      "address": "Belo Horizonte, MG - Próximo ao Estádio Mineirão",
+      "address": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
       "phone": "(31) 99999-9999",
-      "email": "contato{'@'}pamps.com.br"
+      "email": "contato{'@'}pamps.com.br",
+      "metaDescription": "Entre em contato com a Pamps - Casa & Espaço de Eventos. WhatsApp, telefone, email e endereço em Belo Horizonte.",
+      "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
+      "phoneNumber": "(31) 99999-9999",
+      "emailAddress": "contato{'@'}pamps.com.br",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Fale conosco diretamente pelo WhatsApp. Resposta rápida e atendimento personalizado!",
+        "button": "Abrir WhatsApp"
+      },
+      "phoneInfo": {
+        "title": "Telefone",
+        "description": "Ligue para nós e tire suas dúvidas sobre nossos pacotes e disponibilidade."
+      },
+      "emailInfo": {
+        "title": "E-mail",
+        "description": "Envie-nos um e-mail com suas dúvidas ou solicitações. Responderemos o mais breve possível."
+      },
+      "addressInfo": {
+        "title": "Endereço",
+        "description": "Estamos localizados na Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
+      },
+      "instagram": {
+        "title": "Instagram",
+        "description": "Siga-nos no Instagram e acompanhe nossos eventos, festas e novidades!",
+        "button": "Seguir no Instagram",
+        "handle": "pampsbh"
+      },
+      "schedule": {
+        "title": "Horário de Atendimento",
+        "weekdays": "Segunda a Sexta",
+        "weekdaysHours": "9h às 18h",
+        "weekend": "Sábado e Domingo",
+        "weekendHours": "9h às 17h",
+        "note": "Para agendar uma visita ou tirar dúvidas, entre em contato através de um dos canais acima."
+      },
+      "whatsappMessage": "Olá! Gostaria de saber mais sobre os eventos da Pamps."
     },
     "info": {
       "title": "Informações",

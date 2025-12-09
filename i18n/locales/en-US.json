@@ -35,7 +35,7 @@
     },
     "about": {
       "title": "Children's Party Specialists",
-      "paragraph1": "Pamps is an event space located in the upscale region of Belo Horizonte, near Mineirão Stadium, specialized in unforgettable children's parties. With fixed playground, recreation and complete structure, we create magical moments for children.",
+      "paragraph1": "Pamps is an event space located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, specialized in unforgettable children's parties. With fixed playground, recreation and complete structure, we create magical moments for children.",
       "paragraph2": "We also host adult events, social gatherings and corporate events. Our space features complete infrastructure, climate-controlled by dozens of units, enclosed environment, secure and recently renovated, with capacity for up to 150 people."
     },
     "eventTypes": {
@@ -89,6 +89,72 @@
       "contact": "Contact on WhatsApp"
     }
   },
+  "contact": {
+    "title": "Contact",
+    "metaDescription": "Get in touch with Pamps - House & Event Space. WhatsApp, phone, email and address in Belo Horizonte.",
+    "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
+    "phoneNumber": "+55 31 99999-9999",
+    "emailAddress": "contact{'@'}pamps.com.br",
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "Contact us directly via WhatsApp. Quick response and personalized service!",
+      "button": "Open WhatsApp"
+    },
+    "phoneInfo": {
+      "title": "Phone",
+      "description": "Call us to ask questions about our packages and availability."
+    },
+    "emailInfo": {
+      "title": "Email",
+      "description": "Send us an email with your questions or requests. We will respond as soon as possible."
+    },
+    "addressInfo": {
+      "title": "Address",
+      "description": "We are located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "Follow us on Instagram and keep up with our events, parties and news!",
+      "button": "Follow on Instagram",
+      "handle": "pampsbh"
+    },
+    "schedule": {
+      "title": "Business Hours",
+      "weekdays": "Monday to Friday",
+      "weekdaysHours": "9am to 6pm",
+      "weekend": "Saturday and Sunday",
+      "weekendHours": "9am to 5pm",
+      "note": "To schedule a visit or ask questions, contact us through one of the channels above."
+    },
+    "whatsappMessage": "Hello! I would like to know more about Pamps events.",
+    "topCards": {
+      "address": {
+        "title": "Address"
+      },
+      "phone": {
+        "title": "Phone",
+        "whatsapp": "WhatsApp available"
+      },
+      "email": {
+        "title": "Email",
+        "response": "We respond within 24h"
+      },
+      "schedule": {
+        "title": "Hours",
+        "weekdays": "Mon to Fri: 9am to 6pm",
+        "saturday": "Sat: 9am to 2pm"
+      }
+    },
+    "whatsappCard": {
+      "title": "Prefer WhatsApp?",
+      "description": "Quick response and personalized service. Click below and speak directly with our team.",
+      "button": "Call on WhatsApp"
+    },
+    "locationCard": {
+      "title": "Our Location",
+      "mapComingSoon": "Map coming soon"
+    }
+  },
   "footer": {
     "description": "Specialists in children's parties in Belo Horizonte. Complete, climate-controlled space with fixed playground for unforgettable moments.",
     "navigation": {
@@ -96,9 +162,45 @@
     },
     "contact": {
       "title": "Contact",
-      "address": "Belo Horizonte, MG - Near Mineirão Stadium",
+      "address": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
       "phone": "+55 31 99999-9999",
-      "email": "contact{'@'}pamps.com.br"
+      "email": "contact{'@'}pamps.com.br",
+      "metaDescription": "Get in touch with Pamps - House & Event Space. WhatsApp, phone, email and address in Belo Horizonte.",
+      "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
+      "phoneNumber": "+55 31 99999-9999",
+      "emailAddress": "contact{'@'}pamps.com.br",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Contact us directly via WhatsApp. Quick response and personalized service!",
+        "button": "Open WhatsApp"
+      },
+      "phoneInfo": {
+        "title": "Phone",
+        "description": "Call us to ask questions about our packages and availability."
+      },
+      "emailInfo": {
+        "title": "Email",
+        "description": "Send us an email with your questions or requests. We will respond as soon as possible."
+      },
+      "addressInfo": {
+        "title": "Address",
+        "description": "We are located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
+      },
+      "instagram": {
+        "title": "Instagram",
+        "description": "Follow us on Instagram and keep up with our events, parties and news!",
+        "button": "Follow on Instagram",
+        "handle": "pampsbh"
+      },
+      "schedule": {
+        "title": "Business Hours",
+        "weekdays": "Monday to Friday",
+        "weekdaysHours": "9am to 6pm",
+        "weekend": "Saturday and Sunday",
+        "weekendHours": "9am to 5pm",
+        "note": "To schedule a visit or ask questions, contact us through one of the channels above."
+      },
+      "whatsappMessage": "Hello! I would like to know more about Pamps events."
     },
     "info": {
       "title": "Information",
