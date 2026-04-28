@@ -95,6 +95,7 @@
                 <img
                   src="/hero-image.jpg"
                   :alt="$t('home.hero.imageAlt')"
+                  loading="eager"
                   class="hero-image absolute inset-0 w-full h-full object-cover"
                 />
                 <!-- Animated gradient overlay -->
@@ -105,6 +106,7 @@
                 <img
                   src="/cap.png"
                   alt="Mascote Pamps - Capivara"
+                  loading="lazy"
                   class="w-full h-full object-contain"
                 />
               </div>
@@ -112,6 +114,7 @@
                 <img
                   src="/cap.png"
                   alt="Mascote Pamps - Capivara"
+                  loading="lazy"
                   class="w-full h-full object-contain"
                 />
               </div>
@@ -121,37 +124,80 @@
       </div>
     </section>
 
+    <!-- Attractions CTA -->
+    <section class="py-8 md:py-10 bg-surface">
+      <div class="container mx-auto px-4">
+        <NuxtLink
+          to="/attractions"
+          class="group block max-w-3xl mx-auto rounded-2xl border border-border bg-light px-5 py-6 md:px-8 md:py-7 shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-8">
+            <div class="min-w-0 flex-1 border-l-4 border-primary pl-4 sm:pl-5 -ml-px">
+              <p class="text-xs font-semibold uppercase tracking-wide text-primary mb-1">
+                {{ $t('home.attractionsCta.eyebrow') }}
+              </p>
+              <h2 class="text-lg md:text-xl font-heading font-bold text-text-main leading-snug">
+                {{ $t('home.attractionsCta.title') }}
+              </h2>
+              <p class="mt-2 text-sm text-text-body leading-relaxed">
+                {{ $t('home.attractionsCta.subtitle') }}
+              </p>
+              <p class="mt-3 text-xs text-text-light leading-relaxed">
+                {{ $t('home.attractionsCta.socialHint') }}
+              </p>
+            </div>
+            <div class="shrink-0 flex sm:flex-col sm:items-end justify-start sm:pt-1">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-primary bg-transparent px-4 py-2.5 text-sm font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-text-inverse">
+                {{ $t('home.attractionsCta.button') }}
+                <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+    </section>
+
     <!-- Statistics Section -->
     <section class="py-12 md:py-16 bg-light/50">
       <div class="container mx-auto px-4">
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <!-- Festas Realizadas -->
             <div class="stat-card flex items-center space-x-4">
               <div class="stat-circle stat-circle-pink">
-                <span class="stat-number">{{ $t('home.stats.parties.number') }}</span>
+                <span class="stat-number">{{ $t('home.stats.attractions.number') }}</span>
               </div>
               <div class="stat-text">
-                <p class="text-text-main font-medium">{{ $t('home.stats.parties.label') }}</p>
+                <p class="text-text-main font-medium">{{ $t('home.stats.attractions.label') }}</p>
               </div>
             </div>
 
-            <!-- Avaliação -->
-            <div class="stat-card flex items-center space-x-4">
+            <!-- Avaliação (link para Google) -->
+            <a
+              :href="googleReviewUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stat-card stat-card-rating group flex items-center space-x-4 no-underline text-inherit rounded-xl transition-colors hover:bg-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              :aria-label="$t('home.stats.rating.linkAria')"
+            >
               <div class="stat-circle stat-circle-yellow">
                 <span class="stat-number">{{ $t('home.stats.rating.number') }}</span>
               </div>
-              <div class="stat-text">
-                <div class="flex items-center space-x-1 mb-1">
-                  <span class="text-yellow-400 text-lg">⭐</span>
-                  <span class="text-yellow-400 text-lg">⭐</span>
-                  <span class="text-yellow-400 text-lg">⭐</span>
-                  <span class="text-yellow-400 text-lg">⭐</span>
-                  <span class="text-yellow-400 text-lg">⭐</span>
+              <div class="stat-text min-w-0">
+                <div class="flex items-center gap-0.5 mb-1" aria-hidden="true">
+                  <span class="text-yellow-500 text-lg leading-none">★</span>
+                  <span class="text-yellow-500 text-lg leading-none">★</span>
+                  <span class="text-yellow-500 text-lg leading-none">★</span>
+                  <span class="text-yellow-500 text-lg leading-none">★</span>
+                  <span class="text-yellow-500 text-lg leading-none">★</span>
                 </div>
                 <p class="text-text-main font-medium text-sm">{{ $t('home.stats.rating.label') }}</p>
+                <p class="mt-1 text-sm font-semibold text-primary underline-offset-2 group-hover:underline">
+                  {{ $t('home.stats.rating.cta') }}
+                </p>
               </div>
-            </div>
+            </a>
 
             <!-- Capacidade Máxima -->
             <div class="stat-card flex items-center space-x-4">
@@ -290,7 +336,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.beverage') }}</p>
+            <p class="text-text-body">{{ $t('attractions.main.ledSlide.title') }}</p>
           </div>
           <div class="flex items-start space-x-3">
             <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
@@ -349,7 +395,7 @@
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
                 />
               </svg>
-              <span>{{ $t('home.ctaSecondary.contact') }}</span>
+              <span>{{ $t('cta.speakWhatsApp') }}</span>
             </a>
             <button
               @click="isCalculatorOpen = true"
@@ -374,10 +420,30 @@
               to="/contact"
               class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-surface text-text-main font-body font-semibold text-base rounded-base border-2 border-primary shadow-base hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
             >
-              <span>{{ $t('home.ctaSecondary.visit') }}</span>
+              <span>{{ $t('cta.scheduleVisit') }}</span>
             </NuxtLink>
           </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="mapa-localizacao"
+      tabindex="-1"
+      class="scroll-mt-24 py-12 outline-none focus:outline-none md:scroll-mt-28 md:py-16 bg-surface border-t border-border"
+    >
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-5xl text-center mb-6 md:mb-8">
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-text-main">
+            {{ $t('home.map.title') }}
+          </h2>
+          <p class="mt-2 text-sm md:text-base text-text-body">
+            {{ $t('home.map.subtitle') }}
+          </p>
+        </div>
+        <div class="mx-auto max-w-5xl">
+          <GoogleMapEmbed size="tall" />
         </div>
       </div>
     </section>
@@ -391,13 +457,10 @@
 import { computed, ref } from 'vue'
 
 const { t } = useI18n()
+const { whatsappLink: getWhatsappLink, googleReviewUrl } = useContact()
 
 const isCalculatorOpen = ref(false)
-
-const whatsappLink = computed(() => {
-  const message = encodeURIComponent(t('cta.whatsappMessage'))
-  return `https://wa.me/5531999999999?text=${message}`
-})
+const whatsappLink = computed(() => getWhatsappLink())
 
 useHead({
   title: computed(() => t('brand.pageTitle')),

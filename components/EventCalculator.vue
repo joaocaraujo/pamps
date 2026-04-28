@@ -1,32 +1,26 @@
 <template>
   <div class="calculator-container">
-    <!-- Progress Steps -->
     <div class="steps-indicator mb-4">
       <div class="flex items-center justify-center space-x-1">
         <div class="step-item" :class="{ active: currentStep === 1, completed: currentStep > 1 }">
           <div class="step-number">1</div>
-          <span class="step-label">{{ $t('calculator.steps.eventInfo') }}</span>
+          <span class="step-label">{{ $t('calculator.steps.info') }}</span>
         </div>
-        <div class="step-divider"></div>
+        <div class="step-divider" />
         <div class="step-item" :class="{ active: currentStep === 2, completed: currentStep > 2 }">
           <div class="step-number">2</div>
-          <span class="step-label">{{ $t('calculator.steps.food') }}</span>
-        </div>
-        <div class="step-divider"></div>
-        <div class="step-item" :class="{ active: currentStep === 3, completed: currentStep > 3 }">
-          <div class="step-number">3</div>
           <span class="step-label">{{ $t('calculator.steps.optional') }}</span>
         </div>
-        <div class="step-divider"></div>
-        <div class="step-item" :class="{ active: currentStep === 4, completed: currentStep > 4 }">
-          <div class="step-number">4</div>
+        <div class="step-divider" />
+        <div class="step-item" :class="{ active: currentStep === 3, completed: currentStep > 3 }">
+          <div class="step-number">3</div>
           <span class="step-label">{{ $t('calculator.steps.result') }}</span>
         </div>
       </div>
     </div>
 
-    <form @submit.prevent="handleSubmit" class="flex-1 flex flex-col space-y-3 min-h-0">
-      <!-- Step 1: Event Information (Pessoas, Dia, Pacote) -->
+    <form class="flex-1 flex flex-col space-y-3 min-h-0" @submit.prevent="handleSubmit">
+      <!-- Passo 1: convidados, dia, tipo de festa -->
       <div v-show="currentStep === 1" class="step-content">
         <div class="calculator-section">
           <div class="section-header">
@@ -39,88 +33,103 @@
           </div>
 
           <div class="grid grid-cols-1 gap-3">
-            <!-- Number of People -->
             <div class="input-group">
-              <label for="people" class="input-label">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                {{ $t('calculator.people.label') }} <span class="text-primary">*</span>
-              </label>
-              <div class="slider-container">
-                <div class="slider-value-display">
-                  <span class="slider-value-number">{{ form.people || 50 }}</span>
-                  <span class="slider-value-label">{{ $t('calculator.people.unit') }}</span>
-                </div>
-                <input
-                  id="people"
-                  ref="sliderRef"
-                  v-model.number="form.people"
-                  type="range"
-                  min="1"
-                  max="150"
-                  step="1"
-                  required
-                  class="people-slider"
-                />
-                <div class="slider-labels">
-                  <span class="text-xs text-text-light">1</span>
-                  <span class="text-xs text-text-light">150</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Day of Event -->
-            <div class="input-group">
-              <label for="day" class="input-label">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                {{ $t('calculator.day.label') }} <span class="text-primary">*</span>
-              </label>
-              <select
-                id="day"
-                v-model="form.day"
-                required
-                class="modern-select"
-              >
-                <option value="">{{ $t('calculator.day.select') }}</option>
-                <option value="weekday">{{ $t('calculator.day.weekday') }}</option>
-                <option value="weekend">{{ $t('calculator.day.weekend') }}</option>
-                <option value="saturday">{{ $t('calculator.day.saturday') }}</option>
-              </select>
-            </div>
-
-            <!-- Package Type -->
-            <div class="input-group">
-              <label for="package" class="input-label">
+              <label for="partyType" class="input-label">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
-                {{ $t('calculator.package.label') }} <span class="text-primary">*</span>
+                {{ $t('calculator.party.label') }} <span class="text-primary">*</span>
               </label>
-              <select
-                id="package"
-                v-model="form.package"
-                required
-                class="modern-select"
-              >
-                <option value="">{{ $t('calculator.package.select') }}</option>
-                <option value="simple">{{ $t('calculator.package.simple') }}</option>
-                <option value="medium">{{ $t('calculator.package.medium') }}</option>
-                <option value="top">{{ $t('calculator.package.top') }}</option>
+              <select id="partyType" v-model="form.partyType" required class="modern-select">
+                <option value="">{{ $t('calculator.party.select') }}</option>
+                <option value="festaCompleta">{{ $t('calculator.party.festaCompleta') }}</option>
+                <option value="festaLanche">{{ $t('calculator.party.festaLanche') }}</option>
               </select>
+              <p v-if="form.partyType === 'festaCompleta'" class="text-xs text-text-light mt-2 leading-relaxed">
+                {{ $t('calculator.party.phrase') }}
+              </p>
+              <p v-else-if="form.partyType === 'festaLanche'" class="text-xs text-text-light mt-2 leading-relaxed">
+                {{ $t('calculator.party.phrase') }}
+              </p>
             </div>
+
+            <template v-if="form.partyType === 'festaCompleta'">
+              <div class="input-group">
+                <label for="completaTier" class="input-label">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  {{ $t('calculator.people.labelCompleta') }} <span class="text-primary">*</span>
+                </label>
+                <p class="text-xs text-text-light mb-2">{{ $t('calculator.people.hintCompleta') }}</p>
+                <div class="slider-container">
+                  <div class="slider-value-display">
+                    <span class="slider-value-number">{{ selectedCompletaGuests }}</span>
+                    <span class="slider-value-label">{{ $t('calculator.people.unit') }}</span>
+                  </div>
+                  <input
+                    id="completaTier"
+                    ref="tierSliderRef"
+                    v-model.number="completaTierIndex"
+                    type="range"
+                    min="0"
+                    :max="maxTierIndex"
+                    step="1"
+                    class="people-slider"
+                    :aria-valuetext="`${selectedCompletaGuests} ${$t('calculator.people.unit')}`"
+                  />
+                  <div class="flex justify-between text-[11px] text-text-light px-0.5">
+                    <span v-for="n in COMPLETA_GUEST_TIERS" :key="n">{{ n }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="day" class="input-label">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {{ $t('calculator.day.label') }} <span class="text-primary">*</span>
+                </label>
+                <select id="day" v-model="form.day" required class="modern-select">
+                  <option value="">{{ $t('calculator.day.select') }}</option>
+                  <option value="weekday">{{ $t('packages.complete.days.monThu') }}</option>
+                  <option value="friSunHoliday">{{ $t('calculator.day.friSunHoliday') }}</option>
+                  <option value="saturday">{{ $t('packages.complete.days.saturday') }}</option>
+                </select>
+              </div>
+            </template>
+
+            <template v-else-if="form.partyType === 'festaLanche'">
+              <div
+                class="rounded-xl border border-primary/35 bg-primary/10 px-4 py-3 text-sm"
+              >
+                <p class="font-semibold text-text-main mb-1">{{ $t('calculator.lanche.capacityTitle') }}</p>
+                <p class="text-text-body leading-relaxed">
+                  {{ $t('packages.items.guestsFestaLanche') }}
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm"
+              >
+                <p class="text-[10px] uppercase tracking-wide font-semibold text-primary mb-1">
+                  {{ $t('packages.common.days') }}
+                </p>
+                <p class="font-semibold text-text-main">
+                  {{ $t('packages.items.daysMonThu') }}
+                </p>
+              </div>
+            </template>
           </div>
         </div>
 
-        <!-- Step 1 Navigation -->
         <div class="step-navigation">
+          <span />
           <button
             type="button"
-            @click="nextStep"
             class="step-btn step-btn-primary"
-            :disabled="!canProceedToStep2"
+            :disabled="!canProceedFromStep1"
+            @click="nextStep"
           >
             {{ $t('calculator.steps.next') }}
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,177 +139,54 @@
         </div>
       </div>
 
-      <!-- Step 2: Food Consumption (Salgados e Doces) -->
+      <!-- Passo 2: opcionais -->
       <div v-show="currentStep === 2" class="step-content">
-        <div class="calculator-section">
-          <div class="section-header">
-            <div class="section-icon">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m6 4a2 2 0 100-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m-2 4a2 2 0 110-4m-2 4v2m0-6V4" />
-              </svg>
-            </div>
-            <h3 class="section-title">{{ $t('calculator.food.label') }}</h3>
-          </div>
-
-          <div class="food-consumption-grid">
-            <!-- Salgados Card -->
-            <div class="food-card food-card-salgados">
-              <div class="food-card-header">
-                <div class="food-card-icon">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m6 4a2 2 0 100-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m-2 4a2 2 0 110-4m-2 4v2m0-6V4" />
-                  </svg>
-                </div>
-                <div class="food-card-title">
-                  <h4 class="food-card-label">{{ $t('calculator.salgados.label') }}</h4>
-                  <p class="food-card-subtitle">{{ $t('calculator.salgados.tip') }}</p>
-                </div>
-              </div>
-              <div class="food-card-controls">
-                <button
-                  type="button"
-                  @click="decrement('salgados')"
-                  class="food-btn food-btn-decrement"
-                  :disabled="form.salgados <= 0"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
-                  </svg>
-                </button>
-                <div class="food-value-display">
-                  <span class="food-value-number">{{ form.salgados }}</span>
-                  <span class="food-value-unit">{{ $t('calculator.food.unit') }}</span>
-                </div>
-                <button
-                  type="button"
-                  @click="increment('salgados')"
-                  class="food-btn food-btn-increment"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Doces Card -->
-            <div class="food-card food-card-doces">
-              <div class="food-card-header">
-                <div class="food-card-icon">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                  </svg>
-                </div>
-                <div class="food-card-title">
-                  <h4 class="food-card-label">{{ $t('calculator.doces.label') }}</h4>
-                  <p class="food-card-subtitle">{{ $t('calculator.doces.tip') }}</p>
-                </div>
-              </div>
-              <div class="food-card-controls">
-                <button
-                  type="button"
-                  @click="decrement('doces')"
-                  class="food-btn food-btn-decrement"
-                  :disabled="form.doces <= 0"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
-                  </svg>
-                </button>
-                <div class="food-value-display">
-                  <span class="food-value-number">{{ form.doces }}</span>
-                  <span class="food-value-unit">{{ $t('calculator.food.unit') }}</span>
-                </div>
-                <button
-                  type="button"
-                  @click="increment('doces')"
-                  class="food-btn food-btn-increment"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 Navigation -->
-        <div class="step-navigation">
-          <button
-            type="button"
-            @click="prevStep"
-            class="step-btn step-btn-secondary"
-          >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-            {{ $t('calculator.steps.back') }}
-          </button>
-          <button
-            type="button"
-            @click="nextStep"
-            class="step-btn step-btn-primary"
-          >
-            {{ $t('calculator.steps.next') }}
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Step 3: Optional Services -->
-      <div v-show="currentStep === 3" class="step-content">
         <div class="calculator-section">
           <div class="section-header">
             <div class="section-icon optional">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m6 4a2 2 0 100-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m-2 4a2 2 0 110-4m-2 4v2m0-6V4" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <h3 class="section-title">{{ $t('calculator.optionalFields') }}</h3>
+            <div>
+              <h3 class="section-title">{{ $t('calculator.optionalFields') }}</h3>
+              <p class="text-xs text-text-light mt-1 leading-relaxed">{{ $t('calculator.optionalIntro') }}</p>
+            </div>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <label
-              v-for="(option, key) in optionalOptions"
-              :key="key"
+              v-for="row in optionalRows"
+              :key="row.key"
               class="optional-card"
-              :class="{ 'optional-card-active': form.optional[key as keyof typeof form.optional] }"
+              :class="{ 'optional-card-active': form.optional[row.key] }"
             >
               <input
-                v-model="form.optional[key as keyof typeof form.optional]"
+                v-model="form.optional[row.key]"
                 type="checkbox"
                 class="optional-checkbox"
               />
               <div class="optional-content">
                 <div class="optional-icon">
-                  <component :is="option.icon" class="w-5 h-5" />
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
                 </div>
-                <span class="optional-label">{{ option.label }}</span>
+                <span class="optional-label">{{ row.label }}</span>
+                <span class="optional-extra">+ {{ row.priceFormatted }}</span>
               </div>
             </label>
           </div>
         </div>
 
-        <!-- Step 3 Navigation -->
         <div class="step-navigation">
-          <button
-            type="button"
-            @click="prevStep"
-            class="step-btn step-btn-secondary"
-          >
+          <button type="button" class="step-btn step-btn-secondary" @click="prevStep">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             {{ $t('calculator.steps.back') }}
           </button>
-          <button
-            type="button"
-            @click="nextStep"
-            class="step-btn step-btn-primary"
-          >
+          <button type="button" class="step-btn step-btn-primary" @click="nextStep">
             {{ $t('calculator.steps.next') }}
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -309,8 +195,8 @@
         </div>
       </div>
 
-      <!-- Step 4: Results -->
-      <div v-show="currentStep === 4" class="step-content">
+      <!-- Passo 3: resultado -->
+      <div v-show="currentStep === 3" class="step-content">
         <div v-if="result" class="calculator-section result-section">
           <div class="result-header">
             <div class="result-icon">
@@ -345,7 +231,6 @@
             {{ $t('calculator.result.disclaimer') }}
           </p>
 
-          <!-- WhatsApp CTA -->
           <a
             :href="whatsappLink"
             target="_blank"
@@ -359,13 +244,8 @@
           </a>
         </div>
 
-        <!-- Step 4 Navigation -->
         <div class="step-navigation">
-          <button
-            type="button"
-            @click="prevStep"
-            class="step-btn step-btn-secondary"
-          >
+          <button type="button" class="step-btn step-btn-secondary" @click="prevStep">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -378,9 +258,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, h, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { calculatorConfig } from '~/config/calculator'
+import {
+  getPartyBaseTotal,
+  sumSelectedOptionals,
+  calculatorOptionalPrices,
+  calculatorOptionalItemI18n,
+  COMPLETA_GUEST_TIERS,
+  FESTA_LANCHE_GUEST_TOTAL,
+  type CalculatorDayType,
+  type CalculatorPartyType,
+  type CalculatorOptionalKey
+} from '~/config/calculator'
 
 interface Emits {
   (e: 'close'): void
@@ -389,24 +279,34 @@ interface Emits {
 defineEmits<Emits>()
 
 const { t } = useI18n()
+const { whatsappLink: buildWhatsappLink } = useContact()
 
-const sliderRef = ref<HTMLInputElement | null>(null)
+const OPTIONAL_KEYS = Object.keys(calculatorOptionalPrices) as CalculatorOptionalKey[]
+
+function defaultOptionals(): Record<CalculatorOptionalKey, boolean> {
+  return {
+    personalized: false,
+    ledLetters: false,
+    naturalFlowers: false,
+    facePaint: false,
+    sparkling: false,
+    wine: false,
+    liveCharacter: false
+  }
+}
+
+const tierSliderRef = ref<HTMLInputElement | null>(null)
+const completaTierIndex = ref(0)
+const maxTierIndex = COMPLETA_GUEST_TIERS.length - 1
+
+const selectedCompletaGuests = computed(() => COMPLETA_GUEST_TIERS[completaTierIndex.value])
+
 const currentStep = ref(1)
 
 const form = ref({
-  people: 50,
-  day: '',
-  package: '',
-  salgados: 5,
-  doces: 3,
-  optional: {
-    chopp: false,
-    nonAlcoholic: false,
-    dj: false,
-    lighting: false,
-    recreator: false,
-    photographer: false
-  }
+  day: '' as '' | CalculatorDayType,
+  partyType: '' as '' | CalculatorPartyType,
+  optional: defaultOptionals()
 })
 
 const result = ref<{
@@ -416,18 +316,48 @@ const result = ref<{
   perPerson: number
 } | null>(null)
 
-const canProceedToStep2 = computed(() => {
-  return form.value.people > 0 && form.value.day && form.value.package
+const canProceedFromStep1 = computed(() => {
+  if (!form.value.partyType) {
+    return false
+  }
+  if (form.value.partyType === 'festaLanche') {
+    return true
+  }
+  return !!form.value.day
 })
 
+watch(
+  () => form.value.partyType,
+  (next, prev) => {
+    if (next === 'festaLanche') {
+      form.value.day = 'weekday'
+    } else if (next === 'festaCompleta' && prev === 'festaLanche') {
+      form.value.day = ''
+    }
+  }
+)
+
+const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(value)
+}
+
+const optionalRows = computed(() =>
+  OPTIONAL_KEYS.map((key) => ({
+    key,
+    label: t(calculatorOptionalItemI18n[key]),
+    priceFormatted: formatCurrency(calculatorOptionalPrices[key])
+  }))
+)
+
 const nextStep = () => {
-  if (currentStep.value === 1 && canProceedToStep2.value) {
+  if (currentStep.value === 1 && canProceedFromStep1.value) {
     currentStep.value = 2
   } else if (currentStep.value === 2) {
-    currentStep.value = 3
-  } else if (currentStep.value === 3) {
     calculate()
-    currentStep.value = 4
+    currentStep.value = 3
   }
 }
 
@@ -438,139 +368,26 @@ const prevStep = () => {
 }
 
 const handleSubmit = () => {
-  // Form submission is handled by step navigation
-}
-
-const optionalOptions = computed(() => ({
-  chopp: {
-    label: t('calculator.optional.chopp'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' })
-    ])
-  },
-  nonAlcoholic: {
-    label: t('calculator.optional.nonAlcoholic'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' })
-    ])
-  },
-  dj: {
-    label: t('calculator.optional.dj'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3' })
-    ])
-  },
-  lighting: {
-    label: t('calculator.optional.lighting'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' })
-    ])
-  },
-  recreator: {
-    label: t('calculator.optional.recreator'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' })
-    ])
-  },
-  photographer: {
-    label: t('calculator.optional.photographer'),
-    icon: () => h('svg', { class: 'w-5 h-5', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z' }),
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M15 13a3 3 0 11-6 0 3 3 0 016 0z' })
-    ])
-  }
-}))
-
-const increment = (field: 'salgados' | 'doces') => {
-  form.value[field]++
-}
-
-const decrement = (field: 'salgados' | 'doces') => {
-  if (form.value[field] > 0) {
-    form.value[field]--
-  }
+  // navegação por botões
 }
 
 const calculate = () => {
-  if (!form.value.people || !form.value.day || !form.value.package) {
+  if (!form.value.partyType) {
     return
   }
-
-  const config = calculatorConfig
-  const people = form.value.people
-
-  // Base package value
-  let basePackage = 0
-  switch (form.value.package) {
-    case 'simple':
-      basePackage = config.baseValues.simplePackage
-      break
-    case 'medium':
-      basePackage = config.baseValues.mediumPackage
-      break
-    case 'top':
-      basePackage = config.baseValues.topPackage
-      break
+  if (form.value.partyType === 'festaCompleta' && !form.value.day) {
+    return
   }
-
-  // Apply package multiplier
-  const packageMultiplier = config.packageMultipliers[form.value.package as keyof typeof config.packageMultipliers]
-  basePackage *= packageMultiplier
-
-  // Apply day multiplier
-  let dayMultiplier = 1.0
-  switch (form.value.day) {
-    case 'weekday':
-      dayMultiplier = config.dayMultipliers.weekday
-      break
-    case 'weekend':
-      dayMultiplier = config.dayMultipliers.weekend
-      break
-    case 'saturday':
-      dayMultiplier = config.dayMultipliers.saturday
-      break
-  }
-  basePackage *= dayMultiplier
-
-  // Food consumption
-  const salgadosTotal = people * form.value.salgados * config.baseValues.unitSalgado
-  const docesTotal = people * form.value.doces * config.baseValues.unitDoce
-  const foodTotal = salgadosTotal + docesTotal
-
-  // Volume discount
-  let foodDiscount = 0
-  if (people >= config.volumeDiscount.threshold) {
-    foodDiscount = foodTotal * config.volumeDiscount.discountPercent
-  }
-
-  const foodFinal = foodTotal - foodDiscount
-
-  // Base total
-  const base = basePackage + foodFinal
-
-  // Optional services
-  let optionalTotal = 0
-  if (form.value.optional.chopp) {
-    optionalTotal += people * config.optionalServices.chopp.perPerson
-  }
-  if (form.value.optional.nonAlcoholic) {
-    optionalTotal += people * config.optionalServices.nonAlcoholic.perPerson
-  }
-  if (form.value.optional.dj) {
-    optionalTotal += config.optionalServices.dj.fixed
-  }
-  if (form.value.optional.lighting) {
-    optionalTotal += config.optionalServices.lighting.fixed
-  }
-  if (form.value.optional.recreator) {
-    optionalTotal += config.optionalServices.recreator.perHour * config.optionalServices.recreator.defaultHours
-  }
-  if (form.value.optional.photographer) {
-    optionalTotal += config.optionalServices.photographer.fixed
-  }
-
+  const guests =
+    form.value.partyType === 'festaLanche'
+      ? FESTA_LANCHE_GUEST_TOTAL
+      : selectedCompletaGuests.value
+  const day: CalculatorDayType =
+    form.value.partyType === 'festaLanche' ? 'weekday' : (form.value.day as CalculatorDayType)
+  const base = getPartyBaseTotal(guests, day, form.value.partyType)
+  const optionalTotal = sumSelectedOptionals(form.value.optional)
   const total = base + optionalTotal
-  const perPerson = total / people
+  const perPerson = total / guests
 
   result.value = {
     total: Math.round(total),
@@ -580,52 +397,79 @@ const calculate = () => {
   }
 }
 
-// Update slider progress
-const updateSliderProgress = () => {
-  if (sliderRef.value) {
-    const value = form.value.people || 50
-    const percent = ((value - 1) / (150 - 1)) * 100
-    sliderRef.value.style.setProperty('--slider-percent', `${percent}%`)
+const updateTierSliderProgress = () => {
+  if (!tierSliderRef.value || maxTierIndex <= 0) {
+    return
   }
+  const percent = (completaTierIndex.value / maxTierIndex) * 100
+  tierSliderRef.value.style.setProperty('--slider-percent', `${percent}%`)
 }
 
-watch(() => form.value.people, () => {
-  updateSliderProgress()
-}, { immediate: true })
-
-onMounted(() => {
-  updateSliderProgress()
+watch(completaTierIndex, async () => {
+  await nextTick()
+  updateTierSliderProgress()
 })
 
-const formatCurrency = (value: number) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(value)
+watch(
+  () => form.value.partyType,
+  async () => {
+    await nextTick()
+    updateTierSliderProgress()
+  }
+)
+
+onMounted(() => {
+  updateTierSliderProgress()
+})
+
+function dayLabel(d: CalculatorDayType): string {
+  if (d === 'weekday') {
+    return t('packages.complete.days.monThu')
+  }
+  if (d === 'saturday') {
+    return t('packages.complete.days.saturday')
+  }
+  return t('calculator.day.friSunHoliday')
+}
+
+function partyLabel(p: CalculatorPartyType): string {
+  return p === 'festaCompleta' ? t('calculator.party.festaCompleta') : t('calculator.party.festaLanche')
 }
 
 const whatsappLink = computed(() => {
-  if (!result.value) return '#'
+  if (!result.value || !form.value.partyType) {
+    return '#'
+  }
+  if (form.value.partyType === 'festaCompleta' && !form.value.day) {
+    return '#'
+  }
 
-  const selectedOptionals = []
-  if (form.value.optional.chopp) selectedOptionals.push(t('calculator.optional.chopp'))
-  if (form.value.optional.nonAlcoholic) selectedOptionals.push(t('calculator.optional.nonAlcoholic'))
-  if (form.value.optional.dj) selectedOptionals.push(t('calculator.optional.dj'))
-  if (form.value.optional.lighting) selectedOptionals.push(t('calculator.optional.lighting'))
-  if (form.value.optional.recreator) selectedOptionals.push(t('calculator.optional.recreator'))
-  if (form.value.optional.photographer) selectedOptionals.push(t('calculator.optional.photographer'))
+  const selectedLabels: string[] = []
+  for (const key of OPTIONAL_KEYS) {
+    if (form.value.optional[key]) {
+      selectedLabels.push(t(calculatorOptionalItemI18n[key]))
+    }
+  }
+
+  const peopleStr =
+    form.value.partyType === 'festaLanche'
+      ? t('packages.items.guestsFestaLanche')
+      : `${selectedCompletaGuests.value} ${t('calculator.people.unit')}`
+
+  const dayStr =
+    form.value.partyType === 'festaLanche'
+      ? t('packages.items.daysMonThu')
+      : dayLabel(form.value.day as CalculatorDayType)
 
   const message = t('calculator.whatsappMessage', {
-    people: `${form.value.people} ${t('calculator.people.unit')}`,
-    day: t(`calculator.day.${form.value.day}`),
-    package: t(`calculator.package.${form.value.package}`),
-    salgados: form.value.salgados,
-    doces: form.value.doces,
-    optionals: selectedOptionals.length > 0 ? selectedOptionals.join(', ') : t('calculator.none'),
+    party: partyLabel(form.value.partyType),
+    people: peopleStr,
+    day: dayStr,
+    optionals: selectedLabels.length > 0 ? selectedLabels.join(', ') : t('calculator.none'),
     total: formatCurrency(result.value.total)
   })
 
-  return `https://wa.me/5531999999999?text=${encodeURIComponent(message)}`
+  return buildWhatsappLink(message)
 })
 </script>
 
@@ -782,102 +626,6 @@ const whatsappLink = computed(() => {
   @apply flex justify-between text-xs text-text-light;
 }
 
-/* Food Consumption Cards */
-.food-consumption-grid {
-  @apply grid grid-cols-1 gap-4;
-}
-
-.food-card {
-  @apply rounded-xl p-4 border-2 transition-all duration-300 shadow-md hover:shadow-lg;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 249, 229, 0.5));
-}
-
-.food-card-salgados {
-  border-color: rgba(247, 159, 31, 0.3);
-}
-
-.food-card-salgados:hover {
-  border-color: rgba(247, 159, 31, 0.5);
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.95), rgba(255, 249, 229, 0.7));
-}
-
-.food-card-doces {
-  border-color: rgba(181, 214, 132, 0.3);
-}
-
-.food-card-doces:hover {
-  border-color: rgba(181, 214, 132, 0.5);
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.95), rgba(240, 253, 244, 0.7));
-}
-
-.food-card-header {
-  @apply flex items-start space-x-3 mb-4;
-}
-
-.food-card-icon {
-  @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md;
-  background: linear-gradient(to bottom right, var(--color-primary), var(--color-primary-hover));
-}
-
-.food-card-doces .food-card-icon {
-  background: linear-gradient(to bottom right, var(--color-secondary), var(--color-secondary-dark));
-}
-
-.food-card-title {
-  @apply flex-1;
-}
-
-.food-card-label {
-  @apply text-sm font-heading font-bold text-text-main mb-1;
-}
-
-.food-card-subtitle {
-  @apply text-xs text-text-body leading-relaxed;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.food-card-controls {
-  @apply flex items-center justify-between gap-3;
-}
-
-.food-btn {
-  @apply w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md hover:shadow-lg;
-}
-
-.food-btn-decrement {
-  @apply border-2 border-border bg-light text-text-main hover:bg-surface hover:border-primary focus:ring-primary;
-}
-
-.food-btn-decrement:disabled {
-  @apply opacity-40 cursor-not-allowed hover:bg-light hover:border-border;
-}
-
-.food-btn-increment {
-  @apply border-2 border-primary bg-primary text-text-inverse hover:bg-primary-hover focus:ring-primary;
-}
-
-.food-card-doces .food-btn-increment {
-  @apply border-secondary bg-secondary hover:bg-secondary-dark focus:ring-secondary;
-}
-
-.food-value-display {
-  @apply flex-1 flex flex-col items-center justify-center py-2 px-4 rounded-xl;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-  border: 2px solid rgba(224, 214, 204, 0.3);
-}
-
-.food-value-number {
-  @apply text-3xl font-heading font-bold text-primary mb-0.5;
-}
-
-.food-card-doces .food-value-number {
-  @apply text-secondary;
-}
-
-.food-value-unit {
-  @apply text-xs font-medium text-text-body uppercase tracking-wide;
-}
-
 .optional-card {
   @apply relative p-3 rounded-xl border-2 border-border bg-light cursor-pointer transition-all duration-200 hover:shadow-md;
 }
@@ -895,7 +643,7 @@ const whatsappLink = computed(() => {
 }
 
 .optional-content {
-  @apply flex flex-col items-center space-y-2;
+  @apply flex flex-col items-center space-y-1.5;
 }
 
 .optional-icon {
@@ -908,7 +656,11 @@ const whatsappLink = computed(() => {
 }
 
 .optional-label {
-  @apply text-xs font-medium text-text-main text-center;
+  @apply text-xs font-medium text-text-main text-center leading-snug;
+}
+
+.optional-extra {
+  @apply text-[11px] font-semibold text-primary;
 }
 
 .result-section {

@@ -11,7 +11,8 @@
           >
             <img
               src="/logo.png"
-              :alt="$t('brand.alt')"
+              :alt="$t('brand.fullName')"
+              loading="eager"
               class="h-12 w-auto object-contain"
             />
           </NuxtLink>
@@ -38,11 +39,11 @@
               </svg>
             </a>
             <a
-              href="https://www.instagram.com/pampsbh"
+              :href="instagramUrl"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-primary text-text-inverse hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
-              aria-label="Seguir @pampsbh no Instagram"
+              :aria-label="instagramAriaLabel"
             >
               <svg
                 class="w-5 h-5"
@@ -77,7 +78,7 @@
         <!-- Contact Info -->
         <div>
           <h3 class="font-heading font-semibold text-text-main text-base mb-4">
-            {{ $t('footer.contact.title') }}
+            {{ $t('navigation.contact') }}
           </h3>
           <div class="flex flex-col space-y-3 text-sm text-text-body">
             <div class="flex items-start space-x-3">
@@ -101,7 +102,7 @@
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <span>{{ $t('footer.contact.address') }}</span>
+              <span>{{ $t('contact.addressText') }}</span>
             </div>
             <div class="flex items-start space-x-3">
               <svg
@@ -119,10 +120,10 @@
                 />
               </svg>
               <a
-                :href="`tel:${$t('footer.contact.phone')}`"
+                :href="telHref"
                 class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
               >
-                {{ $t('footer.contact.phone') }}
+                {{ phoneDisplay }}
               </a>
             </div>
             <div class="flex items-start space-x-3">
@@ -141,10 +142,10 @@
                 />
               </svg>
               <a
-                :href="`mailto:${$t('footer.contact.email')}`"
+                :href="mailtoHref"
                 class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
               >
-                {{ $t('footer.contact.email') }}
+                {{ contactEmail }}
               </a>
             </div>
           </div>
@@ -153,14 +154,14 @@
         <!-- Quick Links / Info -->
         <div>
           <h3 class="font-heading font-semibold text-text-main text-base mb-4">
-            {{ $t('footer.info.title') }}
+            {{ $t('common.information') }}
           </h3>
           <div class="flex flex-col space-y-2 text-sm text-text-body">
             <NuxtLink
               to="/contact"
               class="hover:text-text-main transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
             >
-              {{ $t('footer.info.schedule') }}
+              {{ $t('cta.scheduleVisit') }}
             </NuxtLink>
             <span>{{ $t('footer.info.capacity') }}</span>
             <span>{{ $t('footer.info.hours') }}</span>
@@ -198,14 +199,21 @@
 import { computed } from 'vue'
 
 const { t } = useI18n()
+const {
+  whatsappLink: getWhatsappLink,
+  instagramUrl,
+  instagramAriaLabel,
+  phoneDisplay,
+  contactEmail,
+  telHref,
+  mailtoHref
+} = useContact()
 
-const whatsappLink = computed(() => {
-  const message = encodeURIComponent(t('cta.whatsappMessage'))
-  return `https://wa.me/5531999999999?text=${message}`
-})
+const whatsappLink = computed(() => getWhatsappLink())
 
 const menuItems = computed(() => [
   { label: t('navigation.events'), path: '/events' },
+  { label: t('navigation.attractions'), path: '/attractions' },
   { label: t('navigation.space'), path: '/space' },
   { label: t('navigation.buffet'), path: '/buffet' },
   { label: t('navigation.packages'), path: '/packages' },

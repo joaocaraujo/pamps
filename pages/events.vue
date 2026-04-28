@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen bg-surface pt-24">
     <!-- Event Types Grid -->
-    <section class="py-16 md:py-24">
-      <div class="container mx-auto px-4">
+    <section class="relative py-16 md:py-24">
+      <div class="container relative z-[2] mx-auto px-4">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <!-- Festas Infantis -->
           <div class="event-card bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border">
@@ -45,8 +45,11 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
+                :disabled="!isGalleryEnabled('children')"
+                :title="!isGalleryEnabled('children') ? t('events.gallery.disabledHint') : undefined"
                 @click="openGallery('children')"
-                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed disabled:border-border disabled:text-text-light disabled:hover:bg-light"
               >
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -59,7 +62,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -105,8 +108,11 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
+                :disabled="!isGalleryEnabled('babyShower')"
+                :title="!isGalleryEnabled('babyShower') ? t('events.gallery.disabledHint') : undefined"
                 @click="openGallery('babyShower')"
-                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-secondary text-secondary font-body font-semibold text-sm rounded-base hover:bg-secondary/5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-secondary text-secondary font-body font-semibold text-sm rounded-base hover:bg-secondary/5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed disabled:border-border disabled:text-text-light disabled:hover:bg-light"
               >
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -119,7 +125,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -165,8 +171,11 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
+                :disabled="!isGalleryEnabled('gathering')"
+                :title="!isGalleryEnabled('gathering') ? t('events.gallery.disabledHint') : undefined"
                 @click="openGallery('gathering')"
-                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed disabled:border-border disabled:text-text-light disabled:hover:bg-light"
               >
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -179,7 +188,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -225,8 +234,11 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
+                :disabled="!isGalleryEnabled('corporate')"
+                :title="!isGalleryEnabled('corporate') ? t('events.gallery.disabledHint') : undefined"
                 @click="openGallery('corporate')"
-                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-primary text-primary font-body font-semibold text-sm rounded-base hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed disabled:border-border disabled:text-text-light disabled:hover:bg-light"
               >
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -239,7 +251,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -285,6 +297,7 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
                 @click="openGallery('themed')"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-secondary text-secondary font-body font-semibold text-sm rounded-base hover:bg-secondary/5 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
               >
@@ -299,7 +312,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -346,8 +359,11 @@
             </ul>
             <div class="flex flex-col gap-2">
               <button
+                type="button"
+                :disabled="!isGalleryEnabled('photoShoot')"
+                :title="!isGalleryEnabled('photoShoot') ? t('events.gallery.disabledHint') : undefined"
                 @click="openGallery('photoShoot')"
-                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
+                class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-light border-2 border-accent text-accent font-body font-semibold text-sm rounded-base hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed disabled:border-border disabled:text-text-light disabled:hover:bg-light"
               >
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -360,7 +376,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
               >
-                {{ $t('events.cta') }}
+                {{ $t('cta.speakWhatsApp') }}
               </a>
             </div>
           </div>
@@ -386,7 +402,6 @@ const isGalleryOpen = ref(false)
 const currentGalleryTitle = ref('')
 const currentGalleryImages = ref<string[]>([])
 
-// Event images mapping - você pode adicionar as imagens aqui
 const eventImages = {
   children: [
     '/images/events/children/festa-infantil-01.jpg',
@@ -420,6 +435,10 @@ const eventImages = {
   ]
 }
 
+type EventGalleryKey = keyof typeof eventImages
+
+const isGalleryEnabled = (key: EventGalleryKey) => key === 'themed'
+
 const eventTitles = {
   children: t('events.children.title'),
   babyShower: t('events.babyShower.title'),
@@ -429,15 +448,18 @@ const eventTitles = {
   photoShoot: t('events.photoShoot.title')
 }
 
-const openGallery = (eventType: keyof typeof eventImages) => {
+const openGallery = (eventType: EventGalleryKey) => {
+  if (!isGalleryEnabled(eventType)) return
   currentGalleryTitle.value = eventTitles[eventType]
   currentGalleryImages.value = eventImages[eventType]
   isGalleryOpen.value = true
 }
 
+const { whatsappLink: baseWhatsappLink } = useContact()
+
 const whatsappLink = (eventType: string) => {
-  const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre ${eventType} na Pamps.`)
-  return `https://wa.me/5531999999999?text=${message}`
+  const message = `Olá! Gostaria de saber mais sobre ${eventType} na Pamps.`
+  return baseWhatsappLink(message)
 }
 
 useHead({

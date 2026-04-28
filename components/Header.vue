@@ -14,19 +14,46 @@
         role="navigation"
         :aria-label="$t('navigation.main')"
       >
-        <NuxtLink
-          to="/"
-          class="flex items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base transition-opacity hover:opacity-80"
-          :aria-label="$t('brand.fullName') + ' - ' + $t('navigation.home')"
-        >
-          <div class="flex items-center space-x-2 md:space-x-3">
+        <div class="flex items-center gap-2.5 md:gap-3 min-w-0">
+          <NuxtLink
+            to="/"
+            class="flex shrink-0 items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base transition-opacity hover:opacity-80"
+            :aria-label="$t('brand.fullName') + ' - ' + $t('navigation.home')"
+          >
             <img
               src="/logo.png"
-              :alt="$t('brand.alt')"
+              :alt="$t('brand.fullName')"
+              loading="eager"
               class="h-10 w-auto md:h-12 object-contain"
-            />  
-          </div>
-        </NuxtLink>
+            />
+          </NuxtLink>
+          <span
+            class="h-7 w-px shrink-0 self-center bg-border md:h-9"
+            aria-hidden="true"
+          />
+          <NuxtLink
+            to="/"
+            class="inline-flex shrink-0 items-center justify-center rounded-base p-1 text-text-body transition-colors hover:text-primary hover:bg-highlight/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            :title="$t('navigation.home')"
+            :aria-label="$t('navigation.navigateTo', { label: $t('navigation.home') })"
+          >
+            <svg
+              class="h-5 w-5 md:h-6 md:w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <span class="sr-only">{{ $t('navigation.home') }}</span>
+          </NuxtLink>
+        </div>
 
         <div class="hidden lg:flex items-center space-x-8">
           <NuxtLink
@@ -43,6 +70,33 @@
         <div class="hidden lg:flex items-center space-x-4">
           <LanguageSwitch />
           <ColorModeToggle />
+          <NuxtLink
+            :to="mapLinkHash"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-base border border-border text-text-body transition-colors hover:border-primary/40 hover:bg-highlight hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            :aria-label="$t('navigation.mapPinAria')"
+            @click="onMapPinClick"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </NuxtLink>
           <a
             :href="whatsappLink"
             target="_blank"
@@ -67,6 +121,33 @@
         <div class="flex items-center space-x-3 lg:hidden">
           <LanguageSwitch />
           <ColorModeToggle />
+          <NuxtLink
+            :to="mapLinkHash"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-base border border-border text-text-body transition-colors hover:border-primary/40 hover:bg-highlight hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            :aria-label="$t('navigation.mapPinAria')"
+            @click="onMapPinClick"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </NuxtLink>
           <a
             :href="whatsappLink"
             target="_blank"
@@ -165,6 +246,29 @@
         <div class="container mx-auto px-4 py-6">
           <div class="flex flex-col space-y-4">
             <NuxtLink
+              to="/"
+              class="mobile-nav-link inline-flex items-center gap-3 font-body text-lg font-medium text-text-body py-3 px-4 rounded-base transition-colors hover:bg-highlight hover:text-text-main focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              :title="$t('navigation.home')"
+              :aria-label="$t('navigation.navigateTo', { label: $t('navigation.home') })"
+              @click="closeMobileMenu"
+            >
+              <svg
+                class="h-6 w-6 shrink-0 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+              <span class="sr-only">{{ $t('navigation.home') }}</span>
+            </NuxtLink>
+            <NuxtLink
               v-for="item in menuItems"
               :key="item.path"
               :to="item.path"
@@ -173,6 +277,35 @@
               @click="closeMobileMenu"
             >
               {{ item.label }}
+            </NuxtLink>
+
+            <NuxtLink
+              :to="mapLinkHash"
+              class="mobile-nav-link inline-flex items-center gap-3 font-body text-lg font-medium text-text-body py-3 px-4 rounded-base transition-colors hover:bg-highlight hover:text-text-main focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              :aria-label="$t('navigation.mapPinAria')"
+              @click="onMapPinClick"
+            >
+              <svg
+                class="h-5 w-5 shrink-0 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              {{ $t('navigation.mapNavMobile') }}
             </NuxtLink>
 
             <div class="mt-4 space-y-3">
@@ -206,22 +339,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 
 const { t } = useI18n()
+const route = useRoute()
+const router = useRouter()
+const { whatsappLink: getWhatsappLink } = useContact()
+
+const whatsappLink = computed(() => getWhatsappLink())
+
+const mapLinkHash = computed(() =>
+  route.path === '/contact' ? '/contact#mapa-localizacao' : '/#mapa-localizacao'
+)
+
+const onMapPinClick = (e: MouseEvent) => {
+  closeMobileMenu()
+  if (route.path !== '/' && route.path !== '/contact') return
+  e.preventDefault()
+  const path = route.path === '/contact' ? '/contact' : '/'
+  void router.replace({ path, hash: '#mapa-localizacao' })
+  nextTick(() => {
+    requestAnimationFrame(() => {
+      const el = document.getElementById('mapa-localizacao')
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      el?.focus({ preventScroll: true })
+    })
+  })
+}
 
 const menuItems = computed(() => [
   { label: t('navigation.events'), path: '/events' },
+  { label: t('navigation.attractions'), path: '/attractions' },
   { label: t('navigation.space'), path: '/space' },
   { label: t('navigation.buffet'), path: '/buffet' },
   { label: t('navigation.packages'), path: '/packages' },
   { label: t('navigation.contact'), path: '/contact' }
 ])
-
-const whatsappLink = computed(() => {
-  const message = encodeURIComponent(t('cta.whatsappMessage'))
-  return `https://wa.me/5531999999999?text=${message}`
-})
 
 const isMobileMenuOpen = ref(false)
 const headerRef = ref<HTMLElement | null>(null)

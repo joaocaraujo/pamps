@@ -1,582 +1,221 @@
 <template>
   <div class="min-h-screen bg-surface pt-24">
-    <!-- Packages Carousel Section -->
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
-
-        <!-- Carousel -->
-        <div class="relative">
-          <!-- Navigation Arrows -->
-          <button
-            v-if="currentIndex > 0"
-            @click="goToPrevious"
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
-            :aria-label="$t('packages.carousel.previous')"
-          >
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            v-if="currentIndex < packages.length - 1"
-            @click="goToNext"
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-light border-2 border-primary text-primary shadow-lg hover:bg-primary hover:text-text-inverse transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex"
-            :aria-label="$t('packages.carousel.next')"
-          >
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          <!-- Carousel Container -->
-          <div class="max-w-6xl mx-auto relative">
-            <div
-              ref="carouselRef"
-              class="carousel-container overflow-visible"
-              @touchstart="handleTouchStart"
-              @touchmove="handleTouchMove"
-              @touchend="handleTouchEnd"
-            >
-              <div
-                class="flex transition-transform duration-500 ease-in-out"
-                :style="{ transform: `translateX(calc(50vw - ${currentIndex * 18}rem - 9rem))` }"
-              >
-                <div
-                  v-for="(pkg, index) in packages"
-                  :key="index"
-                  class="package-card flex-shrink-0"
-                  :class="{
-                    'w-56 md:w-64': index !== currentIndex,
-                    'w-72 md:w-80 package-card-active': index === currentIndex
-                  }"
-                >
-                  <div 
-                    class="package-card-inner rounded-lg p-3 md:p-4 package-card-shadow transition-all duration-500 h-full flex flex-col"
-                    :class="{
-                      'bg-light/60 backdrop-blur-sm border border-border/50 scale-90 opacity-60': index !== currentIndex,
-                      'bg-primary border-2 border-primary scale-100 opacity-100': index === currentIndex && pkg.tag === 'bestSeller',
-                      'bg-light border-2 border-primary scale-100 opacity-100': index === currentIndex && pkg.tag !== 'bestSeller'
-                    }"
-                  >
-                    <!-- Tag/Ribbon -->
-                    <div v-if="pkg.tag && index === currentIndex" class="mb-1.5">
-                      <span
-                        class="inline-block px-2 py-0.5 text-xs font-semibold rounded-full"
-                        :class="{
-                          'bg-white/20 text-white': pkg.tag === 'bestSeller' && index === currentIndex,
-                          'bg-secondary text-text-main': pkg.tag === 'bestValue',
-                          'bg-accent text-text-inverse': pkg.tag === 'premium'
-                        }"
-                      >
-                        {{ $t(`packages.tags.${pkg.tag}`) }}
-                      </span>
-                    </div>
-
-                    <!-- Package Name -->
-                    <h3 
-                      class="font-heading font-bold mb-1"
-                      :class="{
-                        'text-base md:text-lg text-white': index === currentIndex && pkg.tag === 'bestSeller',
-                        'text-base md:text-lg text-text-main': index !== currentIndex || pkg.tag !== 'bestSeller'
-                      }"
-                    >
-                      {{ pkg.name }}
-                    </h3>
-
-                    <!-- Price -->
-                    <div class="mb-2">
-                      <div v-if="pkg.price" 
-                        class="text-xs mb-0.5"
-                        :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/80' : 'text-text-light'"
-                      >
-                        {{ $t('packages.common.from') }}
-                      </div>
-                      <div 
-                        class="font-heading font-bold"
-                        :class="{
-                          'text-xl md:text-2xl text-white': index === currentIndex && pkg.tag === 'bestSeller',
-                          'text-xl md:text-2xl text-primary': index !== currentIndex || pkg.tag !== 'bestSeller'
-                        }"
-                      >
-                        <span v-if="pkg.price">R$ {{ pkg.price }}</span>
-                        <span v-else class="text-base md:text-lg">{{ $t('packages.common.customPrice') }}</span>
-                      </div>
-                    </div>
-
-                    <!-- Savings -->
-                    <div v-if="pkg.savings" class="mb-1.5 text-xs font-semibold text-secondary">
-                      {{ pkg.savings }}
-                    </div>
-
-                    <!-- Capacity & Duration -->
-                    <div 
-                      class="flex items-center space-x-2 mb-2 text-xs"
-                      :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/90' : 'text-text-body'"
-                    >
-                      <div v-if="pkg.capacity" class="flex items-center space-x-1">
-                        <svg 
-                          class="w-3 h-3"
-                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
-                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        <span>{{ pkg.capacity }} {{ $t('packages.common.guests') }}</span>
-                      </div>
-                      <div v-if="pkg.duration" class="flex items-center space-x-1">
-                        <svg 
-                          class="w-3 h-3"
-                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
-                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>{{ pkg.duration }}{{ $t('packages.common.hours') }}</span>
-                      </div>
-                    </div>
-
-                    <!-- Includes List -->
-                    <div v-if="pkg.includes && pkg.includes.length > 0" class="mb-2 flex-grow">
-                      <h4 
-                        class="text-xs font-semibold mb-1"
-                        :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-text-main'"
-                      >
-                        {{ $t('packages.common.includes') }}:
-                      </h4>
-                      <ul class="space-y-0.5">
-                        <li
-                          v-for="(item, itemIndex) in pkg.includes"
-                          :key="itemIndex"
-                          class="flex items-start space-x-1.5 text-xs leading-tight"
-                          :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white/90' : 'text-text-body'"
-                        >
-                          <span 
-                            class="mt-0.5 flex-shrink-0"
-                            :class="index === currentIndex && pkg.tag === 'bestSeller' ? 'text-white' : 'text-primary'"
-                          >✓</span>
-                          <span>{{ $t(`packages.items.${item}`) }}</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div v-else-if="pkg.isCustomizable" class="mb-2 flex-grow">
-                      <p class="text-xs text-text-body mb-1.5 italic leading-tight">
-                        {{ $t('packages.common.fullyCustomizable') }}
-                      </p>
-                      <div>
-                        <h4 class="text-xs font-semibold text-text-main mb-1">{{ $t('packages.common.availableItems') }}:</h4>
-                        <ul class="space-y-0.5">
-                          <li
-                            v-for="(item, itemIndex) in availableItems"
-                            :key="itemIndex"
-                            class="flex items-start space-x-1.5 text-xs text-text-body leading-tight"
-                          >
-                            <span class="text-primary mt-0.5 flex-shrink-0">•</span>
-                            <span>{{ $t(`packages.items.${item}`) }}</span>
-                          </li>
-                          <li class="flex items-start space-x-1.5 text-xs text-text-body text-text-light italic leading-tight">
-                            <span class="text-primary mt-0.5 flex-shrink-0">•</span>
-                            <span>{{ $t('packages.common.andMore') }}</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div v-else class="mb-2 flex-grow">
-                      <p class="text-xs text-text-body italic leading-tight">
-                        {{ $t('packages.common.fullyCustomizable') }}
-                      </p>
-                    </div>
-
-                    <!-- Notes -->
-                    <div v-if="pkg.notes" class="mb-2 text-xs text-text-light italic leading-tight">
-                      {{ pkg.notes }}
-                    </div>
-
-                    <!-- CTA Button -->
-                    <a
-                      :href="whatsappLink(pkg.name)"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="mt-auto w-full inline-flex items-center justify-center px-3 py-1.5 text-xs font-body font-semibold rounded-base shadow-base focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300"
-                      :class="{
-                        'bg-white text-primary hover:bg-white/90 focus:ring-white': index === currentIndex && pkg.tag === 'bestSeller',
-                        'bg-primary text-text-inverse hover:bg-primary-hover focus:ring-primary': index !== currentIndex || pkg.tag !== 'bestSeller'
-                      }"
-                    >
-                      {{ pkg.isCorporate ? $t('packages.common.ctaCorporate') : $t('packages.common.cta') }}
-                    </a>
+        <div class="max-w-6xl mx-auto space-y-8">
+          <article class="relative overflow-visible rounded-2xl border-2 border-primary bg-light shadow-xl">
+            <div class="relative z-[1] lg:grid lg:grid-cols-12 lg:gap-8 p-6 md:p-8">
+              <div class="lg:col-span-4 flex flex-col gap-4">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
+                    {{ $t('packages.festaLanche.eyebrow') }}
+                  </p>
+                  <h2 class="text-2xl md:text-3xl font-heading font-bold text-text-main leading-tight">
+                    {{ $t('packages.plans.realeza.name') }}
+                  </h2>
+                </div>
+                <div class="flex flex-col gap-2 max-w-sm">
+                  <div class="rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm">
+                    <p class="text-[10px] uppercase tracking-wide font-semibold text-primary mb-0.5">
+                      {{ $t('packages.common.days') }}
+                    </p>
+                    <p class="font-semibold text-text-main leading-snug">
+                      {{ $t('packages.items.daysMonThu') }}
+                    </p>
                   </div>
+                  <div class="rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm">
+                    <p class="text-[10px] uppercase tracking-wide font-semibold text-primary mb-0.5">
+                      {{ $t('packages.common.duration') }}
+                    </p>
+                    <p class="font-semibold text-text-main leading-snug">
+                      {{ $t('packages.plans.realeza.duration') }}{{ $t('packages.common.hours') }}
+                    </p>
+                  </div>
+                </div>
+                <div class="hidden lg:block rounded-xl border border-border bg-surface/60 p-4 text-sm text-text-body leading-relaxed">
+                  {{ $t('packages.festaLanche.sideBlurb') }}
+                </div>
+              </div>
+
+              <div class="lg:col-span-8 mt-8 lg:mt-0">
+                <p class="text-xs font-semibold uppercase tracking-wide text-primary mb-3">
+                  {{ $t('packages.festaLanche.includesLabel') }}
+                </p>
+                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2">
+                  <ul class="space-y-2 text-text-body text-sm">
+                    <li v-for="item in festaLancheCol1" :key="item" class="flex items-start gap-2.5">
+                      <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <span class="leading-snug">{{ $t(`packages.items.${item}`) }}</span>
+                    </li>
+                  </ul>
+                  <ul class="space-y-2 text-text-body text-sm sm:border-l sm:border-border sm:pl-8">
+                    <li v-for="item in festaLancheCol2" :key="item" class="flex items-start gap-2.5">
+                      <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <span class="leading-snug">{{ $t(`packages.items.${item}`) }}</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
+            <div class="relative z-[1] border-t border-primary/20 bg-surface/50 px-6 md:px-8 py-4 md:py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p class="text-sm italic text-text-light md:max-w-xl">
+                {{ $t('packages.plans.realeza.notes') }}
+              </p>
+              <a
+                :href="whatsappLink($t('packages.plans.realeza.name'))"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="shrink-0 inline-flex items-center justify-center w-full md:w-auto px-8 py-3 bg-primary text-text-inverse rounded-full font-semibold hover:bg-primary-hover transition shadow-md"
+              >
+                {{ $t('packages.common.cta') }}
+              </a>
+            </div>
+          </article>
 
-          <!-- Dots Navigation -->
-          <div class="flex justify-center mt-8 space-x-2">
-            <button
-              v-for="(pkg, index) in packages"
-              :key="index"
-              @click="goToIndex(index)"
-              class="w-2 h-2 rounded-full transition-all duration-300"
-              :class="currentIndex === index ? 'bg-primary w-8' : 'bg-border'"
-              :aria-label="`Ir para pacote ${pkg.name}`"
-            >
-            </button>
-          </div>
-        </div>
+          <article class="relative overflow-visible rounded-2xl border border-border bg-light shadow-xl">
+            <div class="relative z-[1] border-b border-border bg-gradient-to-r from-primary/12 via-secondary/10 to-accent/10 px-6 md:px-8 py-6 md:py-7">
+              <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
+                {{ $t('packages.complete.eyebrow') }}
+              </p>
+              <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main">
+                {{ $t('packages.complete.title') }}
+              </h2>
+              <p class="text-text-body mt-2 max-w-2xl text-sm md:text-base">
+                {{ $t('packages.complete.subtitle') }}
+              </p>
+            </div>
 
-        <!-- Common Benefits -->
-        <div class="max-w-4xl mx-auto mt-12 text-center">
-          <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base text-text-body">
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.payment') }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.receptionist') }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-primary">✓</span>
-              <span>{{ $t('packages.common.valet') }}</span>
-            </div>
-          </div>
-        </div>
+            <div class="relative z-[1] p-6 md:p-8">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                <section
+                  v-for="section in completeSections"
+                  :key="section.key"
+                  class="flex flex-col rounded-xl border border-border bg-surface/60 p-4 min-h-[8.5rem] shadow-sm"
+                >
+                  <h3 class="text-xs uppercase tracking-wide font-semibold text-primary mb-3 border-b border-border/80 pb-2">
+                    {{ $t(`packages.complete.sections.${section.key}.title`) }}
+                  </h3>
+                  <ul class="space-y-1.5 text-sm text-text-body flex-1">
+                    <li v-for="item in section.items" :key="item" class="flex items-start gap-2">
+                      <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <span class="leading-snug">{{ $t(`packages.complete.items.${item}`) }}</span>
+                    </li>
+                  </ul>
+                  <p v-if="section.note" class="mt-3 pt-2 border-t border-border/60 text-xs italic text-text-light">
+                    {{ $t(`packages.complete.notes.${section.note}`) }}
+                  </p>
+                </section>
+              </div>
 
-        <!-- Calculator CTA -->
-        <div class="max-w-4xl mx-auto mt-8 text-center">
-          <button
-            @click="isCalculatorOpen = true"
-            class="calculator-cta-button group relative w-full md:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 font-body font-semibold text-base rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
-            :aria-label="$t('calculator.cta.open')"
-          >
-            <!-- Animated gradient background -->
-            <div class="absolute inset-0 calculator-gradient-bg"></div>
-            
-            <!-- Shine effect -->
-            <div class="absolute inset-0 calculator-shine"></div>
-            
-            <!-- Content -->
-            <div class="relative z-10 flex items-center space-x-2">
-              <svg class="w-5 h-5 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
+              <div class="mt-8 rounded-xl border border-border bg-surface/40 p-4 md:p-5">
+                <h3 class="text-base font-heading font-semibold text-text-main mb-3">
+                  {{ $t('packages.complete.daySelector.title') }}
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    v-for="option in dayOptions"
+                    :key="option.key"
+                    type="button"
+                    @click="selectDay(option.key)"
+                    class="px-4 py-2.5 rounded-full border text-sm font-semibold transition-all duration-200"
+                    :class="selectedDay === option.key ? 'bg-primary text-text-inverse border-primary shadow-md' : 'bg-light text-text-main border-border hover:border-primary'"
+                  >
+                    {{ $t(`packages.complete.days.${option.key}`) }}
+                  </button>
+                </div>
+              </div>
+
+              <div v-if="selectedDayData" class="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4 md:p-5">
+                <h4 class="text-base font-heading font-bold text-text-main mb-3">
+                  {{ $t('packages.complete.modal.title', { day: $t(`packages.complete.days.${selectedDay}`) }) }}
+                </h4>
+                <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                  <div>
+                    <p class="text-sm font-semibold text-primary mb-1">{{ $t('packages.complete.modal.conditions') }}</p>
+                    <p class="text-sm text-text-body leading-relaxed">{{ $t(`packages.complete.conditions.${selectedDayData.condition}`) }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary mb-2">{{ $t('packages.complete.modal.payment') }}</p>
+                    <ul class="space-y-1.5 text-sm text-text-body">
+                      <li v-for="payment in paymentItems" :key="payment" class="flex items-start gap-2">
+                        <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                        <span class="leading-snug">{{ $t(`packages.complete.payment.${payment}`) }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                :href="whatsappLink($t('packages.complete.title'))"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 bg-primary text-text-inverse rounded-full font-semibold hover:bg-primary-hover transition shadow-md"
+              >
+                {{ $t('packages.common.cta') }}
+              </a>
             </div>
-          </button>
+          </article>
         </div>
       </div>
     </section>
-
-    <!-- Calculator Modal -->
-    <CalculatorModal v-model:is-open="isCalculatorOpen" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const { t } = useI18n()
+const { whatsappLink: baseWhatsappLink } = useContact()
 
-const isCalculatorOpen = ref(false)
+const festaLancheCol1 = ['duration3h30', 'guestsFestaLanche', 'salgadosLivre', 'bebidasLivre', 'doces5']
+const festaLancheCol2 = ['boloCorte', 'pratoQuente', 'miniDecoracao', 'discountVista', 'card3x']
 
-const carouselRef = ref<HTMLElement | null>(null)
-const currentIndex = ref(0)
-const touchStartX = ref(0)
-const touchEndX = ref(0)
+const completeSections = [
+  { key: 'decoration', items: ['themedScene', 'balloonArch', 'balloonCeiling', 'balloonCenterpiece'], note: 'decorationOptional' },
+  { key: 'team', items: ['teamCoordinator', 'waiters', 'kidsMonitor', 'recreator', 'cook', 'kitchenAssistant', 'security'] },
+  {
+    key: 'duration',
+    items: ['party4h', 'guestCapacityBands', 'priceVariesByDay'],
+    note: 'pricingConsult'
+  },
+  { key: 'courtesies', items: ['freeUnder6', 'gourmetCart', 'customPartyFavor', 'fakeCake', 'coveredParking', 'earlyWelcome', 'familyFree', 'graduatesFree'] },
+  { key: 'services', items: ['tableSetup', 'giftTagging', 'partySupervision', 'ambientSound', 'dishes', 'candle', 'decorationService'] },
+  { key: 'buffet', items: ['savoryFree', 'hotDish', 'fiveSweets', 'birthdayCake', 'kidsMenu', 'gourmetCart'] },
+  {
+    key: 'drinks',
+    items: ['sodaFree', 'waterJuiceFree', 'heinekenFree', 'originalFree'],
+    note: 'winesOptional'
+  },
+  {
+    key: 'optionals',
+    items: [
+      'optionalPersonalized',
+      'optionalLedLetters',
+      'optionalFacePaint',
+      'optionalSparkling',
+      'optionalWine',
+      'optionalBeerAddon',
+      'optionalLiveCharacter'
+    ],
+    note: 'optionalsConsult'
+  }
+]
 
-const packages = computed(() => {
-  const plans = [
-    {
-      key: 'realeza',
-      includes: ['fixedPlayground', 'totó', 'buffet', 'nonAlcoholic'],
-      tag: null,
-      savings: null,
-      isCorporate: false
-    },
-    {
-      key: 'mundoMagico',
-      includes: ['fixedPlayground', 'totó', 'thematicDecoration', 'buffet', 'nonAlcoholic'],
-      tag: 'bestValue',
-      savings: t('packages.plans.mundoMagico.savings'),
-      isCorporate: false
-    },
-    {
-      key: 'hakunaMatata',
-      includes: ['fixedPlayground', 'totó', 'snooker', 'thematicDecoration', 'buffet', 'nonAlcoholic'],
-      tag: 'bestSeller',
-      savings: null,
-      isCorporate: false
-    },
-    {
-      key: 'fendaBiquini',
-      includes: ['fixedPlayground', 'totó', 'thematicDecoration', 'buffet', 'nonAlcoholic'],
-      tag: null,
-      savings: null,
-      isCorporate: false
-    },
-    {
-      key: 'siriCascudo',
-      includes: ['fixedPlayground', 'totó', 'buffet', 'nonAlcoholic'],
-      tag: null,
-      savings: null,
-      isCorporate: false
-    },
-    {
-      key: 'aoInfinito',
-      includes: ['fixedPlayground', 'totó', 'snooker', 'thematicDecoration', 'buffet', 'nonAlcoholic'],
-      tag: null,
-      savings: t('packages.plans.aoInfinito.savings'),
-      isCorporate: false
-    },
-    {
-      key: 'superPamps',
-      includes: ['fixedPlayground', 'totó', 'snooker', 'sodaMachine', 'fullBuffet', 'nonAlcoholic', 'alcoholic', 'chopUnlimited'],
-      tag: 'premium',
-      savings: null,
-      isCorporate: true
-    },
-    {
-      key: 'euEscolhoVoce',
-      includes: [],
-      tag: null,
-      savings: null,
-      isCorporate: false,
-      isCustomizable: true
-    }
-  ]
-  
-  return plans.map(plan => ({
-    name: t(`packages.plans.${plan.key}.name`),
-    price: t(`packages.plans.${plan.key}.price`),
-    capacity: t(`packages.plans.${plan.key}.capacity`),
-    duration: t(`packages.plans.${plan.key}.duration`),
-    includes: plan.includes,
-    notes: t(`packages.plans.${plan.key}.notes`),
-    tag: plan.tag,
-    savings: plan.savings,
-    isCorporate: plan.isCorporate,
-    isCustomizable: plan.isCustomizable || false
-  }))
-})
-
-const availableItems = computed(() => [
-  'fixedPlayground',
-  'totó',
-  'snooker',
-  'sodaMachine',
-  'buffet',
-  'fullBuffet',
-  'nonAlcoholic',
-  'alcoholic',
-  'chopUnlimited',
-  'thematicDecoration'
-])
+const dayOptions = [{ key: 'monThu' },{ key: 'friSun' },{ key: 'saturday' }] as const
+const dayDetails = { monThu: { condition: 'default' }, friSun: { condition: 'default' }, saturday: { condition: 'premiumDay' } }
+const paymentItems = ['cash10', 'pix7', 'reserve30', 'card6x']
+const selectedDay = ref<keyof typeof dayDetails>('monThu')
+const selectedDayData = computed(() => dayDetails[selectedDay.value])
+const selectDay = (day: keyof typeof dayDetails) => { selectedDay.value = day }
 
 const whatsappLink = (packageName: string) => {
-  const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o pacote ${packageName}.`)
-  return `https://wa.me/5531999999999?text=${message}`
-}
-
-const goToPrevious = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value--
-  }
-}
-
-const goToNext = () => {
-  if (currentIndex.value < packages.value.length - 1) {
-    currentIndex.value++
-  }
-}
-
-const goToIndex = (index: number) => {
-  if (index >= 0 && index < packages.value.length) {
-    currentIndex.value = index
-  }
-}
-
-const handleTouchStart = (e: TouchEvent) => {
-  touchStartX.value = e.touches[0].clientX
-}
-
-const handleTouchMove = (e: TouchEvent) => {
-  touchEndX.value = e.touches[0].clientX
-}
-
-const handleTouchEnd = () => {
-  if (!touchStartX.value || !touchEndX.value) return
-  const distance = touchStartX.value - touchEndX.value
-  const minSwipeDistance = 50
-  
-  if (Math.abs(distance) > minSwipeDistance) {
-    if (distance > 0) {
-      goToNext()
-    } else {
-      goToPrevious()
-    }
-  }
-  
-  touchStartX.value = 0
-  touchEndX.value = 0
+  const message = `Ola! Gostaria de saber mais sobre ${packageName} na Pamps.`
+  return baseWhatsappLink(message)
 }
 
 useHead({
   title: computed(() => `${t('packages.title')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('packages.subtitle'))
-    }
-  ]
+  meta: [{ name: 'description', content: computed(() => t('packages.subtitle')) }]
 })
 </script>
-
-<style scoped>
-.carousel-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.package-card {
-  margin: 0 0.5rem;
-  transition: all 0.5s ease;
-}
-
-.package-card-inner {
-  filter: blur(0);
-  transition: all 0.5s ease;
-}
-
-.package-card {
-  position: relative;
-}
-
-.package-card:not(.package-card-active) .package-card-inner {
-  filter: blur(3px);
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.package-card-shadow {
-  box-shadow: 
-    0 10px 25px -5px rgba(0, 0, 0, 0.15),
-    0 4px 10px -2px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-
-.package-card > div {
-  animation: fadeIn 0.5s ease-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.package-card > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.2),
-    0 8px 16px -4px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-/* Calculator CTA Button Styles */
-.calculator-cta-button {
-  position: relative;
-  transform: translateY(0);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.calculator-cta-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(247, 159, 31, 0.3), 0 0 15px rgba(247, 159, 31, 0.2);
-}
-
-.calculator-cta-button:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.calculator-gradient-bg {
-  background: linear-gradient(
-    135deg,
-    #f59e0b 0%,
-    #f97316 25%,
-    #ea580c 50%,
-    #f97316 75%,
-    #f59e0b 100%
-  );
-  background-size: 200% 200%;
-  animation: gradientFlow 3s ease infinite;
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.calculator-shine {
-  background: linear-gradient(
-    110deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 60%
-  );
-  background-size: 200% 100%;
-  animation: shine 3s infinite;
-  pointer-events: none;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.calculator-icon {
-  color: white;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  animation: calculatorIconFloat 3s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-@keyframes calculatorIconFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-2px) rotate(-2deg);
-  }
-  50% {
-    transform: translateY(0) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-2px) rotate(2deg);
-  }
-}
-
-.calculator-cta-button:focus {
-  outline: none;
-  ring: 4px;
-  ring-color: rgba(247, 159, 31, 0.5);
-  ring-offset: 2px;
-}
-</style>
-

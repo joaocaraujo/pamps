@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-highlight pt-24">
     <!-- Contact Section -->
-    <section class="py-16 md:py-24">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
+    <section class="relative py-16 md:py-24">
+      <div class="container relative z-[2] mx-auto px-4">
+        <div class="relative max-w-6xl mx-auto">
           <!-- Title -->
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-main mb-12 text-center">
-            {{ $t('contact.title') }}
+            {{ $t('navigation.contact') }}
           </h1>
 
           <!-- Top Info Cards -->
@@ -42,7 +42,7 @@
                 {{ $t('contact.topCards.phone.title') }}
               </h3>
               <p class="text-sm text-text-body text-center leading-relaxed">
-                {{ $t('contact.phoneNumber') }}<br>
+                {{ phoneDisplay }}<br>
                 <span class="text-primary font-medium">{{ $t('contact.topCards.phone.whatsapp') }}</span>
               </p>
             </div>
@@ -60,7 +60,7 @@
                 {{ $t('contact.topCards.email.title') }}
               </h3>
               <p class="text-sm text-text-body text-center leading-relaxed">
-                {{ $t('contact.emailAddress') }}<br>
+                {{ contactEmail }}<br>
                 <span class="text-primary font-medium">{{ $t('contact.topCards.email.response') }}</span>
               </p>
             </div>
@@ -85,9 +85,9 @@
           </div>
 
           <!-- Bottom Section -->
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid md:grid-cols-2 gap-8 items-stretch">
             <!-- WhatsApp Card -->
-            <div class="bg-light rounded-lg p-8 shadow-base border border-border">
+            <div class="bg-light rounded-lg p-8 shadow-base border border-border flex min-h-0 flex-col justify-center md:h-full">
               <div class="flex items-center justify-center mb-6">
                 <div class="w-16 h-16 bg-primary/10 rounded-base flex items-center justify-center">
                   <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -131,9 +131,12 @@
               <p class="text-text-body mb-6 text-center">
                 {{ $t('contact.addressText') }}
               </p>
-              <!-- Map Placeholder -->
-              <div class="bg-highlight rounded-lg h-64 flex items-center justify-center border-2 border-dashed border-border">
-                <p class="text-text-body text-sm">{{ $t('contact.locationCard.mapComingSoon') }}</p>
+              <div
+                id="mapa-localizacao"
+                tabindex="-1"
+                class="scroll-mt-24 outline-none focus:outline-none md:scroll-mt-28"
+              >
+                <GoogleMapEmbed size="default" />
               </div>
             </div>
           </div>
@@ -147,14 +150,12 @@
 import { computed } from 'vue'
 
 const { t } = useI18n()
+const { whatsappLink: getWhatsappLink, phoneDisplay, contactEmail } = useContact()
 
-const whatsappLink = computed(() => {
-  const message = encodeURIComponent(t('contact.whatsappMessage'))
-  return `https://wa.me/5531999999999?text=${message}`
-})
+const whatsappLink = computed(() => getWhatsappLink())
 
 useHead({
-  title: computed(() => `${t('contact.title')} - ${t('brand.pageTitle')}`),
+  title: computed(() => `${t('navigation.contact')} - ${t('brand.pageTitle')}`),
   meta: [
     {
       name: 'description',

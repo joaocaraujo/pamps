@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+
+  routeRules: {
+    '/nossas-atracoes': { redirect: { to: '/attractions', statusCode: 301 } }
+  },
   
   modules: [
     '@nuxtjs/tailwindcss',
@@ -31,6 +35,7 @@ export default defineNuxtConfig({
       }
     ],
     lazy: true,
+    // Relativo a <root>/i18n/ (restructureDir). Não use "i18n/locales" — duplica o caminho.
     langDir: 'locales',
     defaultLocale: 'pt-BR',
     strategy: 'no_prefix',
@@ -53,6 +58,18 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    public: {
+      whatsappPhone: process.env.NUXT_PUBLIC_WHATSAPP_PHONE,
+      phoneDisplay: process.env.NUXT_PUBLIC_PHONE_DISPLAY,
+      contactEmail: process.env.NUXT_PUBLIC_CONTACT_EMAIL,
+      instagramUrl: process.env.NUXT_PUBLIC_INSTAGRAM_URL,
+      googleReviewUrl: process.env.NUXT_PUBLIC_GOOGLE_REVIEW_URL,
+      googleMapsEmbedUrl: process.env.NUXT_PUBLIC_GOOGLE_MAPS_EMBED_URL,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
+    }
+  },
 
   app: {
     head: {

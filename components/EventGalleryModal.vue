@@ -70,6 +70,7 @@
                   <img
                     :src="image"
                     :alt="`${title} - Imagem ${index + 1}`"
+                    loading="lazy"
                     class="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-lg"
                     @error="handleImageError"
                   />

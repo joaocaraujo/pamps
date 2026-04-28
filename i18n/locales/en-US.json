@@ -3,24 +3,32 @@
     "main": "Main navigation",
     "home": "Home page",
     "events": "Events",
+    "attractions": "Attractions",
     "space": "Space",
     "buffet": "Buffet",
     "packages": "Packages",
     "contact": "Contact",
+    "mapPinAria": "View map and Pamps location",
+    "mapNavMobile": "Map / location",
     "navigateTo": "Navigate to {label}",
     "openMenu": "Open navigation menu",
     "mobileMenu": "Mobile navigation menu"
   },
+  "common": {
+    "information": "Information",
+    "capybaraMascotAlt": "Pamps mascot — capybara"
+  },
   "cta": {
     "whatsapp": "WhatsApp",
     "whatsappLabel": "Contact Pamps on WhatsApp",
-    "whatsappMessage": "Hello! I would like to know more about Pamps events."
+    "whatsappMessage": "Hello! I would like to know more about Pamps events.",
+    "speakWhatsApp": "Contact on WhatsApp",
+    "scheduleVisit": "Schedule a visit"
   },
   "brand": {
     "name": "Pamps",
     "fullName": "Pamps - House & Event Space",
-    "pageTitle": "Pamps Events",
-    "alt": "Pamps - House & Event Space"
+    "pageTitle": "Pamps"
   },
   "colorMode": {
     "switchToLight": "Switch to light mode",
@@ -36,7 +44,7 @@
     "about": {
       "title": "Children's Party Specialists",
       "paragraph1": "Pamps is an event space located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, specialized in unforgettable children's parties. With fixed playground, recreation and complete structure, we create magical moments for children.",
-      "paragraph2": "We also host adult events, social gatherings and corporate events. Our space features complete infrastructure, climate-controlled by dozens of units, enclosed environment, secure and recently renovated, with capacity for up to 150 people."
+      "paragraph2": "We also host adult events, social gatherings and corporate events. Our space features complete infrastructure, climate-controlled by dozens of units, enclosed environment, secure and recently renovated, with capacity for up to 120 people."
     },
     "eventTypes": {
       "title": "Our Events",
@@ -58,65 +66,61 @@
       }
     },
     "stats": {
-      "parties": {
-        "number": "50+",
-        "label": "Completed event packages"
+      "attractions": {
+        "number": "10",
+        "label": "Fixed attractions on site"
       },
       "rating": {
-        "number": "4.9",
-        "label": "Rating"
+        "number": "5.0",
+        "label": "Google rating",
+        "cta": "Review on Google",
+        "linkAria": "Open Google to see our 5.0 rating and leave a review"
       },
       "capacity": {
-        "number": "150",
+        "number": "120",
         "label": "Maximum capacity"
       }
     },
     "features": {
       "title": "Our Advantages",
       "climate": "Complete climate control",
-      "playground": "Fixed and striking playground",
-      "parking": "Parking for up to 10 cars",
-      "reception": "Reception with exclusive attendant",
-      "beverage": "Optional beverage machine",
-      "accessibility": "Wheelchair accessibility",
-      "capacity": "Capacity for up to 150 people",
+      "playground": "Mega playground",
+      "parking": "Garage with 10 spaces",
+      "reception": "Exclusive reception",
+      "accessibility": "Complete accessibility",
+      "capacity": "Accommodates 120 people",
       "licensed": "Fully licensed"
     },
     "ctaSecondary": {
       "title": "Ready for the dream party?",
-      "subtitle": "Get in touch and discover how we can make your child's party unforgettable. We also host adult and social events.",
-      "visit": "Schedule a visit",
-      "contact": "Contact on WhatsApp"
+      "subtitle": "Get in touch and discover how we can make your child's party unforgettable. We also host adult and social events."
+    },
+    "attractionsCta": {
+      "eyebrow": "Share the fun",
+      "title": "Our attractions in one place",
+      "subtitle": "Mega play area, ball pit, pinball, and more — photos and full details.",
+      "socialHint": "Great to drop in the parents' chat or family group before the party.",
+      "button": "See attractions"
+    },
+    "map": {
+      "title": "How to find us",
+      "subtitle": "Av. Antônio Abrahão Caram, 420 — Belo Horizonte, MG"
     }
   },
   "contact": {
-    "title": "Contact",
     "metaDescription": "Get in touch with Pamps - House & Event Space. WhatsApp, phone, email and address in Belo Horizonte.",
     "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
-    "phoneNumber": "+55 31 99999-9999",
-    "emailAddress": "contact{'@'}pamps.com.br",
     "whatsapp": {
       "title": "WhatsApp",
       "description": "Contact us directly via WhatsApp. Quick response and personalized service!",
       "button": "Open WhatsApp"
     },
-    "phoneInfo": {
-      "title": "Phone",
-      "description": "Call us to ask questions about our packages and availability."
-    },
-    "emailInfo": {
-      "title": "Email",
-      "description": "Send us an email with your questions or requests. We will respond as soon as possible."
-    },
-    "addressInfo": {
-      "title": "Address",
-      "description": "We are located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
-    },
     "instagram": {
       "title": "Instagram",
       "description": "Follow us on Instagram and keep up with our events, parties and news!",
       "button": "Follow on Instagram",
-      "handle": "pampsbh"
+      "handle": "pampsbh",
+      "ariaLabel": "Follow {handle} on Instagram"
     },
     "schedule": {
       "title": "Business Hours",
@@ -126,7 +130,6 @@
       "weekendHours": "9am to 5pm",
       "note": "To schedule a visit or ask questions, contact us through one of the channels above."
     },
-    "whatsappMessage": "Hello! I would like to know more about Pamps events.",
     "topCards": {
       "address": {
         "title": "Address"
@@ -150,6 +153,9 @@
       "description": "Quick response and personalized service. Click below and speak directly with our team.",
       "button": "Call on WhatsApp"
     },
+    "map": {
+      "iframeTitle": "Google map: Pamps location in Belo Horizonte"
+    },
     "locationCard": {
       "title": "Our Location",
       "mapComingSoon": "Map coming soon"
@@ -160,52 +166,8 @@
     "navigation": {
       "title": "Navigation"
     },
-    "contact": {
-      "title": "Contact",
-      "address": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
-      "phone": "+55 31 99999-9999",
-      "email": "contact{'@'}pamps.com.br",
-      "metaDescription": "Get in touch with Pamps - House & Event Space. WhatsApp, phone, email and address in Belo Horizonte.",
-      "addressText": "Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, CEP 31275-000",
-      "phoneNumber": "+55 31 99999-9999",
-      "emailAddress": "contact{'@'}pamps.com.br",
-      "whatsapp": {
-        "title": "WhatsApp",
-        "description": "Contact us directly via WhatsApp. Quick response and personalized service!",
-        "button": "Open WhatsApp"
-      },
-      "phoneInfo": {
-        "title": "Phone",
-        "description": "Call us to ask questions about our packages and availability."
-      },
-      "emailInfo": {
-        "title": "Email",
-        "description": "Send us an email with your questions or requests. We will respond as soon as possible."
-      },
-      "addressInfo": {
-        "title": "Address",
-        "description": "We are located at Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG."
-      },
-      "instagram": {
-        "title": "Instagram",
-        "description": "Follow us on Instagram and keep up with our events, parties and news!",
-        "button": "Follow on Instagram",
-        "handle": "pampsbh"
-      },
-      "schedule": {
-        "title": "Business Hours",
-        "weekdays": "Monday to Friday",
-        "weekdaysHours": "9am to 6pm",
-        "weekend": "Saturday and Sunday",
-        "weekendHours": "9am to 5pm",
-        "note": "To schedule a visit or ask questions, contact us through one of the channels above."
-      },
-      "whatsappMessage": "Hello! I would like to know more about Pamps events."
-    },
     "info": {
-      "title": "Information",
-      "schedule": "Schedule a visit",
-      "capacity": "Capacity: up to 150 people",
+      "capacity": "Capacity: up to 120 people",
       "hours": "Service: Monday to Sunday"
     },
     "copyright": "© {year} Pamps - Event Space. All rights reserved.",
@@ -227,10 +189,19 @@
       "includes": "Includes",
       "capacity": "Capacity",
       "hours": "h",
+      "days": "Days",
+      "includedItems": "Included items",
+      "foodSection": "Food & drinks",
+      "foodCustom": "Food and drinks are defined according to the chosen package.",
       "customPrice": "Upon request",
       "fullyCustomizable": "Fully customizable package! Choose all items according to your needs.",
       "availableItems": "Available items to choose from",
       "andMore": "... and much more! Consult all available options."
+    },
+    "festaLanche": {
+      "eyebrow": "Special package",
+      "sideBlurb": "A weekday-friendly format: clear timing, defined menu and straightforward conditions.",
+      "includesLabel": "What's included"
     },
     "tags": {
       "bestSeller": "Best Seller",
@@ -242,20 +213,32 @@
       "totó": "Table football",
       "snooker": "Snooker",
       "sodaMachine": "Soda machine",
-      "buffet": "Buffet",
+      "buffet": "@:navigation.buffet",
       "nonAlcoholic": "Non-alcoholic beverages",
       "alcoholic": "Alcoholic beverages",
       "chopUnlimited": "Unlimited draft beer",
       "thematicDecoration": "Thematic decoration",
-      "fullBuffet": "Full buffet (sweets, savory, fake cake and cutting)"
+      "fullBuffet": "Full buffet (sweets, savory, fake cake and cutting)",
+      "daysMonThu": "Monday to Thursday",
+      "daysFlexible": "According to available schedule",
+      "duration3h30": "Duration: 3 hours (with 30-minute grace period after the event)",
+      "guestsFestaLanche": "Guests: 30 children (up to 12 years old) + 10 adults",
+      "salgadosLivre": "Savory snacks: unlimited quantity",
+      "bebidasLivre": "Drinks: water, juice, and soda (unlimited quantity)",
+      "doces5": "Sweets: 5 units per guest (flavor of choice)",
+      "boloCorte": "Cake: cutting cake (flavor of choice)",
+      "pratoQuente": "Hot dish: Penne or Stroganoff",
+      "miniDecoracao": "Decoration: mini decoration",
+      "discountVista": "Cash payment with 10% discount",
+      "card3x": "Credit card in up to 3 interest-free installments"
     },
     "plans": {
       "realeza": {
-        "name": "Capibaby",
-        "price": "2500.00",
-        "capacity": "Up to 45",
-        "duration": "4",
-        "notes": "Consult buffet and beverage options"
+        "name": "SNACK PARTY",
+        "price": "",
+        "capacity": "30 children + 10 adults",
+        "duration": "3",
+        "notes": "Special package for Monday to Thursday."
       },
       "mundoMagico": {
         "name": "Magic World",
@@ -297,16 +280,106 @@
       "superPamps": {
         "name": "Super Pamps",
         "price": "10500.00",
-        "capacity": "Maximum (150)",
+        "capacity": "Maximum (120)",
         "duration": "6",
         "notes": "Unlimited draft beer for up to 80 people. Consult policy for additional guests, consumption and restrictions"
       },
       "euEscolhoVoce": {
         "name": "I Choose You!",
         "price": "",
-        "capacity": "Maximum 150",
+        "capacity": "Maximum 120",
         "duration": "",
         "notes": "Fully customizable package! Choose everything according to your needs: decoration, buffet, beverages, toys and much more. Let's create the party of your dreams together!"
+      }
+    },
+    "complete": {
+      "eyebrow": "Full experience",
+      "title": "Complete Party",
+      "subtitle": "Everything included for a complete experience",
+      "sections": {
+        "decoration": { "title": "Decoration" },
+        "team": { "title": "Team" },
+        "duration": { "title": "Party length, headcount & pricing" },
+        "courtesies": { "title": "Courtesy" },
+        "services": { "title": "Included services" },
+        "buffet": { "title": "@:navigation.buffet" },
+        "drinks": { "title": "Drinks" },
+        "optionals": { "title": "Optional items" }
+      },
+      "items": {
+        "themedScene": "Themed setup",
+        "balloonArch": "Large balloon feature",
+        "balloonCeiling": "Balloon ceiling",
+        "balloonCenterpiece": "Balloon centerpieces",
+        "teamCoordinator": "Team coordinator",
+        "waiters": "Waiters",
+        "kidsMonitor": "Kids monitor",
+        "recreator": "Recreation staff",
+        "cook": "Cook",
+        "kitchenAssistant": "Kitchen assistant",
+        "security": "Security",
+        "party4h": "Party length: 4 hours (same as the budget proposal model)",
+        "guestCapacityBands": "Reference table sizes: 50, 60, 80, 100 or 120 guests — 120 is the venue maximum",
+        "priceVariesByDay": "Price varies by day: Monday–Thursday — Friday, Sunday & holidays — Saturday (premium)",
+        "freeUnder6": "Kids up to 5 years and 11 months are free",
+        "gourmetCart": "Gourmet candy cart",
+        "customPartyFavor": "Custom party favor (Pamps)",
+        "fakeCake": "Fake cake",
+        "coveredParking": "Covered parking",
+        "earlyWelcome": "30 min early welcome (birthday child and parents)",
+        "familyFree": "Free entry for parents, siblings and nanny",
+        "graduatesFree": "Free entry for early education graduates",
+        "tableSetup": "Table setup",
+        "giftTagging": "Gift labeling",
+        "partySupervision": "Party supervision",
+        "ambientSound": "Ambient sound",
+        "dishes": "Tableware",
+        "candle": "Candle",
+        "decorationService": "Decoration",
+        "savoryFree": "Baked, puff and fried snacks (unlimited)",
+        "hotDish": "Hot dish: penne or stroganoff",
+        "fiveSweets": "5 sweets per person",
+        "birthdayCake": "Birthday cake",
+        "kidsMenu": "Kids menu (mini pizza, popcorn, fries)",
+        "sodaFree": "Soft drinks (Coca-Cola and Guarana) unlimited",
+        "waterJuiceFree": "Water and juice unlimited",
+        "heinekenFree": "Heineken beer unlimited",
+        "originalFree": "Original beer unlimited",
+        "optionalPersonalized": "Custom add-ons",
+        "optionalLedLetters": "LED numbers and letters",
+        "optionalNaturalFlowers": "Natural flowers",
+        "optionalFacePaint": "Face painting workshop",
+        "optionalSparkling": "Sparkling wine",
+        "optionalWine": "Wine",
+        "optionalBeerAddon": "Beer",
+        "optionalLiveCharacter": "Live character (mascot/entertainer)"
+      },
+      "notes": {
+        "decorationOptional": "Also available: natural flowers and extra décor on request.",
+        "winesOptional": "Wines and sparkling wines from the optional list below, quoted separately.",
+        "optionalsConsult": "Availability, brands and pricing for these items—ask the Pamps team.",
+        "pricingConsult": "Final amounts, discounts and installments are confirmed in the official quote with the Pamps team."
+      },
+      "daySelector": { "title": "Select party day" },
+      "days": {
+        "monThu": "Monday to Thursday",
+        "friSun": "Friday and Sunday",
+        "saturday": "Saturday"
+      },
+      "modal": {
+        "title": "Party - {day}",
+        "conditions": "Conditions",
+        "payment": "Payment methods"
+      },
+      "conditions": {
+        "default": "Specific conditions may vary by date, availability and number of guests.",
+        "premiumDay": "Saturday is a premium day with higher demand. Please check availability in advance."
+      },
+      "payment": {
+        "cash10": "10% discount for cash payment",
+        "pix7": "7% discount for PIX payment",
+        "reserve30": "30% to book + remaining up to 10 days before",
+        "card6x": "Up to 6x interest-free on card (more installments on request)"
       }
     },
     "carousel": {
@@ -318,60 +391,43 @@
     "title": "Event Estimate Calculator",
     "close": "Close calculator",
     "requiredFields": "Event Information",
-    "optionalFields": "Optional Services",
+    "optionalFields": "Optional add-ons",
+    "optionalIntro": "Optional prices are indicative; brands, availability and final amounts with the Pamps team.",
     "people": {
-      "label": "Number of people",
-      "unit": "people"
+      "label": "Number of guests",
+      "labelCompleta": "Capacity (official table tiers)",
+      "unit": "guests",
+      "hintCompleta": "Quote tiers only: 50, 60, 80, 100 or 120 guests (venue maximum)."
+    },
+    "lanche": {
+      "capacityTitle": "Guests (Lunch Party package)"
     },
     "day": {
-      "label": "Event day",
+      "label": "Party day",
       "select": "Select day",
-      "weekday": "Monday to Thursday",
-      "weekend": "Friday or Sunday",
-      "saturday": "Saturday"
+      "friSunHoliday": "Friday, Sunday & holidays"
     },
-    "package": {
-      "label": "Package type",
-      "select": "Select package",
-      "simple": "Essential",
-      "medium": "Classic",
-      "top": "Premium"
-    },
-    "salgados": {
-      "label": "Number of savory items per person",
-      "tip": "We recommend 5 to 7 savory items per person for 4h to 6h events"
-    },
-    "doces": {
-      "label": "Number of sweets per person",
-      "tip": "We recommend 3 to 5 sweets per person for 4h to 6h events"
-    },
-    "food": {
-      "label": "Consumption per Person",
-      "unit": "units"
-    },
-    "optional": {
-      "chopp": "Beer included",
-      "nonAlcoholic": "Non-alcoholic drinks included",
-      "dj": "DJ",
-      "lighting": "Dance floor lighting",
-      "recreator": "Recreator",
-      "photographer": "Photographer"
+    "party": {
+      "label": "Party type",
+      "select": "Select type",
+      "festaCompleta": "Full Party",
+      "festaLanche": "Lunch Party",
+      "phrase": "This calculator shows indicative values only. Confirm your final quote via WhatsApp."
     },
     "result": {
-      "estimated": "Estimated Total Value",
+      "estimated": "Estimated Total",
       "perPerson": "Per guest",
-      "base": "Base value",
+      "base": "Package (base)",
       "optional": "Optionals",
-      "disclaimer": "Values are average estimates. Confirm packages with a consultant."
+      "disclaimer": "Estimate: Full Party uses table tiers only; Lunch Party follows fixed Package rules. Optionals are indicative—confirm everything with Pamps."
     },
     "cta": {
       "whatsapp": "Send quote via WhatsApp",
       "open": "Calculate Event"
     },
     "steps": {
-      "eventInfo": "Information",
-      "food": "Consumption",
-      "optional": "Optional",
+      "info": "Party details",
+      "optional": "Optionals",
       "result": "Result",
       "next": "Next",
       "back": "Back"
@@ -379,17 +435,16 @@
     "preview": {
       "label": "Estimated Total"
     },
-    "whatsappMessage": "Hello, I did a simulation on the website. My event has {people} people, on {day}, {package} package, with {salgados} savory items and {doces} sweets per person. Optionals: {optionals}. Estimated value: {total}.",
+    "whatsappMessage": "Hello, I used the website calculator. {party}, {people}, on {day}. Optionals: {optionals}. Estimated total: {total}.",
     "none": "None"
   },
   "events": {
     "subtitle": "Complete and climate-controlled space for all types of events. From your child's dream party to corporate gatherings.",
-    "cta": "Contact on WhatsApp",
     "children": {
       "title": "Children's Parties",
       "description": "Celebrate your child's birthday in a magical, safe, and fun-ready space.",
       "feature1": "Exclusive kids' area",
-      "feature2": "Thematic decoration",
+      "feature2": "@:packages.items.thematicDecoration",
       "feature3": "Support team"
     },
     "babyShower": {
@@ -427,26 +482,44 @@
       "feature2": "Multiple environments",
       "feature3": "Total privacy"
     },
-    "benefits": {
-      "title": "Common Benefits",
-      "climateDesc": "Fully climate-controlled environment for maximum comfort",
-      "playgroundDesc": "Fixed and striking playground for guaranteed fun",
-      "parkingDesc": "Parking available for up to 10 vehicles",
-      "receptionDesc": "Exclusive and personalized service",
-      "capacityDesc": "Capacity for up to 150 people",
-      "licensedDesc": "Fully licensed and secure space"
-    },
-    "ctaSection": {
-      "title": "Ready for your event?",
-      "subtitle": "Get in touch and discover how we can make your event unforgettable.",
-      "whatsapp": "Contact on WhatsApp",
-      "packages": "View Packages"
-    },
     "gallery": {
       "view": "View Gallery",
+      "disabledHint": "Gallery coming soon for this event type.",
       "close": "Close gallery",
       "previous": "Previous image",
       "next": "Next image"
+    }
+  },
+  "attractions": {
+    "eyebrow": "Our Attractions",
+    "title": "Attractions that make history",
+    "subtitle": "Here are Pamps' most desired attractions to turn your party into a unique experience.",
+    "main": {
+      "ledSlide": {
+        "title": "LED Slide",
+        "description": "Can you imagine an LED slide at your party? Around here, fun is guaranteed... and the photos look amazing."
+      },
+      "megaPlayground": {
+        "title": "MEGA Playground",
+        "description": "Have you ever thought about bringing a GIANT dream to life? That's exactly what we did. Multiple levels, tunnels, slides... pure adventure."
+      }
+    },
+    "carousel": {
+      "title": "Other amazing attractions",
+      "subtitle": "A photo corridor so you can explore other toys and fun spaces.",
+      "previous": "Previous attraction",
+      "next": "Next attraction",
+      "goTo": "Go to slide"
+    },
+    "secondary": {
+      "field": "Soccer Field",
+      "ballPool": "Ball Pit",
+      "trampoline": "Trampoline",
+      "babyArea": "Complete Baby Area",
+      "arcade": "Arcade",
+      "foosball": "Foosball",
+      "airGame": "Air Game",
+      "interactiveScenarios": "Interactive Scenarios: Playhouse, Hospital, Market, and Pet Shop"
     }
   },
   "space": {
@@ -455,14 +528,11 @@
     "tourVirtual": "Virtual Tour",
     "tourMessage": "Explore our complete space without leaving home! Discover every detail of our climate-controlled environment, playground and all facilities.",
     "message": "We are preparing a complete virtual tour of our space so you can see every detail. Soon you'll be able to explore our climate-controlled environment, playground and all the facilities!",
-    "cta": "Contact on WhatsApp",
     "whatsappMessage": "Hello! I would like to know more about Pamps space."
   },
   "buffet": {
-    "title": "Buffet",
     "underConstruction": "Under Construction",
     "message": "We are preparing a complete section about our buffet. Soon you'll be able to see our menus, personalized options and much more!",
-    "cta": "Contact on WhatsApp",
     "whatsappMessage": "Hello! I would like to know more about Pamps buffet."
   }
 }
