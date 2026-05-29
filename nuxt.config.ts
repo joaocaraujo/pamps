@@ -63,15 +63,29 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  /**
+   * Valores públicos expostos ao cliente via useRuntimeConfig().public.*
+   * No Cloudflare Pages: cadastre as variáveis com prefixo NUXT_PUBLIC_ no painel
+   * (Settings → Environment variables) e rode um novo deploy — são lidas no build.
+   *
+   * Nuxt substitui automaticamente cada chave camelCase pela env homônima:
+   *   whatsappPhone      ← NUXT_PUBLIC_WHATSAPP_PHONE
+   *   phoneDisplay       ← NUXT_PUBLIC_PHONE_DISPLAY
+   *   contactEmail       ← NUXT_PUBLIC_CONTACT_EMAIL
+   *   instagramUrl       ← NUXT_PUBLIC_INSTAGRAM_URL
+   *   googleReviewUrl    ← NUXT_PUBLIC_GOOGLE_REVIEW_URL
+   *   googleMapsEmbedUrl ← NUXT_PUBLIC_GOOGLE_MAPS_EMBED_URL
+   *   siteUrl            ← NUXT_PUBLIC_SITE_URL
+   */
   runtimeConfig: {
     public: {
-      whatsappPhone: process.env.NUXT_PUBLIC_WHATSAPP_PHONE,
-      phoneDisplay: process.env.NUXT_PUBLIC_PHONE_DISPLAY,
-      contactEmail: process.env.NUXT_PUBLIC_CONTACT_EMAIL,
-      instagramUrl: process.env.NUXT_PUBLIC_INSTAGRAM_URL,
-      googleReviewUrl: process.env.NUXT_PUBLIC_GOOGLE_REVIEW_URL,
-      googleMapsEmbedUrl: process.env.NUXT_PUBLIC_GOOGLE_MAPS_EMBED_URL,
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
+      whatsappPhone: '',
+      phoneDisplay: '',
+      contactEmail: '',
+      instagramUrl: '',
+      googleReviewUrl: '',
+      googleMapsEmbedUrl: '',
+      siteUrl: ''
     }
   },
 
