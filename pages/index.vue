@@ -7,27 +7,16 @@
         <div class="floating-shape shape-1"></div>
         <div class="floating-shape shape-2"></div>
         <div class="floating-shape shape-3"></div>
-        <div class="floating-shape shape-4"></div>
-        <div class="floating-shape shape-5"></div>
       </div>
       
-      <!-- Animated Color Balls -->
-      <div class="balls-container absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Animated Color Balls (reduzido para menor custo de composição) -->
+      <div class="balls-container absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div class="ball ball-1"></div>
         <div class="ball ball-2"></div>
         <div class="ball ball-3"></div>
         <div class="ball ball-4"></div>
         <div class="ball ball-5"></div>
         <div class="ball ball-6"></div>
-        <div class="ball ball-7"></div>
-        <div class="ball ball-8"></div>
-        <div class="ball ball-9"></div>
-        <div class="ball ball-10"></div>
-        <div class="ball ball-11"></div>
-        <div class="ball ball-12"></div>
-        <div class="ball ball-13"></div>
-        <div class="ball ball-14"></div>
-        <div class="ball ball-15"></div>
       </div>
       
       <div class="container mx-auto px-4 relative z-10">
@@ -60,7 +49,8 @@
                 <span>{{ $t('home.hero.ctaPrimary') }}</span>
               </a>
               <button
-                @click="isCalculatorOpen = true"
+                type="button"
+                @click="openCalculator"
                 class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-lg rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
                 :aria-label="$t('calculator.cta.open')"
               >
@@ -95,7 +85,10 @@
                 <img
                   src="/hero-image.jpg"
                   :alt="$t('home.hero.imageAlt')"
-                  loading="eager"
+                  width="800"
+                  height="600"
+                  fetchpriority="high"
+                  decoding="async"
                   class="hero-image absolute inset-0 w-full h-full object-cover"
                 />
                 <!-- Animated gradient overlay -->
@@ -125,7 +118,7 @@
     </section>
 
     <!-- Attractions CTA -->
-    <section class="py-8 md:py-10 bg-surface">
+    <section class="below-fold-section py-8 md:py-10 bg-surface">
       <div class="container mx-auto px-4">
         <NuxtLink
           to="/attractions"
@@ -160,7 +153,7 @@
     </section>
 
     <!-- Statistics Section -->
-    <section class="py-12 md:py-16 bg-light/50">
+    <section class="below-fold-section py-12 md:py-16 bg-light/50">
       <div class="container mx-auto px-4">
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -214,7 +207,7 @@
     </section>
 
     <!-- Event Types Section -->
-    <section class="py-16 md:py-24 bg-highlight">
+    <section class="below-fold-section py-16 md:py-24 bg-highlight">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main text-center mb-12">
           {{ $t('home.eventTypes.title') }}
@@ -292,7 +285,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-16 md:py-24">
+    <section class="below-fold-section py-16 md:py-24">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main text-center mb-12">
           {{ $t('home.features.title') }}
@@ -367,7 +360,7 @@
     </section>
 
     <!-- Secondary CTA Section -->
-    <section class="py-16 md:py-24 bg-highlight">
+    <section class="below-fold-section py-16 md:py-24 bg-highlight">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main mb-4">
@@ -398,7 +391,8 @@
               <span>{{ $t('cta.speakWhatsApp') }}</span>
             </a>
             <button
-              @click="isCalculatorOpen = true"
+              type="button"
+              @click="openCalculator"
               class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-base rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
               :aria-label="$t('calculator.cta.open')"
             >
@@ -431,7 +425,7 @@
     <section
       id="mapa-localizacao"
       tabindex="-1"
-      class="scroll-mt-24 py-12 outline-none focus:outline-none md:scroll-mt-28 md:py-16 bg-surface border-t border-border"
+      class="below-fold-section scroll-mt-24 py-12 outline-none focus:outline-none md:scroll-mt-28 md:py-16 bg-surface border-t border-border"
     >
       <div class="container mx-auto px-4">
         <div class="mx-auto max-w-5xl text-center mb-6 md:mb-8">
@@ -448,19 +442,32 @@
       </div>
     </section>
 
-    <!-- Calculator Modal -->
-    <CalculatorModal v-model:is-open="isCalculatorOpen" />
+    <!-- Calculator Modal (carregado só após o primeiro clique) -->
+    <CalculatorModal
+      v-if="calculatorMounted"
+      v-model:is-open="isCalculatorOpen"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, defineAsyncComponent } from 'vue'
+
+const CalculatorModal = defineAsyncComponent(
+  () => import('~/components/CalculatorModal.vue')
+)
 
 const { t } = useI18n()
 const { whatsappLink: getWhatsappLink, googleReviewUrl } = useContact()
 
 const isCalculatorOpen = ref(false)
+const calculatorMounted = ref(false)
 const whatsappLink = computed(() => getWhatsappLink())
+
+const openCalculator = () => {
+  calculatorMounted.value = true
+  isCalculatorOpen.value = true
+}
 
 useHead({
   title: computed(() => t('brand.pageTitle')),
@@ -484,6 +491,24 @@ useHead({
 
 .hero-animation {
   z-index: 0;
+  contain: layout paint;
+}
+
+.balls-container {
+  z-index: 1;
+  contain: layout paint;
+}
+
+.below-fold-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+@media (max-width: 1023px) {
+  .hero-animation,
+  .balls-container {
+    display: none;
+  }
 }
 
 .floating-shape {
@@ -522,26 +547,6 @@ useHead({
   right: 5%;
   animation-delay: -10s;
   animation-duration: 28s;
-}
-
-.shape-4 {
-  width: 180px;
-  height: 180px;
-  background: var(--color-primary-light);
-  top: 30%;
-  right: 25%;
-  animation-delay: -15s;
-  animation-duration: 22s;
-}
-
-.shape-5 {
-  width: 220px;
-  height: 220px;
-  background: var(--color-secondary-light);
-  bottom: 10%;
-  right: 20%;
-  animation-delay: -8s;
-  animation-duration: 35s;
 }
 
 @keyframes float {
@@ -654,10 +659,6 @@ useHead({
     inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-.balls-container {
-  z-index: 1;
-}
-
 .ball {
   position: absolute;
   border-radius: 50%;
@@ -726,96 +727,6 @@ useHead({
   animation-duration: 19s;
 }
 
-.ball-7 {
-  width: 75px;
-  height: 75px;
-  top: 30%;
-  left: 70%;
-  background: var(--color-primary);
-  animation-delay: -2.5s;
-  animation-duration: 21s;
-}
-
-.ball-8 {
-  width: 60px;
-  height: 60px;
-  top: 50%;
-  left: 25%;
-  background: var(--color-primary-light);
-  animation-delay: -4.5s;
-  animation-duration: 17s;
-}
-
-.ball-9 {
-  width: 70px;
-  height: 70px;
-  top: 65%;
-  left: 55%;
-  background: var(--color-secondary-light);
-  animation-delay: -1.5s;
-  animation-duration: 23s;
-}
-
-.ball-10 {
-  width: 50px;
-  height: 50px;
-  top: 8%;
-  left: 35%;
-  background: var(--color-accent);
-  animation-delay: -3.5s;
-  animation-duration: 18s;
-}
-
-.ball-11 {
-  width: 65px;
-  height: 65px;
-  top: 45%;
-  left: 15%;
-  background: var(--color-secondary);
-  animation-delay: -5.5s;
-  animation-duration: 20s;
-}
-
-.ball-12 {
-  width: 55px;
-  height: 55px;
-  top: 75%;
-  left: 75%;
-  background: var(--color-primary);
-  animation-delay: -2s;
-  animation-duration: 22s;
-}
-
-.ball-13 {
-  width: 60px;
-  height: 60px;
-  top: 25%;
-  left: 60%;
-  background: var(--color-accent-light);
-  animation-delay: -4s;
-  animation-duration: 19s;
-}
-
-.ball-14 {
-  width: 70px;
-  height: 70px;
-  top: 60%;
-  left: 45%;
-  background: var(--color-secondary);
-  animation-delay: -1s;
-  animation-duration: 21s;
-}
-
-.ball-15 {
-  width: 50px;
-  height: 50px;
-  top: 35%;
-  left: 80%;
-  background: var(--color-primary-light);
-  animation-delay: -3s;
-  animation-duration: 17s;
-}
-
 @keyframes floatBall {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -863,7 +774,11 @@ useHead({
 @media (prefers-reduced-motion: reduce) {
   .floating-shape,
   .hero-gradient-overlay,
-  .ball {
+  .ball,
+  .capybara-mascot,
+  .calculator-gradient-bg,
+  .calculator-shine,
+  .calculator-icon {
     animation: none;
   }
   

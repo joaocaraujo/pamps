@@ -34,7 +34,7 @@
 
           <!-- Calculator Content -->
           <div class="flex-1 p-3 overflow-hidden flex flex-col min-h-0">
-            <EventCalculator @close="close" />
+            <EventCalculator v-if="isOpen" @close="close" />
           </div>
         </div>
       </div>

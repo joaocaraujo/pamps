@@ -1,10 +1,11 @@
 <template>
   <div
+    ref="containerRef"
     class="w-full overflow-hidden rounded-xl border border-border bg-highlight shadow-inner"
     :class="heightClass"
   >
     <iframe
-      v-if="safeEmbedSrc"
+      v-if="shouldLoadEmbed && safeEmbedSrc"
       :src="safeEmbedSrc"
       class="h-full w-full border-0"
       :title="$t('contact.map.iframeTitle')"
@@ -13,18 +14,27 @@
       allowfullscreen
     />
     <div
-      v-else
+      v-else-if="!safeEmbedSrc"
       class="flex h-full min-h-[240px] items-center justify-center px-4"
     >
       <p class="text-center text-sm text-text-body">
         {{ $t('contact.locationCard.mapComingSoon') }}
       </p>
     </div>
+    <div
+      v-else
+      class="h-full min-h-[240px] animate-pulse bg-border/30"
+      aria-hidden="true"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+
+const containerRef = ref<HTMLElement | null>(null)
+const { isInView } = useInView(containerRef)
+const shouldLoadEmbed = computed(() => isInView.value)
 
 const props = withDefaults(
   defineProps<{

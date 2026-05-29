@@ -32,6 +32,7 @@
                 :alt="$t('attractions.main.ledSlide.title')"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
                 @error="onImageError"
               />
             </div>
@@ -52,6 +53,7 @@
                 :alt="$t('attractions.main.megaPlayground.title')"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
                 @error="onImageError"
               />
             </div>
@@ -116,6 +118,7 @@
                     :alt="attraction.title"
                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                     @error="onImageError"
                   />
                 </div>

@@ -12,7 +12,10 @@
             <img
               src="/logo.png"
               :alt="$t('brand.fullName')"
-              loading="eager"
+              width="160"
+              height="48"
+              loading="lazy"
+              decoding="async"
               class="h-12 w-auto object-contain"
             />
           </NuxtLink>

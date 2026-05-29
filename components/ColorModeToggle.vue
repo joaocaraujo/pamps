@@ -3,7 +3,7 @@
     type="button"
     @click="toggleColorMode"
     class="inline-flex items-center justify-center w-10 h-10 rounded-base border border-border bg-surface hover:bg-highlight hover:border-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 active:scale-95"
-    :aria-label="colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+    :aria-label="colorMode.value === 'dark' ? $t('colorMode.switchToLight') : $t('colorMode.switchToDark')"
   >
     <svg
       v-if="colorMode.value === 'dark'"
@@ -42,10 +42,6 @@
 const colorMode = useColorMode()
 
 const toggleColorMode = () => {
-  if (colorMode.preference === 'dark') {
-    colorMode.preference = 'light'
-  } else {
-    colorMode.preference = 'dark'
-  }
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 }
 </script>

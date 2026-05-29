@@ -1,14 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV === 'development' },
 
   nitro: {
     preset: 'cloudflare-pages'
   },
 
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetchOn: { interaction: true }
+      }
+    }
+  },
+
   routeRules: {
-    '/nossas-atracoes': { redirect: { to: '/attractions', statusCode: 301 } }
+    '/nossas-atracoes': { redirect: { to: '/attractions', statusCode: 301 } },
+    '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/logo.png': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/hero-image.jpg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/cap.png': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
   },
   
   modules: [
@@ -100,6 +112,12 @@ export default defineNuxtConfig({
           rel: 'preconnect',
           href: 'https://fonts.gstatic.com',
           crossorigin: ''
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Inter:wght@400;500;600&display=swap',
+          media: 'print',
+          onload: "this.media='all'"
         }
       ]
     }

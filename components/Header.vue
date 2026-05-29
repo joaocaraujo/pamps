@@ -23,7 +23,10 @@
             <img
               src="/logo.png"
               :alt="$t('brand.fullName')"
-              loading="eager"
+              width="160"
+              height="48"
+              fetchpriority="high"
+              decoding="async"
               class="h-10 w-auto md:h-12 object-contain"
             />
           </NuxtLink>
@@ -394,12 +397,17 @@ const closeMobileMenu = () => {
   document.body.style.overflow = ''
 }
 
+let scrollTicking = false
+
 const handleScroll = () => {
-  if (globalThis.window !== undefined && globalThis.window.scrollY > 20) {
-    isScrolled.value = true
-  } else {
-    isScrolled.value = false
-  }
+  if (scrollTicking) return
+  scrollTicking = true
+  requestAnimationFrame(() => {
+    if (globalThis.window !== undefined) {
+      isScrolled.value = globalThis.window.scrollY > 20
+    }
+    scrollTicking = false
+  })
 }
 
 const handleEscape = (e: KeyboardEvent) => {
@@ -410,7 +418,7 @@ const handleEscape = (e: KeyboardEvent) => {
 
 onMounted(() => {
   if (globalThis.window !== undefined) {
-    globalThis.window.addEventListener('scroll', handleScroll)
+    globalThis.window.addEventListener('scroll', handleScroll, { passive: true })
     globalThis.window.addEventListener('keydown', handleEscape)
     handleScroll()
   }
