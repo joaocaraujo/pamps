@@ -1,0 +1,4 @@
+# Cloudflare Pages — ver https://developers.cloudflare.com/pages/
+name = "pamps"
+compatibility_date = "2024-04-03"
+pages_build_output_dir = "dist"

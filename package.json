@@ -8,12 +8,16 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "preview:cf": "wrangler pages dev dist",
     "postinstall": "nuxt prepare"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "nuxt": "^4.2.1",
     "vue": "^3.5.22",
