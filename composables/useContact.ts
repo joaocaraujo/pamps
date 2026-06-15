@@ -1,3 +1,6 @@
+import { buildWhatsappUrl } from '~/utils/whatsapp'
+import { useI18n } from 'vue-i18n'
+
 function digitsOnly(value: string): string {
   return value.replace(/\D/g, '')
 }
@@ -69,8 +72,7 @@ export const useContact = () => {
       message !== undefined && message !== null && message !== ''
         ? message
         : t('cta.whatsappMessage')
-    const encodedMessage = encodeURIComponent(text)
-    return `https://wa.me/${whatsappNumber.value}?text=${encodedMessage}`
+    return buildWhatsappUrl(whatsappNumber.value, text)
   }
 
   return {

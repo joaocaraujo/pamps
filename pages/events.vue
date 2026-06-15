@@ -56,14 +56,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Festas Infantis')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -119,14 +117,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Chá de Bebê')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -182,14 +178,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Confraternização')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -245,14 +239,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Eventos Corporativos')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-primary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -306,14 +298,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Festas Temáticas')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-secondary text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -370,14 +360,12 @@
                 </svg>
                 {{ $t('events.gallery.view') }}
               </button>
-              <a
+              <WhatsappLink
                 :href="whatsappLink('Ensaios Fotográficos')"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-text-inverse font-body font-semibold text-sm rounded-base hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-300"
               >
                 {{ $t('cta.speakWhatsApp') }}
-              </a>
+              </WhatsappLink>
             </div>
           </div>
         </div>

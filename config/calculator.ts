@@ -1,7 +1,7 @@
 /**
- * Parâmetros da calculadora — Festa Completa alinhada à tabela de orçamento (4h).
- * Festa Lanche: mesmo modelo proporcional da página /packages (40 conv., seg–qui fixos).
- * Opcionais: valores indicativos (contratação com a equipe).
+ * Parâmetros da calculadora — Festa Completa alinhada à proposta oficial (4h).
+ * Festa Lanche: pacote fixo (45 conv., seg–qui, R$ 4.990).
+ * Opcionais: valor a consultar (não entram no total; só na mensagem do WhatsApp).
  */
 
 export type CalculatorPartyType = 'festaCompleta' | 'festaLanche'
@@ -17,39 +17,54 @@ export type CalculatorOptionalKey =
   | 'wine'
   | 'liveCharacter'
 
-/** Festa Completa — lotações tabuladas (igual página de pacotes / proposta de orçamento) */
+/** Festa Completa — lotações tabuladas (igual proposta de orçamento) */
 export const COMPLETA_GUEST_TIERS = [50, 60, 80, 100, 120] as const
 
 export type CompletaGuestTier = (typeof COMPLETA_GUEST_TIERS)[number]
 
+/** Tabela oficial de valores Festa Completa (4h) — proposta de orçamento */
+export const COMPLETA_PRICES: Record<CalculatorDayType, Record<CompletaGuestTier, number>> = {
+  weekday: {
+    50: 9390,
+    60: 9690,
+    80: 10390,
+    100: 10990,
+    120: 11590
+  },
+  friSunHoliday: {
+    50: 11390,
+    60: 11690,
+    80: 12390,
+    100: 12990,
+    120: 13590
+  },
+  saturday: {
+    50: 11890,
+    60: 12190,
+    80: 12890,
+    100: 13490,
+    120: 13990
+  }
+}
+
 /**
  * Festa Lanche — pacote fixo na calculadora (igual texto em packages.items.*)
- * Total 40 convidados; só segunda à quinta.
+ * 30 crianças + 15 adultos; só segunda à quinta.
  */
-export const FESTA_LANCHE_GUEST_TOTAL = 40
+export const FESTA_LANCHE_GUEST_TOTAL = 45
 
-/** Base segunda–quinta, 50 convidados (R$) */
-const COMPLETA_BASE_50_WEEKDAY = 10390
+/** Valor fixo do pacote Festa Lanche (R$) */
+export const FESTA_LANCHE_BASE_PRICE = 4990
 
-/** +R$ 500 a cada 10 convidados acima de 50 */
-const COMPLETA_EXTRA_PER_GUEST = 50
-
-const COMPLETA_SURCHARGE_FRISUN = 2000
-const COMPLETA_SURCHARGE_SATURDAY = 2500
-
-/** Estimativa Lanche sobre a linha Completa mesmo dia hipotético → proporção (@see /packages) */
-const LANCHE_RATIO = 0.48
-
-/** Valores estimados por item opcional (R$) */
-export const calculatorOptionalPrices: Record<CalculatorOptionalKey, number> = {
-  personalized: 450,
-  ledLetters: 380,
-  naturalFlowers: 750,
-  facePaint: 550,
-  sparkling: 260,
-  wine: 300,
-  liveCharacter: 850
-}
+export const CALCULATOR_OPTIONAL_KEYS: CalculatorOptionalKey[] = [
+  'personalized',
+  'ledLetters',
+  'naturalFlowers',
+  'facePaint',
+  'sparkling',
+  'wine',
+  'liveCharacter'
+]
 
 export const calculatorOptionalItemI18n: Record<CalculatorOptionalKey, string> = {
   personalized: 'packages.complete.items.optionalPersonalized',
@@ -61,14 +76,14 @@ export const calculatorOptionalItemI18n: Record<CalculatorOptionalKey, string> =
   liveCharacter: 'packages.complete.items.optionalLiveCharacter'
 }
 
-function completaLineWeekday(guests: number): number {
-  return COMPLETA_BASE_50_WEEKDAY + (guests - 50) * COMPLETA_EXTRA_PER_GUEST
+export function getCompletaPrice(guests: CompletaGuestTier, day: CalculatorDayType): number {
+  return COMPLETA_PRICES[day][guests]
 }
 
 /**
  * Total base do pacote (sem opcionais).
- * - Festa Lanche: ignora guests/day passados — usa sempre 40 conv. e segunda–quinta.
- * - Festa Completa: guests deve pertencer a COMPLETA_GUEST_TIERS; day com acréscimos.
+ * - Festa Lanche: ignora guests/day passados — usa sempre 45 conv. e segunda–quinta.
+ * - Festa Completa: guests deve pertencer a COMPLETA_GUEST_TIERS; day conforme tabela.
  */
 export function getPartyBaseTotal(
   guests: number,
@@ -76,29 +91,8 @@ export function getPartyBaseTotal(
   party: CalculatorPartyType
 ): number {
   if (party === 'festaLanche') {
-    const g = FESTA_LANCHE_GUEST_TOTAL
-    const weekdayLine = completaLineWeekday(g)
-    return Math.round(weekdayLine * LANCHE_RATIO)
+    return FESTA_LANCHE_BASE_PRICE
   }
 
-  const g = guests as CompletaGuestTier
-  let weekdayLine = completaLineWeekday(g)
-
-  let surcharge = 0
-  if (day === 'friSunHoliday') {
-    surcharge = COMPLETA_SURCHARGE_FRISUN
-  } else if (day === 'saturday') {
-    surcharge = COMPLETA_SURCHARGE_SATURDAY
-  }
-  return Math.round(weekdayLine + surcharge)
-}
-
-export function sumSelectedOptionals(selected: Record<CalculatorOptionalKey, boolean>): number {
-  let sum = 0
-  for (const key of Object.keys(calculatorOptionalPrices) as CalculatorOptionalKey[]) {
-    if (selected[key]) {
-      sum += calculatorOptionalPrices[key]
-    }
-  }
-  return sum
+  return getCompletaPrice(guests as CompletaGuestTier, day)
 }

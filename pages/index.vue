@@ -29,10 +29,7 @@
               {{ $t('home.hero.subheadline') }}
             </p>
             <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 items-stretch sm:items-center lg:items-start justify-center lg:justify-start">
-              <a
-                :href="whatsappLink"
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsappLink
                 class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-primary text-text-inverse font-body font-semibold text-lg rounded-base shadow-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl"
                 :aria-label="$t('cta.whatsappLabel')"
               >
@@ -47,7 +44,7 @@
                   />
                 </svg>
                 <span>{{ $t('home.hero.ctaPrimary') }}</span>
-              </a>
+              </WhatsappLink>
               <button
                 type="button"
                 @click="openCalculator"
@@ -132,17 +129,19 @@
         >
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-8">
             <div class="min-w-0 flex-1 border-l-4 border-primary pl-4 sm:pl-5 -ml-px">
-              <p class="text-xs font-semibold uppercase tracking-wide text-primary mb-1">
-                {{ $t('home.attractionsCta.eyebrow') }}
-              </p>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  {{ $t('home.attractionsCta.tagline') }}
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-text-body">
+                  {{ $t('home.attractionsCta.accessibility') }}
+                </span>
+              </div>
               <h2 class="text-lg md:text-xl font-heading font-bold text-text-main leading-snug">
                 {{ $t('home.attractionsCta.title') }}
               </h2>
               <p class="mt-2 text-sm text-text-body leading-relaxed">
                 {{ $t('home.attractionsCta.subtitle') }}
-              </p>
-              <p class="mt-3 text-xs text-text-light leading-relaxed">
-                {{ $t('home.attractionsCta.socialHint') }}
               </p>
             </div>
             <div class="shrink-0 flex sm:flex-col sm:items-end justify-start sm:pt-1">
@@ -377,10 +376,7 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a
-              :href="whatsappLink"
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsappLink
               class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-primary text-text-inverse font-body font-semibold text-base rounded-base shadow-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl"
               :aria-label="$t('cta.whatsappLabel')"
             >
@@ -395,7 +391,7 @@
                 />
               </svg>
               <span>{{ $t('cta.speakWhatsApp') }}</span>
-            </a>
+            </WhatsappLink>
             <button
               type="button"
               @click="openCalculator"
@@ -458,17 +454,17 @@
 
 <script setup lang="ts">
 import { computed, ref, defineAsyncComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const CalculatorModal = defineAsyncComponent(
   () => import('~/components/CalculatorModal.vue')
 )
 
 const { t } = useI18n()
-const { whatsappLink: getWhatsappLink, googleReviewUrl } = useContact()
+const { googleReviewUrl } = useContact()
 
 const isCalculatorOpen = ref(false)
 const calculatorMounted = ref(false)
-const whatsappLink = computed(() => getWhatsappLink())
 
 const openCalculator = () => {
   calculatorMounted.value = true

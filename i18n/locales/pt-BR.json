@@ -37,7 +37,7 @@
   "home": {
     "hero": {
       "headline": "A festa dos sonhos do seu filho começa aqui",
-      "subheadline": "Especialistas em festas infantis com espaço completo, climatizado e brinquedão em Belo Horizonte. Também realizamos eventos adultos e sociais.",
+      "subheadline": "Um espaço com tudo que você precisa pra uma festa inesquecível! Espaço climatizado com buffet completo e uma festa do jeitinho que o seu filho merece!",
       "ctaPrimary": "Falar com o Pamps",
       "imageAlt": "Espaço Pamps - Casa & Espaço de Eventos para festas infantis"
     },
@@ -96,10 +96,10 @@
       "subtitle": "Entre em contato e descubra como podemos tornar a festa do seu filho inesquecível. Também realizamos eventos adultos e sociais."
     },
     "attractionsCta": {
-      "eyebrow": "Para compartilhar",
-      "title": "Nossas atrações em um só lugar",
-      "subtitle": "Brinquedão, piscina de bolinhas, fliperama e mais — fotos e descrições completas.",
-      "socialHint": "Ideal para mandar no grupo de pais ou da família antes da festa.",
+      "tagline": "Torne seu evento inesquecível!",
+      "title": "A festa mais charmosa da Pampulha",
+      "subtitle": "Requinte e memórias que a sua família merece!",
+      "accessibility": "♿ Espaço Acessível",
       "button": "Ver atrações"
     },
     "map": {
@@ -201,7 +201,8 @@
     "festaLanche": {
       "eyebrow": "Pacote especial",
       "sideBlurb": "Formato enxuto para segunda a quinta: festa deliciosa, tempo definido e condições claras no cardápio.",
-      "includesLabel": "O que está incluso"
+      "includesLabel": "O que está incluso",
+      "investmentLabel": "Investimento"
     },
     "tags": {
       "bestSeller": "Mais Vendido",
@@ -222,21 +223,21 @@
       "daysMonThu": "Segunda à quinta-feira",
       "daysFlexible": "Conforme agenda disponível",
       "duration3h30": "Duração: 3 horas (com tolerância de 30 minutos após o evento)",
-      "guestsFestaLanche": "Convidados: 30 crianças (até 12 anos) + 10 adultos",
+      "guestsFestaLanche": "Convidados: 30 crianças (até 12 anos) + 15 adultos",
       "salgadosLivre": "Salgados: quantidade livre",
       "bebidasLivre": "Bebidas: água, suco e refrigerante (quantidade livre)",
       "doces5": "Doces: 5 unidades por convidado (sabor à escolher)",
       "boloCorte": "Bolo: bolo de corte (sabor à escolher)",
       "pratoQuente": "Prato quente: Penne ou Strogonoff",
-      "miniDecoracao": "Decoração: mini decoração",
+      "miniDecoracao": "Decoração: decoração sem balões",
       "discountVista": "Pagamento à vista com 10% de desconto",
       "card3x": "Cartão de crédito em até 3x sem juros"
     },
     "plans": {
       "realeza": {
         "name": "FESTA LANCHE",
-        "price": "",
-        "capacity": "30 crianças + 10 adultos",
+        "price": "4990,00",
+        "capacity": "30 crianças + 15 adultos",
         "duration": "3",
         "includes": [],
         "notes": "Pacote especial para segunda à quinta-feira.",
@@ -384,11 +385,12 @@
         "pricingConsult": "Valores finais, descontos e parcelamento saem no orçamento oficial com a equipe Pamps."
       },
       "daySelector": {
-        "title": "Selecione o dia da festa"
+        "title": "Selecione o dia da festa",
+        "pricingTitle": "Tabela de valores (4 horas)"
       },
       "days": {
         "monThu": "Segunda a Quinta",
-        "friSun": "Sexta e Domingo",
+        "friSun": "Sexta, Domingo e Feriados",
         "saturday": "Sábado"
       },
       "modal": {
@@ -404,7 +406,7 @@
         "cash10": "10% de desconto à vista (dinheiro)",
         "pix7": "7% de desconto à vista (PIX)",
         "reserve30": "30% para reserva + restante até 10 dias antes",
-        "card6x": "6x sem juros no cartão (mais parcelas sob consulta)"
+        "card3x": "30% de sinal + restante em até 3x sem juros no cartão (mais parcelas a calcular)"
       }
     },
     "carousel": {
@@ -417,9 +419,10 @@
     "close": "Fechar calculadora",
     "requiredFields": "Informações do Evento",
     "optionalFields": "Itens opcionais",
-    "optionalIntro": "Valores dos opcionais são indicativos; marcas, disponibilidade e valores finais com a equipe Pamps.",
+    "optionalIntro": "Os opcionais não entram na estimativa; marcas, disponibilidade e valores finais com a equipe Pamps.",
     "optionalSelectedOne": "item selecionado",
     "optionalSelectedMany": "itens selecionados",
+    "priceOnRequest": "Valor a consultar",
     "fromPrice": "a partir de",
     "valuesNotice": "Todos os valores são estimativas mínimas. O orçamento final pode ser maior que o exibido.",
     "people": {
@@ -448,7 +451,7 @@
       "perPerson": "Por convidado",
       "base": "Pacote (base)",
       "optional": "@:calculator.steps.optional",
-      "disclaimer": "Simulação: Festa Completa só com lotações tabuladas; Festa Lanche fixa conforme Pacotes. Opcionais com valores indicativos. Confirme tudo na Pamps."
+      "disclaimer": "Simulação: Festa Completa só com lotações tabuladas; Festa Lanche fixa conforme Pacotes. Opcionais com valor a consultar. Confirme tudo na Pamps."
     },
     "cta": {
       "whatsapp": "Enviar orçamento via WhatsApp",

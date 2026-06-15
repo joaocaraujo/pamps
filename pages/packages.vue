@@ -31,6 +31,14 @@
                       {{ $t('packages.plans.realeza.duration') }}{{ $t('packages.common.hours') }}
                     </p>
                   </div>
+                  <div class="rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm">
+                    <p class="text-[10px] uppercase tracking-wide font-semibold text-primary mb-0.5">
+                      {{ $t('packages.festaLanche.investmentLabel') }}
+                    </p>
+                    <p class="font-semibold text-text-main leading-snug">
+                      {{ festaLanchePrice }}
+                    </p>
+                  </div>
                 </div>
                 <div class="hidden lg:block rounded-xl border border-border bg-surface/60 p-4 text-sm text-text-body leading-relaxed">
                   {{ $t('packages.festaLanche.sideBlurb') }}
@@ -61,14 +69,12 @@
               <p class="text-sm italic text-text-light md:max-w-xl">
                 {{ $t('packages.plans.realeza.notes') }}
               </p>
-              <a
+              <WhatsappLink
                 :href="whatsappLink($t('packages.plans.realeza.name'))"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="shrink-0 inline-flex items-center justify-center w-full md:w-auto px-8 py-3 bg-primary text-text-inverse rounded-full font-semibold hover:bg-primary-hover transition shadow-md"
               >
                 {{ $t('packages.common.cta') }}
-              </a>
+              </WhatsappLink>
             </div>
           </article>
 
@@ -125,6 +131,25 @@
                 </div>
               </div>
 
+              <div v-if="selectedDayPrices.length" class="mt-4 rounded-xl border border-border bg-surface/40 p-4 md:p-5">
+                <h3 class="text-base font-heading font-semibold text-text-main mb-3">
+                  {{ $t('packages.complete.daySelector.pricingTitle') }}
+                </h3>
+                <p class="text-sm font-semibold text-primary mb-3">
+                  {{ $t(`packages.complete.days.${selectedDay}`) }}
+                </p>
+                <ul class="space-y-2 text-sm text-text-body">
+                  <li
+                    v-for="row in selectedDayPrices"
+                    :key="row.guests"
+                    class="flex items-center justify-between gap-4 border-b border-border/60 pb-2 last:border-0 last:pb-0"
+                  >
+                    <span>{{ row.guests }} {{ $t('packages.common.guests') }}</span>
+                    <span class="font-semibold text-text-main tabular-nums">{{ row.formatted }}</span>
+                  </li>
+                </ul>
+              </div>
+
               <div v-if="selectedDayData" class="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4 md:p-5">
                 <h4 class="text-base font-heading font-bold text-text-main mb-3">
                   {{ $t('packages.complete.modal.title', { day: $t(`packages.complete.days.${selectedDay}`) }) }}
@@ -146,14 +171,12 @@
                 </div>
               </div>
 
-              <a
+              <WhatsappLink
                 :href="whatsappLink($t('packages.complete.title'))"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="mt-6 inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 bg-primary text-text-inverse rounded-full font-semibold hover:bg-primary-hover transition shadow-md"
               >
                 {{ $t('packages.common.cta') }}
-              </a>
+              </WhatsappLink>
             </div>
           </article>
         </div>
@@ -164,12 +187,23 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import {
+  COMPLETA_GUEST_TIERS,
+  COMPLETA_PRICES,
+  FESTA_LANCHE_BASE_PRICE,
+  type CalculatorDayType
+} from '~/config/calculator'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { whatsappLink: baseWhatsappLink } = useContact()
 
 const festaLancheCol1 = ['duration3h30', 'guestsFestaLanche', 'salgadosLivre', 'bebidasLivre', 'doces5']
 const festaLancheCol2 = ['boloCorte', 'pratoQuente', 'miniDecoracao', 'discountVista', 'card3x']
+
+const festaLanchePrice = computed(() =>
+  new Intl.NumberFormat(locale.value, { style: 'currency', currency: 'BRL' }).format(FESTA_LANCHE_BASE_PRICE)
+)
 
 const completeSections = [
   { key: 'decoration', items: ['themedScene', 'balloonArch', 'balloonCeiling', 'balloonCenterpiece'], note: 'decorationOptional' },
@@ -204,9 +238,24 @@ const completeSections = [
 
 const dayOptions = [{ key: 'monThu' },{ key: 'friSun' },{ key: 'saturday' }] as const
 const dayDetails = { monThu: { condition: 'default' }, friSun: { condition: 'default' }, saturday: { condition: 'premiumDay' } }
-const paymentItems = ['cash10', 'pix7', 'reserve30', 'card6x']
+const dayToCalculatorDay: Record<keyof typeof dayDetails, CalculatorDayType> = {
+  monThu: 'weekday',
+  friSun: 'friSunHoliday',
+  saturday: 'saturday'
+}
+const paymentItems = ['cash10', 'pix7', 'reserve30', 'card3x']
 const selectedDay = ref<keyof typeof dayDetails>('monThu')
 const selectedDayData = computed(() => dayDetails[selectedDay.value])
+const selectedDayPrices = computed(() => {
+  const day = dayToCalculatorDay[selectedDay.value]
+
+  return COMPLETA_GUEST_TIERS.map((guests) => ({
+    guests,
+    formatted: new Intl.NumberFormat(locale.value, { style: 'currency', currency: 'BRL' }).format(
+      COMPLETA_PRICES[day][guests]
+    )
+  }))
+})
 const selectDay = (day: keyof typeof dayDetails) => { selectedDay.value = day }
 
 const whatsappLink = (packageName: string) => {

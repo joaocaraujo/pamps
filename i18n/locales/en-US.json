@@ -37,7 +37,7 @@
   "home": {
     "hero": {
       "headline": "Your child's dream party starts here",
-      "subheadline": "Specialists in children's parties with complete, climate-controlled space and playground in Belo Horizonte. We also host adult and social events.",
+      "subheadline": "A space with everything you need for an unforgettable party! Climate-controlled venue with full buffet and a party exactly the way your child deserves!",
       "ctaPrimary": "Contact Pamps",
       "imageAlt": "Pamps Space - House & Event Space for children's parties"
     },
@@ -96,10 +96,10 @@
       "subtitle": "Get in touch and discover how we can make your child's party unforgettable. We also host adult and social events."
     },
     "attractionsCta": {
-      "eyebrow": "Share the fun",
-      "title": "Our attractions in one place",
-      "subtitle": "Mega play area, ball pit, pinball, and more — photos and full details.",
-      "socialHint": "Great to drop in the parents' chat or family group before the party.",
+      "tagline": "Make your event unforgettable!",
+      "title": "The most charming party venue in Pampulha",
+      "subtitle": "Refinement and memories your family deserves!",
+      "accessibility": "♿ Accessible space",
       "button": "See attractions"
     },
     "map": {
@@ -201,7 +201,8 @@
     "festaLanche": {
       "eyebrow": "Special package",
       "sideBlurb": "A weekday-friendly format: clear timing, defined menu and straightforward conditions.",
-      "includesLabel": "What's included"
+      "includesLabel": "What's included",
+      "investmentLabel": "Investment"
     },
     "tags": {
       "bestSeller": "Best Seller",
@@ -222,21 +223,21 @@
       "daysMonThu": "Monday to Thursday",
       "daysFlexible": "According to available schedule",
       "duration3h30": "Duration: 3 hours (with 30-minute grace period after the event)",
-      "guestsFestaLanche": "Guests: 30 children (up to 12 years old) + 10 adults",
+      "guestsFestaLanche": "Guests: 30 children (up to 12 years old) + 15 adults",
       "salgadosLivre": "Savory snacks: unlimited quantity",
       "bebidasLivre": "Drinks: water, juice, and soda (unlimited quantity)",
       "doces5": "Sweets: 5 units per guest (flavor of choice)",
       "boloCorte": "Cake: cutting cake (flavor of choice)",
       "pratoQuente": "Hot dish: Penne or Stroganoff",
-      "miniDecoracao": "Decoration: mini decoration",
+      "miniDecoracao": "Decoration: decoration without balloons",
       "discountVista": "Cash payment with 10% discount",
       "card3x": "Credit card in up to 3 interest-free installments"
     },
     "plans": {
       "realeza": {
         "name": "SNACK PARTY",
-        "price": "",
-        "capacity": "30 children + 10 adults",
+        "price": "4990,00",
+        "capacity": "30 children + 15 adults",
         "duration": "3",
         "notes": "Special package for Monday to Thursday."
       },
@@ -360,10 +361,13 @@
         "optionalsConsult": "Availability, brands and pricing for these items—ask the Pamps team.",
         "pricingConsult": "Final amounts, discounts and installments are confirmed in the official quote with the Pamps team."
       },
-      "daySelector": { "title": "Select party day" },
+      "daySelector": {
+        "title": "Select party day",
+        "pricingTitle": "Price table (4 hours)"
+      },
       "days": {
         "monThu": "Monday to Thursday",
-        "friSun": "Friday and Sunday",
+        "friSun": "Friday, Sunday and holidays",
         "saturday": "Saturday"
       },
       "modal": {
@@ -379,7 +383,7 @@
         "cash10": "10% discount for cash payment",
         "pix7": "7% discount for PIX payment",
         "reserve30": "30% to book + remaining up to 10 days before",
-        "card6x": "Up to 6x interest-free on card (more installments on request)"
+        "card3x": "30% down payment + balance in up to 3 interest-free card installments (more installments on request)"
       }
     },
     "carousel": {
@@ -392,9 +396,10 @@
     "close": "Close calculator",
     "requiredFields": "Event Information",
     "optionalFields": "Optional add-ons",
-    "optionalIntro": "Optional prices are indicative; brands, availability and final amounts with the Pamps team.",
+    "optionalIntro": "Optionals are not included in the estimate; brands, availability and final amounts with the Pamps team.",
     "optionalSelectedOne": "item selected",
     "optionalSelectedMany": "items selected",
+    "priceOnRequest": "Price on request",
     "fromPrice": "from",
     "valuesNotice": "All amounts are minimum estimates. Your final quote may be higher than shown.",
     "people": {
@@ -423,7 +428,7 @@
       "perPerson": "Per guest",
       "base": "Package (base)",
       "optional": "Optionals",
-      "disclaimer": "Estimate: Full Party uses table tiers only; Lunch Party follows fixed Package rules. Optionals are indicative—confirm everything with Pamps."
+      "disclaimer": "Estimate: Full Party uses table tiers only; Lunch Party follows fixed Package rules. Optionals are priced on request—confirm everything with Pamps."
     },
     "cta": {
       "whatsapp": "Send quote via WhatsApp",

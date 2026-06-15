@@ -37,7 +37,7 @@
   "home": {
     "hero": {
       "headline": "La fiesta de los sueños de tu hijo comienza aquí",
-      "subheadline": "Especialistas en fiestas infantiles con espacio completo, climatizado y parque infantil en Belo Horizonte. También realizamos eventos adultos y sociales.",
+      "subheadline": "¡Un espacio con todo lo que necesitas para una fiesta inolvidable! Espacio climatizado con buffet completo y una fiesta tal como tu hijo merece!",
       "ctaPrimary": "Contactar a Pamps",
       "imageAlt": "Espacio Pamps - Casa y Espacio de Eventos para fiestas infantiles"
     },
@@ -96,10 +96,10 @@
       "subtitle": "Ponte en contacto y descubre cómo podemos hacer la fiesta de tu hijo inolvidable. También realizamos eventos adultos y sociales."
     },
     "attractionsCta": {
-      "eyebrow": "Para compartir",
-      "title": "Nuestras atracciones en un solo lugar",
-      "subtitle": "Parque de juegos, piscina de bolas, fliperama y más — fotos y detalles completos.",
-      "socialHint": "Ideal para enviar al grupo de padres o de la familia antes de la fiesta.",
+      "tagline": "¡Haz tu evento inolvidable!",
+      "title": "La fiesta más encantadora de Pampulha",
+      "subtitle": "Refinamiento y recuerdos que tu familia merece!",
+      "accessibility": "♿ Espacio accesible",
       "button": "Ver atracciones"
     },
     "map": {
@@ -201,7 +201,8 @@
     "festaLanche": {
       "eyebrow": "Paquete especial",
       "sideBlurb": "Formato pensado para entre semana: tiempo claro, menú definido y condiciones transparentes.",
-      "includesLabel": "Qué incluye"
+      "includesLabel": "Qué incluye",
+      "investmentLabel": "Inversión"
     },
     "tags": {
       "bestSeller": "Más Vendido",
@@ -222,21 +223,21 @@
       "daysMonThu": "lunes a jueves",
       "daysFlexible": "Según agenda disponible",
       "duration3h30": "Duración: 3 horas (con tolerancia de 30 minutos después del evento)",
-      "guestsFestaLanche": "Invitados: 30 niños (hasta 12 años) + 10 adultos",
+      "guestsFestaLanche": "Invitados: 30 niños (hasta 12 años) + 15 adultos",
       "salgadosLivre": "Salados: cantidad libre",
       "bebidasLivre": "Bebidas: agua, jugo y refresco (cantidad libre)",
       "doces5": "Dulces: 5 unidades por invitado (sabor a elegir)",
       "boloCorte": "Pastel: pastel de corte (sabor a elegir)",
       "pratoQuente": "Plato caliente: Penne o Stroganoff",
-      "miniDecoracao": "Decoración: mini decoración",
+      "miniDecoracao": "Decoración: decoración sin globos",
       "discountVista": "Pago al contado con 10% de descuento",
       "card3x": "Tarjeta de crédito en hasta 3 cuotas sin interés"
     },
     "plans": {
       "realeza": {
         "name": "FIESTA LUNCH",
-        "price": "",
-        "capacity": "30 niños + 10 adultos",
+        "price": "4990,00",
+        "capacity": "30 niños + 15 adultos",
         "duration": "3",
         "notes": "Paquete especial de lunes a jueves."
       },
@@ -360,10 +361,13 @@
         "optionalsConsult": "Contratación, marcas y valores de estos ítems bajo consulta con el equipo Pamps.",
         "pricingConsult": "Los valores finales, descuentos y plazos se confirman en el presupuesto oficial con el equipo Pamps."
       },
-      "daySelector": { "title": "Seleccione el dia de la fiesta" },
+      "daySelector": {
+        "title": "Seleccione el dia de la fiesta",
+        "pricingTitle": "Tabla de valores (4 horas)"
+      },
       "days": {
         "monThu": "Lunes a Jueves",
-        "friSun": "Viernes y Domingo",
+        "friSun": "Viernes, Domingo y Feriados",
         "saturday": "Sabado"
       },
       "modal": {
@@ -379,7 +383,7 @@
         "cash10": "10% de descuento al contado (efectivo)",
         "pix7": "7% de descuento al contado (PIX)",
         "reserve30": "30% para reserva + restante hasta 10 dias antes",
-        "card6x": "Hasta 6 cuotas sin interes en tarjeta (mas cuotas a consultar)"
+        "card3x": "30% de senal + restante en hasta 3 cuotas sin interes en tarjeta (mas cuotas a calcular)"
       }
     },
     "carousel": {
@@ -392,9 +396,10 @@
     "close": "Cerrar calculadora",
     "requiredFields": "Información del Evento",
     "optionalFields": "Ítems opcionales",
-    "optionalIntro": "Los precios de los opcionales son orientativos; marcas, disponibilidad y valores finales con el equipo Pamps.",
+    "optionalIntro": "Los opcionales no entran en la estimación; marcas, disponibilidad y valores finales con el equipo Pamps.",
     "optionalSelectedOne": "ítem seleccionado",
     "optionalSelectedMany": "ítems seleccionados",
+    "priceOnRequest": "Valor a consultar",
     "fromPrice": "desde",
     "valuesNotice": "Todos los importes son estimaciones mínimas. El presupuesto final puede ser mayor al mostrado.",
     "people": {
@@ -423,7 +428,7 @@
       "perPerson": "Por invitado",
       "base": "Paquete (base)",
       "optional": "@:calculator.steps.optional",
-      "disclaimer": "Simulación: fiesta completa solo tramos tabulados; fiesta almuerzo según Pacotes fijos. Opcionales orientativos — confírmelo todo con Pamps."
+      "disclaimer": "Simulación: fiesta completa solo tramos tabulados; fiesta almuerzo según Pacotes fijos. Opcionales con valor a consultar — confírmelo todo con Pamps."
     },
     "cta": {
       "whatsapp": "Enviar cotización por WhatsApp",
