@@ -177,7 +177,9 @@ onUnmounted(() => {
 
 const handleImageError = (e: Event) => {
   const img = e.target as HTMLImageElement
-  img.src = '/images/placeholder.jpg' // Placeholder image if image fails to load
+  if (!img.src.endsWith('/logo.webp')) {
+    img.src = '/logo.webp'
+  }
 }
 </script>
 

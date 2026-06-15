@@ -83,33 +83,38 @@
           <div class="order-2 relative z-10 mt-2 lg:mt-0">
             <div class="hero-image-container hero-image-container--mobile">
               <div class="aspect-[4/3] relative overflow-hidden">
-                <img
+                <OptimizedImage
                   src="/hero-image.jpg"
                   :alt="$t('home.hero.imageAlt')"
                   width="800"
                   height="600"
                   fetchpriority="high"
                   decoding="async"
-                  class="hero-image absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                  img-class="hero-image absolute inset-0 w-full h-full object-cover"
                 />
                 <!-- Animated gradient overlay -->
                 <div class="absolute inset-0 hero-gradient-overlay opacity-20"></div>
               </div>
               <!-- Capybara Mascot - Part of the frame -->
               <div class="capybara-mascot capybara-bottom-left">
-                <img
+                <OptimizedImage
                   src="/cap.png"
                   alt="Mascote Pamps - Capivara"
+                  width="120"
+                  height="120"
                   loading="lazy"
-                  class="w-full h-full object-contain"
+                  img-class="w-full h-full object-contain"
                 />
               </div>
               <div class="capybara-mascot capybara-top-right">
-                <img
+                <OptimizedImage
                   src="/cap.png"
                   alt="Mascote Pamps - Capivara"
+                  width="120"
+                  height="120"
                   loading="lazy"
-                  class="w-full h-full object-contain"
+                  img-class="w-full h-full object-contain"
                 />
               </div>
             </div>

@@ -152,26 +152,26 @@ import { computed, ref } from 'vue'
 
 const { t } = useI18n()
 
-const fallbackImage = '/logo.png'
+const fallbackImage = '/logo.webp'
 
 const mainAttractions = {
   ledSlide: {
-    image: '/images/attractions/toboga-led.jpg'
+    image: '/images/attractions/toboga-led.webp'
   },
   megaPlayground: {
-    image: '/images/attractions/mega-brinquedao.jpg'
+    image: '/images/attractions/mega-brinquedao.webp'
   }
 }
 
 const secondaryAttractions = computed(() => [
-  { title: t('attractions.secondary.field'), image: '/images/attractions/campo-futebol.jpg' },
-  { title: t('attractions.secondary.ballPool'), image: '/images/attractions/piscina-bolinha.jpg' },
-  { title: t('attractions.secondary.trampoline'), image: '/images/attractions/cama-elastica.jpg' },
-  { title: t('attractions.secondary.babyArea'), image: '/images/attractions/area-baby.jpg' },
-  { title: t('attractions.secondary.arcade'), image: '/images/attractions/fliperama.jpg' },
-  { title: t('attractions.secondary.foosball'), image: '/images/attractions/toto-pebolim.jpg' },
-  { title: t('attractions.secondary.airGame'), image: '/images/attractions/air-game.jpg' },
-  { title: t('attractions.secondary.interactiveScenarios'), image: '/images/attractions/cenarios-interativos.jpg' }
+  { title: t('attractions.secondary.field'), image: '/images/attractions/campo-futebol.webp' },
+  { title: t('attractions.secondary.ballPool'), image: '/images/attractions/piscina-bolinha.webp' },
+  { title: t('attractions.secondary.trampoline'), image: '/images/attractions/cama-elastica.webp' },
+  { title: t('attractions.secondary.babyArea'), image: '/images/attractions/area-baby.webp' },
+  { title: t('attractions.secondary.arcade'), image: '/images/attractions/fliperama.webp' },
+  { title: t('attractions.secondary.foosball'), image: '/images/attractions/toto-pebolim.webp' },
+  { title: t('attractions.secondary.airGame'), image: '/images/attractions/air-game.webp' },
+  { title: t('attractions.secondary.interactiveScenarios'), image: '/images/attractions/cenarios-interativos.webp' }
 ])
 
 const currentSlide = ref(0)

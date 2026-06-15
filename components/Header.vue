@@ -20,41 +20,15 @@
             class="flex shrink-0 items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base transition-opacity hover:opacity-80"
             :aria-label="$t('brand.fullName') + ' - ' + $t('navigation.home')"
           >
-            <img
+            <OptimizedImage
               src="/logo.png"
               :alt="$t('brand.fullName')"
               width="160"
               height="48"
               fetchpriority="high"
               decoding="async"
-              class="h-10 w-auto md:h-12 object-contain"
+              img-class="h-10 w-auto md:h-12 object-contain"
             />
-          </NuxtLink>
-          <span
-            class="hidden md:block h-7 w-px shrink-0 self-center bg-border md:h-9"
-            aria-hidden="true"
-          />
-          <NuxtLink
-            to="/"
-            class="hidden md:inline-flex shrink-0 items-center justify-center rounded-base p-1 text-text-body transition-colors hover:text-primary hover:bg-highlight/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            :title="$t('navigation.home')"
-            :aria-label="$t('navigation.navigateTo', { label: $t('navigation.home') })"
-          >
-            <svg
-              class="h-5 w-5 md:h-6 md:w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-            <span class="sr-only">{{ $t('navigation.home') }}</span>
           </NuxtLink>
         </div>
 

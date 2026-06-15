@@ -1,3 +1,11 @@
+/* Self-hosted fonts — apenas subset latino (site PT/EN/ES) */
+@import '@fontsource/nunito/latin-400.css';
+@import '@fontsource/nunito/latin-600.css';
+@import '@fontsource/nunito/latin-700.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+
 /* Import Design Tokens */
 @import './tokens.css';
 
@@ -30,6 +38,21 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+  }
+}
+
+/* Cores de texto acessíveis em fundos claros (WCAG AA) */
+@layer utilities {
+  .text-primary {
+    color: var(--color-primary-dark);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary-dark);
+  }
+
+  .text-accent {
+    color: var(--color-accent-dark);
   }
 }
 

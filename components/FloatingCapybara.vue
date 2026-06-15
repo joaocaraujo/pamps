@@ -17,7 +17,7 @@
       :aria-label="$t('common.capybaraMascotAlt')"
     >
       <img
-        src="/cap.png"
+        src="/cap.webp"
         alt=""
         class="h-full w-full object-contain"
         :class="{ 'scale-x-[-1]': flip }"

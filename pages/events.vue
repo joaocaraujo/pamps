@@ -404,34 +404,34 @@ const currentGalleryImages = ref<string[]>([])
 
 const eventImages = {
   children: [
-    '/images/events/children/festa-infantil-01.jpg',
-    '/images/events/children/festa-infantil-02.jpg',
-    '/images/events/children/festa-infantil-03.jpg'
+    '/images/events/children/festa-infantil-01.webp',
+    '/images/events/children/festa-infantil-02.webp',
+    '/images/events/children/festa-infantil-03.webp'
   ],
   babyShower: [
-    '/images/events/baby-shower/cha-bebe-01.jpg',
-    '/images/events/baby-shower/cha-bebe-02.jpg',
-    '/images/events/baby-shower/cha-bebe-03.jpg'
+    '/images/events/baby-shower/cha-bebe-01.webp',
+    '/images/events/baby-shower/cha-bebe-02.webp',
+    '/images/events/baby-shower/cha-bebe-03.webp'
   ],
   gathering: [
-    '/images/events/gathering/confraternizacao-01.jpg',
-    '/images/events/gathering/confraternizacao-02.jpg',
-    '/images/events/gathering/confraternizacao-03.jpg'
+    '/images/events/gathering/confraternizacao-01.webp',
+    '/images/events/gathering/confraternizacao-02.webp',
+    '/images/events/gathering/confraternizacao-03.webp'
   ],
   corporate: [
-    '/images/events/corporate/evento-corporativo-01.jpg',
-    '/images/events/corporate/evento-corporativo-02.jpg',
-    '/images/events/corporate/evento-corporativo-03.jpg'
+    '/images/events/corporate/evento-corporativo-01.webp',
+    '/images/events/corporate/evento-corporativo-02.webp',
+    '/images/events/corporate/evento-corporativo-03.webp'
   ],
   themed: [
-    '/images/events/themed/festa-tematica-01.jpg',
-    '/images/events/themed/festa-tematica-02.jpg',
-    '/images/events/themed/festa-tematica-03.jpg'
+    '/images/events/themed/festa-tematica-01.webp',
+    '/images/events/themed/festa-tematica-02.webp',
+    '/images/events/themed/festa-tematica-03.webp'
   ],
   photoShoot: [
-    '/images/events/photo-shoot/ensaio-fotografico-01.jpg',
-    '/images/events/photo-shoot/ensaio-fotografico-02.jpg',
-    '/images/events/photo-shoot/ensaio-fotografico-03.jpg'
+    '/images/events/photo-shoot/ensaio-fotografico-01.webp',
+    '/images/events/photo-shoot/ensaio-fotografico-02.webp',
+    '/images/events/photo-shoot/ensaio-fotografico-03.webp'
   ]
 }
 

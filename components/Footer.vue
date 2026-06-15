@@ -9,14 +9,14 @@
             class="inline-block mb-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base transition-opacity hover:opacity-80"
             :aria-label="$t('brand.fullName') + ' - ' + $t('navigation.home')"
           >
-            <img
+            <OptimizedImage
               src="/logo.png"
               :alt="$t('brand.fullName')"
               width="160"
               height="48"
               loading="lazy"
               decoding="async"
-              class="h-12 w-auto object-contain"
+              img-class="h-12 w-auto object-contain"
             />
           </NuxtLink>
           <p class="text-text-body text-sm leading-relaxed mb-4">

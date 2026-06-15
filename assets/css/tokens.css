@@ -2,15 +2,15 @@
   --color-primary: #F79F1F;
   --color-primary-hover: #D98815;
   --color-primary-light: #FDD085;
-  --color-primary-dark: #C77A0F;
+  --color-primary-dark: #9A5F00;
   
   --color-secondary: #B5D684;
-  --color-secondary-dark: #7A8E40;
+  --color-secondary-dark: #5A6B2E;
   --color-secondary-light: #D4E8A8;
   
   --color-accent: #D4AF37;
   --color-accent-light: #E8C866;
-  --color-accent-dark: #B8941F;
+  --color-accent-dark: #8A7018;
   
   --color-highlight: #FFF9E5;
   --color-light: #FFFFFF;
@@ -19,7 +19,7 @@
   
   --color-text-main: #4E342E;
   --color-text-body: #6D5D55;
-  --color-text-light: #9E8E87;
+  --color-text-light: #6D625C;
   --color-text-inverse: #FFFFFF;
   
   --color-border: #E0D6CC;
