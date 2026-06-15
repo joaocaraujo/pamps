@@ -418,6 +418,8 @@
     "requiredFields": "Informações do Evento",
     "optionalFields": "Itens opcionais",
     "optionalIntro": "Valores dos opcionais são indicativos; marcas, disponibilidade e valores finais com a equipe Pamps.",
+    "optionalSelectedOne": "item selecionado",
+    "optionalSelectedMany": "itens selecionados",
     "people": {
       "label": "Quantidade de convidados",
       "labelCompleta": "Lotação (tabela de referência)",

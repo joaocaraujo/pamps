@@ -1,7 +1,7 @@
 <template>
   <div class="calculator-container">
-    <div class="steps-indicator mb-4">
-      <div class="flex items-center justify-center space-x-1">
+    <div class="steps-indicator mb-3 sm:mb-4">
+      <div class="flex items-center justify-center gap-1 sm:space-x-1">
         <div class="step-item" :class="{ active: currentStep === 1, completed: currentStep > 1 }">
           <div class="step-number">1</div>
           <span class="step-label">{{ $t('calculator.steps.info') }}</span>
@@ -140,21 +140,34 @@
       </div>
 
       <!-- Passo 2: opcionais -->
-      <div v-show="currentStep === 2" class="step-content">
-        <div class="calculator-section">
-          <div class="section-header">
+      <div v-show="currentStep === 2" class="step-content step-content-scroll">
+        <div class="calculator-section optional-section">
+          <div class="section-header optional-header">
             <div class="section-icon optional">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <div>
+            <div class="min-w-0 flex-1">
               <h3 class="section-title">{{ $t('calculator.optionalFields') }}</h3>
-              <p class="text-xs text-text-light mt-1 leading-relaxed">{{ $t('calculator.optionalIntro') }}</p>
+              <p class="optional-intro">{{ $t('calculator.optionalIntro') }}</p>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div
+            v-if="selectedOptionalsCount > 0"
+            class="optional-summary"
+            role="status"
+            :aria-label="`${selectedOptionalsCount} ${$t('calculator.optionalFields')}`"
+          >
+            <span class="optional-summary-count">
+              {{ selectedOptionalsCount }}
+              {{ selectedOptionalsCount === 1 ? $t('calculator.optionalSelectedOne') : $t('calculator.optionalSelectedMany') }}
+            </span>
+            <span class="optional-summary-total">+ {{ formatCurrency(liveOptionalTotal) }}</span>
+          </div>
+
+          <div class="optional-list">
             <label
               v-for="row in optionalRows"
               :key="row.key"
@@ -166,12 +179,12 @@
                 type="checkbox"
                 class="optional-checkbox"
               />
-              <div class="optional-content">
-                <div class="optional-icon">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
-                </div>
+              <span class="optional-check" aria-hidden="true">
+                <svg v-if="form.optional[row.key]" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div class="optional-body">
                 <span class="optional-label">{{ row.label }}</span>
                 <span class="optional-extra">+ {{ row.priceFormatted }}</span>
               </div>
@@ -179,7 +192,7 @@
           </div>
         </div>
 
-        <div class="step-navigation">
+        <div class="step-navigation step-navigation-sticky">
           <button type="button" class="step-btn step-btn-secondary" @click="prevStep">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -352,6 +365,12 @@ const optionalRows = computed(() =>
   }))
 )
 
+const liveOptionalTotal = computed(() => sumSelectedOptionals(form.value.optional))
+
+const selectedOptionalsCount = computed(() =>
+  OPTIONAL_KEYS.filter((key) => form.value.optional[key]).length
+)
+
 const nextStep = () => {
   if (currentStep.value === 1 && canProceedFromStep1.value) {
     currentStep.value = 2
@@ -500,15 +519,16 @@ const whatsappLink = computed(() => {
 }
 
 .step-item.completed .step-number {
-  @apply border-primary bg-primary text-text-inverse;
+  @apply border-primary bg-primary text-transparent;
 }
 
 .step-item.completed .step-number::after {
   content: '✓';
+  @apply text-text-inverse;
 }
 
 .step-label {
-  @apply text-xs font-medium text-text-body hidden sm:block;
+  @apply text-[10px] sm:text-xs font-medium text-text-body text-center leading-tight max-w-[4.5rem] sm:max-w-none;
 }
 
 .step-item.active .step-label {
@@ -516,19 +536,23 @@ const whatsappLink = computed(() => {
 }
 
 .step-divider {
-  @apply flex-1 h-0.5 bg-border mx-1 mt-3 hidden sm:block;
+  @apply w-6 sm:flex-1 h-0.5 bg-border mx-0.5 sm:mx-1 mt-3 flex-shrink-0;
 }
 
 .step-content {
-  @apply flex-1 flex flex-col space-y-3 min-h-0 overflow-hidden;
+  @apply flex-1 flex flex-col space-y-3 min-h-0;
+}
+
+.step-content-scroll {
+  @apply overflow-hidden;
 }
 
 .step-navigation {
-  @apply flex justify-between items-center pt-3 border-t border-border mt-3 flex-shrink-0;
+  @apply flex justify-between items-center gap-2 pt-3 border-t border-border mt-auto flex-shrink-0;
 }
 
 .step-btn {
-  @apply inline-flex items-center px-4 py-2 rounded-lg font-semibold text-xs transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply inline-flex items-center justify-center px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-semibold text-xs transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 min-h-[2.75rem] sm:min-h-0;
 }
 
 .step-btn-primary {
@@ -626,41 +650,116 @@ const whatsappLink = computed(() => {
   @apply flex justify-between text-xs text-text-light;
 }
 
+.optional-section {
+  @apply flex-1 min-h-0 flex flex-col overflow-hidden p-0 border-0 shadow-none;
+  background: transparent;
+}
+
+.optional-header {
+  @apply px-1 pb-3 mb-0 flex-shrink-0;
+}
+
+.optional-intro {
+  @apply text-xs text-text-light mt-1 leading-relaxed;
+}
+
+.optional-summary {
+  @apply flex items-center justify-between gap-3 mx-1 mb-3 px-3 py-2.5 rounded-xl border flex-shrink-0;
+  border-color: rgba(247, 159, 31, 0.3);
+  background: linear-gradient(to right, rgba(247, 159, 31, 0.12), rgba(247, 159, 31, 0.05));
+}
+
+.optional-summary-count {
+  @apply text-xs font-medium text-text-body;
+}
+
+.optional-summary-total {
+  @apply text-sm font-bold text-primary whitespace-nowrap;
+}
+
+.optional-list {
+  @apply flex-1 min-h-0 overflow-y-auto overflow-x-hidden space-y-2 px-1 pb-1;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
 .optional-card {
-  @apply relative p-3 rounded-xl border-2 border-border bg-light cursor-pointer transition-all duration-200 hover:shadow-md;
+  @apply relative flex items-center gap-3 p-3 min-h-[3.25rem] rounded-xl border-2 border-border bg-light cursor-pointer transition-all duration-200 active:scale-[0.99];
+  touch-action: manipulation;
 }
 .optional-card:hover {
   border-color: rgba(247, 159, 31, 0.5);
 }
 
 .optional-card-active {
-  @apply border-primary shadow-md;
-  background: linear-gradient(to bottom right, rgba(247, 159, 31, 0.1), rgba(247, 159, 31, 0.05));
+  @apply border-primary shadow-sm;
+  background: linear-gradient(to right, rgba(247, 159, 31, 0.12), rgba(247, 159, 31, 0.04));
 }
 
 .optional-checkbox {
   @apply sr-only;
 }
 
-.optional-content {
-  @apply flex flex-col items-center space-y-1.5;
+.optional-check {
+  @apply w-5 h-5 rounded-md border-2 border-border bg-surface flex items-center justify-center flex-shrink-0 text-text-inverse transition-all duration-200;
 }
 
-.optional-icon {
-  @apply w-10 h-10 rounded-lg text-primary flex items-center justify-center transition-all duration-200;
-  background-color: rgba(247, 159, 31, 0.1);
+.optional-card-active .optional-check {
+  @apply border-primary bg-primary;
 }
 
-.optional-card-active .optional-icon {
-  @apply bg-primary text-text-inverse;
+.optional-body {
+  @apply flex-1 min-w-0 flex flex-col items-start gap-0.5;
 }
 
 .optional-label {
-  @apply text-xs font-medium text-text-main text-center leading-snug;
+  @apply text-sm font-medium text-text-main leading-snug;
 }
 
 .optional-extra {
-  @apply text-[11px] font-semibold text-primary;
+  @apply text-xs font-bold text-primary;
+}
+
+.step-navigation-sticky {
+  @apply mt-auto bg-light pt-3;
+}
+
+@media (min-width: 640px) {
+  .optional-section {
+    @apply rounded-lg p-3 shadow-lg border;
+    border-color: rgba(224, 214, 204, 0.5);
+    background: linear-gradient(to bottom right, var(--color-light), var(--color-surface));
+  }
+
+  .optional-list {
+    @apply grid grid-cols-2 gap-3 space-y-0 overflow-visible;
+  }
+
+  .optional-card {
+    @apply flex-col items-center text-center min-h-[7.5rem] p-4;
+  }
+
+  .optional-check {
+    @apply absolute top-2.5 right-2.5;
+  }
+
+  .optional-body {
+    @apply flex-col items-center gap-1.5 flex-1 justify-center;
+  }
+
+  .optional-label {
+    @apply text-xs text-center;
+  }
+
+  .optional-extra {
+    @apply text-[11px];
+  }
+}
+
+@media (min-width: 1024px) {
+  .optional-list {
+    @apply grid-cols-3;
+  }
 }
 
 .result-section {

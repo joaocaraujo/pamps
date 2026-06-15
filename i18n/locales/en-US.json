@@ -393,6 +393,8 @@
     "requiredFields": "Event Information",
     "optionalFields": "Optional add-ons",
     "optionalIntro": "Optional prices are indicative; brands, availability and final amounts with the Pamps team.",
+    "optionalSelectedOne": "item selected",
+    "optionalSelectedMany": "items selected",
     "people": {
       "label": "Number of guests",
       "labelCompleta": "Capacity (official table tiers)",

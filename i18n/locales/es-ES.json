@@ -393,6 +393,8 @@
     "requiredFields": "Información del Evento",
     "optionalFields": "Ítems opcionales",
     "optionalIntro": "Los precios de los opcionales son orientativos; marcas, disponibilidad y valores finales con el equipo Pamps.",
+    "optionalSelectedOne": "ítem seleccionado",
+    "optionalSelectedMany": "ítems seleccionados",
     "people": {
       "label": "Cantidad de invitados",
       "labelCompleta": "Ocupación (tramos del presupuesto)",
