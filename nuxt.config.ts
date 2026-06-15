@@ -67,10 +67,18 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    preference: 'system',
+    preference: 'light',
     fallback: 'light',
     classSuffix: '',
     dataValue: 'theme'
+  },
+
+  hooks: {
+    'render:html': (html) => {
+      html.head.unshift(
+        `<script>try{var k='nuxt-color-mode',v=localStorage.getItem(k);if(v==='system')localStorage.setItem(k,'light')}catch(e){}</script>`
+      )
+    }
   },
 
   css: ['~/assets/css/main.css'],

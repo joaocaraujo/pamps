@@ -395,6 +395,8 @@
     "optionalIntro": "Optional prices are indicative; brands, availability and final amounts with the Pamps team.",
     "optionalSelectedOne": "item selected",
     "optionalSelectedMany": "items selected",
+    "fromPrice": "from",
+    "valuesNotice": "All amounts are minimum estimates. Your final quote may be higher than shown.",
     "people": {
       "label": "Number of guests",
       "labelCompleta": "Capacity (official table tiers)",
@@ -417,7 +419,7 @@
       "phrase": "This calculator shows indicative values only. Confirm your final quote via WhatsApp."
     },
     "result": {
-      "estimated": "Estimated Total",
+      "estimated": "Estimated total",
       "perPerson": "Per guest",
       "base": "Package (base)",
       "optional": "Optionals",
@@ -435,9 +437,9 @@
       "back": "Back"
     },
     "preview": {
-      "label": "Estimated Total"
+      "label": "Estimated total (from)"
     },
-    "whatsappMessage": "Hello, I used the website calculator. {party}, {people}, on {day}. Optionals: {optionals}. Estimated total: {total}.",
+    "whatsappMessage": "Hello, I used the website calculator. {party}, {people}, on {day}. Optionals: {optionals}. Estimate {total} — final amount may be higher.",
     "none": "None"
   },
   "events": {

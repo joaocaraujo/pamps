@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-surface">
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-highlight relative overflow-hidden">
+    <section class="pt-20 pb-12 md:pt-32 md:pb-24 bg-highlight relative overflow-hidden">
       <!-- Animated Background Elements -->
       <div class="hero-animation absolute inset-0 pointer-events-none overflow-hidden">
         <div class="floating-shape shape-1"></div>
@@ -20,15 +20,15 @@
       </div>
       
       <div class="container mx-auto px-4 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div class="text-center lg:text-left">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-text-main mb-6 leading-tight">
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <div class="text-center lg:text-left order-1">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-text-main mb-4 md:mb-6 leading-tight">
               {{ $t('home.hero.headline') }}
             </h1>
-            <p class="text-lg md:text-xl text-text-body mb-8 leading-relaxed">
+            <p class="text-base sm:text-lg md:text-xl text-text-body mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
               {{ $t('home.hero.subheadline') }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 items-center lg:items-start justify-center lg:justify-start">
+            <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 items-stretch sm:items-center lg:items-start justify-center lg:justify-start">
               <a
                 :href="whatsappLink"
                 target="_blank"
@@ -70,17 +70,18 @@
               </button>
               <NuxtLink
                 to="/events"
-                class="w-14 h-14 sm:w-16 sm:h-16 inline-flex items-center justify-center bg-light border-2 border-primary text-primary rounded-full shadow-lg hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl hover:scale-110"
+                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-light border-2 border-primary text-primary rounded-base font-body font-semibold text-base shadow-base hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 sm:w-14 sm:h-14 sm:p-0 sm:rounded-full sm:shadow-lg sm:hover:shadow-xl sm:hover:scale-110"
                 :aria-label="$t('events.gallery.view')"
               >
-                <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
+                <span class="sm:sr-only">{{ $t('events.gallery.view') }}</span>
               </NuxtLink>
             </div>
           </div>
-          <div class="hidden lg:block relative z-10">
-            <div class="hero-image-container">
+          <div class="order-2 relative z-10 mt-2 lg:mt-0">
+            <div class="hero-image-container hero-image-container--mobile">
               <div class="aspect-[4/3] relative overflow-hidden">
                 <img
                   src="/hero-image.jpg"
@@ -642,6 +643,23 @@ useHead({
   }
   50% {
     transform: translateY(-10px) rotate(var(--capybara-rotation, 0deg));
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-image-container--mobile {
+    max-width: 22rem;
+    margin-inline: auto;
+    padding: 8px;
+    transform: none;
+  }
+
+  .hero-image-container--mobile:hover {
+    transform: none;
+  }
+
+  .hero-image-container--mobile .hero-image {
+    border-width: 4px;
   }
 }
 

@@ -3,7 +3,7 @@
     ref="headerRef"
     :class="[
       'fixed top-0 left-0 right-0 z-fixed bg-light transition-all duration-300',
-      isScrolled ? 'shadow-base py-3' : 'shadow-sm py-4'
+      isScrolled ? 'shadow-base py-2.5 md:py-3' : 'shadow-sm py-3 md:py-4'
     ]"
     style="background-color: var(--color-light) !important;"
     role="banner"
@@ -31,12 +31,12 @@
             />
           </NuxtLink>
           <span
-            class="h-7 w-px shrink-0 self-center bg-border md:h-9"
+            class="hidden md:block h-7 w-px shrink-0 self-center bg-border md:h-9"
             aria-hidden="true"
           />
           <NuxtLink
             to="/"
-            class="inline-flex shrink-0 items-center justify-center rounded-base p-1 text-text-body transition-colors hover:text-primary hover:bg-highlight/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            class="hidden md:inline-flex shrink-0 items-center justify-center rounded-base p-1 text-text-body transition-colors hover:text-primary hover:bg-highlight/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             :title="$t('navigation.home')"
             :aria-label="$t('navigation.navigateTo', { label: $t('navigation.home') })"
           >
@@ -121,36 +121,7 @@
           </a>
         </div>
 
-        <div class="flex items-center space-x-3 lg:hidden">
-          <LanguageSwitch />
-          <ColorModeToggle />
-          <NuxtLink
-            :to="mapLinkHash"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-base border border-border text-text-body transition-colors hover:border-primary/40 hover:bg-highlight hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            :aria-label="$t('navigation.mapPinAria')"
-            @click="onMapPinClick"
-          >
-            <svg
-              class="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-          </NuxtLink>
+        <div class="flex items-center gap-2 lg:hidden">
           <a
             :href="whatsappLink"
             target="_blank"
@@ -250,26 +221,12 @@
           <div class="flex flex-col space-y-4">
             <NuxtLink
               to="/"
-              class="mobile-nav-link inline-flex items-center gap-3 font-body text-lg font-medium text-text-body py-3 px-4 rounded-base transition-colors hover:bg-highlight hover:text-text-main focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              class="mobile-nav-link font-body text-lg font-medium text-text-body py-3 px-4 rounded-base transition-colors hover:bg-highlight hover:text-text-main focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               :title="$t('navigation.home')"
               :aria-label="$t('navigation.navigateTo', { label: $t('navigation.home') })"
               @click="closeMobileMenu"
             >
-              <svg
-                class="h-6 w-6 shrink-0 text-primary"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              <span class="sr-only">{{ $t('navigation.home') }}</span>
+              {{ $t('navigation.home') }}
             </NuxtLink>
             <NuxtLink
               v-for="item in menuItems"
@@ -312,7 +269,10 @@
             </NuxtLink>
 
             <div class="mt-4 space-y-3">
-              <LanguageSwitch />
+              <div class="flex items-center gap-3">
+                <LanguageSwitch />
+                <ColorModeToggle />
+              </div>
               <a
                 :href="whatsappLink"
                 target="_blank"

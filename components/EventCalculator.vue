@@ -19,6 +19,13 @@
       </div>
     </div>
 
+    <p class="values-notice" role="note">
+      <svg class="values-notice-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>{{ $t('calculator.valuesNotice') }}</span>
+    </p>
+
     <form class="flex-1 flex flex-col space-y-3 min-h-0" @submit.prevent="handleSubmit">
       <!-- Passo 1: convidados, dia, tipo de festa -->
       <div v-show="currentStep === 1" class="step-content">
@@ -164,7 +171,13 @@
               {{ selectedOptionalsCount }}
               {{ selectedOptionalsCount === 1 ? $t('calculator.optionalSelectedOne') : $t('calculator.optionalSelectedMany') }}
             </span>
-            <span class="optional-summary-total">+ {{ formatCurrency(liveOptionalTotal) }}</span>
+            <span class="optional-summary-total">
+              <span class="estimate-amount estimate-amount--plus">
+                <span class="estimate-plus">+</span>
+                <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                <span class="estimate-value">{{ formatCurrency(liveOptionalTotal) }}</span>
+              </span>
+            </span>
           </div>
 
           <div class="optional-list">
@@ -186,7 +199,13 @@
               </span>
               <div class="optional-body">
                 <span class="optional-label">{{ row.label }}</span>
-                <span class="optional-extra">+ {{ row.priceFormatted }}</span>
+                <span class="optional-extra">
+                  <span class="estimate-amount estimate-amount--plus estimate-amount--compact">
+                    <span class="estimate-plus">+</span>
+                    <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                    <span class="estimate-value">{{ row.priceFormatted }}</span>
+                  </span>
+                </span>
               </div>
             </label>
           </div>
@@ -220,7 +239,10 @@
             <div>
               <p class="result-label">{{ $t('calculator.result.estimated') }}</p>
               <p class="result-value">
-                {{ formatCurrency(result.total) }}
+                <span class="estimate-amount estimate-amount--large">
+                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                  <span class="estimate-value">{{ formatCurrency(result.total) }}</span>
+                </span>
               </p>
             </div>
           </div>
@@ -228,15 +250,30 @@
           <div class="result-grid">
             <div class="result-item">
               <p class="result-item-label">{{ $t('calculator.result.perPerson') }}</p>
-              <p class="result-item-value">{{ formatCurrency(result.perPerson) }}</p>
+              <p class="result-item-value">
+                <span class="estimate-amount estimate-amount--item">
+                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                  <span class="estimate-value">{{ formatCurrency(result.perPerson) }}</span>
+                </span>
+              </p>
             </div>
             <div class="result-item">
               <p class="result-item-label">{{ $t('calculator.result.base') }}</p>
-              <p class="result-item-value">{{ formatCurrency(result.base) }}</p>
+              <p class="result-item-value">
+                <span class="estimate-amount estimate-amount--item">
+                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                  <span class="estimate-value">{{ formatCurrency(result.base) }}</span>
+                </span>
+              </p>
             </div>
             <div v-if="result.optionalTotal > 0" class="result-item result-item-optional">
               <p class="result-item-label">{{ $t('calculator.result.optional') }}</p>
-              <p class="result-item-value">{{ formatCurrency(result.optionalTotal) }}</p>
+              <p class="result-item-value">
+                <span class="estimate-amount estimate-amount--item">
+                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
+                  <span class="estimate-value">{{ formatCurrency(result.optionalTotal) }}</span>
+                </span>
+              </p>
             </div>
           </div>
 
@@ -356,6 +393,9 @@ const formatCurrency = (value: number) => {
     currency: 'BRL'
   }).format(value)
 }
+
+const formatEstimateLabel = (value: number) =>
+  `${t('calculator.fromPrice')} ${formatCurrency(value)}`
 
 const optionalRows = computed(() =>
   OPTIONAL_KEYS.map((key) => ({
@@ -485,7 +525,7 @@ const whatsappLink = computed(() => {
     people: peopleStr,
     day: dayStr,
     optionals: selectedLabels.length > 0 ? selectedLabels.join(', ') : t('calculator.none'),
-    total: formatCurrency(result.value.total)
+    total: formatEstimateLabel(result.value.total)
   })
 
   return buildWhatsappLink(message)
@@ -503,7 +543,81 @@ const whatsappLink = computed(() => {
 
 /* Steps Indicator */
 .steps-indicator {
-  @apply mb-4 flex-shrink-0;
+  @apply mb-2 sm:mb-3 flex-shrink-0;
+}
+
+.values-notice {
+  @apply flex items-start gap-2 mb-3 px-2.5 py-2 rounded-lg border text-[11px] leading-snug text-text-body flex-shrink-0;
+  border-color: rgba(247, 159, 31, 0.25);
+  background-color: rgba(247, 159, 31, 0.08);
+}
+
+.values-notice-icon {
+  @apply w-4 h-4 flex-shrink-0 text-primary mt-0.5;
+}
+
+.estimate-amount {
+  @apply inline-flex flex-wrap items-baseline gap-x-1;
+}
+
+.estimate-from {
+  @apply text-[10px] font-semibold uppercase tracking-wide text-text-light;
+}
+
+.estimate-value {
+  @apply font-bold text-primary whitespace-nowrap;
+}
+
+.estimate-plus {
+  @apply text-xs font-bold text-primary;
+}
+
+.estimate-amount--large {
+  @apply flex flex-col items-start gap-0.5;
+}
+
+.estimate-amount--large .estimate-from {
+  @apply text-[11px] tracking-wider;
+}
+
+.estimate-amount--large .estimate-value {
+  @apply text-2xl md:text-3xl font-heading leading-none;
+}
+
+.estimate-amount--item {
+  @apply flex flex-col items-start gap-0.5;
+}
+
+.estimate-amount--item .estimate-from {
+  @apply text-[9px];
+}
+
+.estimate-amount--item .estimate-value {
+  @apply text-lg text-text-main;
+}
+
+.estimate-amount--compact {
+  @apply flex-col items-start gap-0;
+}
+
+.estimate-amount--compact .estimate-from {
+  @apply text-[9px] leading-tight;
+}
+
+.estimate-amount--compact .estimate-value {
+  @apply text-xs;
+}
+
+.optional-summary-total .estimate-amount {
+  @apply flex-col items-end gap-0;
+}
+
+.optional-summary-total .estimate-from {
+  @apply text-[9px];
+}
+
+.optional-summary-total .estimate-value {
+  @apply text-sm;
 }
 
 .step-item {
@@ -754,6 +868,10 @@ const whatsappLink = computed(() => {
   .optional-extra {
     @apply text-[11px];
   }
+
+  .optional-extra .estimate-amount--compact {
+    @apply items-center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -783,7 +901,7 @@ const whatsappLink = computed(() => {
 }
 
 .result-value {
-  @apply text-2xl md:text-3xl font-heading font-bold text-primary;
+  @apply leading-tight;
 }
 
 .result-grid {
@@ -806,7 +924,7 @@ const whatsappLink = computed(() => {
 }
 
 .result-item-value {
-  @apply text-lg font-bold text-text-main;
+  @apply leading-tight;
 }
 
 .result-disclaimer {

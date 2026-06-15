@@ -420,6 +420,8 @@
     "optionalIntro": "Valores dos opcionais são indicativos; marcas, disponibilidade e valores finais com a equipe Pamps.",
     "optionalSelectedOne": "item selecionado",
     "optionalSelectedMany": "itens selecionados",
+    "fromPrice": "a partir de",
+    "valuesNotice": "Todos os valores são estimativas mínimas. O orçamento final pode ser maior que o exibido.",
     "people": {
       "label": "Quantidade de convidados",
       "labelCompleta": "Lotação (tabela de referência)",
@@ -442,7 +444,7 @@
       "phrase": "Essa calculadora apresenta valores indicativos. Confirme o orçamento final via WhatsApp."
     },
     "result": {
-      "estimated": "Valor Estimado Total",
+      "estimated": "Total estimado",
       "perPerson": "Por convidado",
       "base": "Pacote (base)",
       "optional": "@:calculator.steps.optional",
@@ -460,9 +462,9 @@
       "back": "Voltar"
     },
     "preview": {
-      "label": "Total Estimado"
+      "label": "Total estimado (a partir de)"
     },
-    "whatsappMessage": "Olá, fiz uma simulação no site. {party}, {people}, dia {day}. Opcionais: {optionals}. Valor estimado: {total}.",
+    "whatsappMessage": "Olá, fiz uma simulação no site. {party}, {people}, dia {day}. Opcionais: {optionals}. Estimativa {total} — o valor final pode ser maior.",
     "none": "Nenhum"
   },
   "events": {

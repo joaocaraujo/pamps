@@ -395,6 +395,8 @@
     "optionalIntro": "Los precios de los opcionales son orientativos; marcas, disponibilidad y valores finales con el equipo Pamps.",
     "optionalSelectedOne": "ítem seleccionado",
     "optionalSelectedMany": "ítems seleccionados",
+    "fromPrice": "desde",
+    "valuesNotice": "Todos los importes son estimaciones mínimas. El presupuesto final puede ser mayor al mostrado.",
     "people": {
       "label": "Cantidad de invitados",
       "labelCompleta": "Ocupación (tramos del presupuesto)",
@@ -417,7 +419,7 @@
       "phrase": "Esta calculadora muestra valores orientativos. Confirme el presupuesto final por WhatsApp."
     },
     "result": {
-      "estimated": "Valor Total Estimado",
+      "estimated": "Total estimado",
       "perPerson": "Por invitado",
       "base": "Paquete (base)",
       "optional": "@:calculator.steps.optional",
@@ -435,9 +437,9 @@
       "back": "Atrás"
     },
     "preview": {
-      "label": "Total Estimado"
+      "label": "Total estimado (desde)"
     },
-    "whatsappMessage": "Hola, usé la calculadora del sitio. {party}, {people}, día {day}. Opcionales: {optionals}. Valor estimado: {total}.",
+    "whatsappMessage": "Hola, usé la calculadora del sitio. {party}, {people}, día {day}. Opcionales: {optionals}. Estimación {total} — el valor final puede ser mayor.",
     "none": "Ninguno"
   },
   "events": {
