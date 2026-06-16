@@ -3,6 +3,7 @@
     "main": "Navegación principal",
     "home": "Página de inicio",
     "events": "Eventos",
+    "gallery": "Galería",
     "attractions": "Atracciones",
     "space": "Espacio",
     "buffet": "Buffet",
@@ -447,6 +448,19 @@
     "whatsappMessage": "Hola, usé la calculadora del sitio. {party}, {people}, día {day}. Opcionales: {optionals}. Estimación {total} — el valor final puede ser mayor.",
     "none": "Ninguno"
   },
+  "gallery": {
+    "pageTitle": "Galería",
+    "eyebrow": "Eventos Realizados",
+    "title": "Galería de Eventos",
+    "subtitle": "Mira fotos de fiestas y eventos que ya ocurrieron en Pamps.",
+    "view": "Ver Galería",
+    "empty": "Pronto tendremos fotos de eventos aquí.",
+    "selectEvent": "Seleccionar evento",
+    "previous": "Imagen anterior",
+    "next": "Siguiente imagen",
+    "goTo": "Ir a la imagen {index}",
+    "imageAlt": "{event} — foto {index}"
+  },
   "events": {
     "subtitle": "Espacio completo y climatizado para todo tipo de eventos. Desde la fiesta de ensueño de tu hijo hasta reuniones corporativas.",
     "children": {
@@ -490,13 +504,6 @@
       "feature1": "Luz natural",
       "feature2": "Múltiples ambientes",
       "feature3": "Privacidad total"
-    },
-    "gallery": {
-      "view": "Ver Galería",
-      "disabledHint": "Galería próximamente para este tipo de evento.",
-      "close": "Cerrar galería",
-      "previous": "Imagen anterior",
-      "next": "Siguiente imagen"
     }
   },
   "attractions": {

@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { isMobileDevice, openWhatsappUrl } from '~/utils/whatsapp'
+import { isMobileDevice, openWhatsappUrl, toAppWhatsappUrl } from '~/utils/whatsapp'
 
 const props = defineProps<{
   message?: string
@@ -44,7 +44,7 @@ function onClick(event: MouseEvent) {
 
   if (isMobileDevice()) {
     event.preventDefault()
-    openWhatsappUrl(url)
+    openWhatsappUrl(toAppWhatsappUrl(url))
   }
 }
 </script>

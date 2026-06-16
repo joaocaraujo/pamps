@@ -3,6 +3,7 @@
     "main": "Main navigation",
     "home": "Home page",
     "events": "Events",
+    "gallery": "Gallery",
     "attractions": "Attractions",
     "space": "Space",
     "buffet": "Buffet",
@@ -447,6 +448,19 @@
     "whatsappMessage": "Hello, I used the website calculator. {party}, {people}, on {day}. Optionals: {optionals}. Estimate {total} — final amount may be higher.",
     "none": "None"
   },
+  "gallery": {
+    "pageTitle": "Gallery",
+    "eyebrow": "Past Events",
+    "title": "Event Gallery",
+    "subtitle": "Browse photos from parties and events that have already taken place at Pamps.",
+    "view": "View Gallery",
+    "empty": "Event photos will be available here soon.",
+    "selectEvent": "Select event",
+    "previous": "Previous image",
+    "next": "Next image",
+    "goTo": "Go to image {index}",
+    "imageAlt": "{event} — photo {index}"
+  },
   "events": {
     "subtitle": "Complete and climate-controlled space for all types of events. From your child's dream party to corporate gatherings.",
     "children": {
@@ -490,13 +504,6 @@
       "feature1": "Natural light",
       "feature2": "Multiple environments",
       "feature3": "Total privacy"
-    },
-    "gallery": {
-      "view": "View Gallery",
-      "disabledHint": "Gallery coming soon for this event type.",
-      "close": "Close gallery",
-      "previous": "Previous image",
-      "next": "Next image"
     }
   },
   "attractions": {

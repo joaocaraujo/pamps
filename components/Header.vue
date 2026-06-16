@@ -293,9 +293,8 @@ const onMapPinClick = (e: MouseEvent) => {
 
 const menuItems = computed(() => [
   { label: t('navigation.events'), path: '/events' },
+  { label: t('navigation.gallery'), path: '/gallery' },
   { label: t('navigation.attractions'), path: '/attractions' },
-  { label: t('navigation.space'), path: '/space' },
-  { label: t('navigation.buffet'), path: '/buffet' },
   { label: t('navigation.packages'), path: '/packages' },
   { label: t('navigation.contact'), path: '/contact' }
 ])
