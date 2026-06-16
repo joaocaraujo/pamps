@@ -43,6 +43,20 @@ export const galleryEvents: GalleryEvent[] = [
       '/images/gallery/aniversario-luisa-2026/06.jpeg'
     ]
   },
+  // {
+  //   slug: '30-anos-ronan-2026',
+  //   title: '30 anos do Ronan',
+  //   images: [
+  //     '/images/gallery/30-anos-ronan-2026/01.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/02.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/03.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/04.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/05.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/06.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/07.jpeg',
+  //     '/images/gallery/30-anos-ronan-2026/08.jpeg'
+  //   ]
+  // },
   {
     slug: 'aniversario-renata-2026',
     title: 'Aniversário da Renata',

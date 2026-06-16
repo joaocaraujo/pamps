@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-surface">
     <!-- Hero Section -->
-    <section class="pt-20 pb-12 md:pt-32 md:pb-24 bg-highlight relative overflow-hidden">
+    <section class="relative overflow-hidden border-b border-border bg-highlight pb-16 pt-20 md:pb-28 md:pt-32">
       <!-- Animated Background Elements -->
       <div class="hero-animation absolute inset-0 pointer-events-none overflow-hidden">
         <div class="floating-shape shape-1"></div>
@@ -23,18 +23,39 @@
         <div class="max-w-6xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div class="text-center lg:text-left order-1">
-              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-text-main mb-4 md:mb-6 leading-tight">
+              <p class="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                {{ $t('home.hero.eyebrow') }}
+              </p>
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-text-main mb-4 md:mb-5 leading-tight tracking-tight">
                 {{ $t('home.hero.headline') }}
               </h1>
-              <p class="text-base sm:text-lg md:text-xl text-text-body leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p class="text-base sm:text-lg md:text-xl text-text-body leading-relaxed max-w-xl mx-auto lg:mx-0 mb-5 md:mb-6">
                 {{ $t('home.hero.subheadline') }}
               </p>
+              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                <a
+                  :href="googleReviewUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="trust-badge transition-colors hover:border-primary/40 hover:text-text-main"
+                  :aria-label="$t('home.stats.rating.linkAria')"
+                >
+                  <span class="text-accent" aria-hidden="true">★</span>
+                  {{ $t('home.hero.trustRating') }}
+                </a>
+                <span class="trust-badge">
+                  <svg class="h-3.5 w-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  {{ $t('home.hero.trustCapacity') }}
+                </span>
+              </div>
             </div>
             <div class="order-2 relative z-10">
               <div class="hero-image-container hero-image-container--mobile mx-auto lg:mx-0 lg:ml-auto">
                 <div class="aspect-[4/3] relative overflow-hidden">
                   <HeroGalleryCarousel />
-                  <div class="absolute inset-0 hero-gradient-overlay opacity-20 z-20 pointer-events-none"></div>
+                  <div class="absolute inset-0 hero-gradient-overlay opacity-10 z-20 pointer-events-none"></div>
                 </div>
                 <div class="capybara-mascot capybara-bottom-left">
                   <OptimizedImage
@@ -59,9 +80,9 @@
               </div>
             </div>
           </div>
-          <div class="mt-6 md:mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 items-stretch sm:items-center justify-center lg:justify-start">
+          <div class="mt-8 md:mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3 items-stretch sm:items-center justify-center lg:justify-start">
             <WhatsappLink
-              class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-primary text-text-inverse font-body font-semibold text-lg rounded-base shadow-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl"
+              class="btn-primary-lg w-full sm:w-auto"
               :aria-label="$t('cta.whatsappLabel')"
             >
               <svg
@@ -79,13 +100,13 @@
             <button
               type="button"
               @click="openCalculator"
-              class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-lg rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
+              class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-lg rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
               :aria-label="$t('calculator.cta.open')"
             >
-              <div class="absolute inset-0 calculator-gradient-bg"></div>
-              <div class="absolute inset-0 calculator-shine"></div>
+              <div class="absolute inset-0 calculator-gradient-bg" aria-hidden="true" />
+              <div class="absolute inset-0 calculator-shine" aria-hidden="true" />
               <div class="relative z-10 flex items-center space-x-2">
-                <svg class="w-6 h-6 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
@@ -93,122 +114,169 @@
             </button>
             <NuxtLink
               to="/gallery"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-light border-2 border-primary text-primary rounded-base font-body font-semibold text-base shadow-base hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 sm:w-14 sm:h-14 sm:p-0 sm:rounded-full sm:shadow-lg sm:hover:shadow-xl sm:hover:scale-110"
+              class="btn-outline w-full sm:w-auto"
               :aria-label="$t('gallery.view')"
             >
-              <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span class="sm:sr-only">{{ $t('gallery.view') }}</span>
+              <span>{{ $t('gallery.view') }}</span>
             </NuxtLink>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Attractions CTA -->
-    <section class="below-fold-section py-8 md:py-10 bg-surface">
+    <!-- Showcase: atrações + prova social -->
+    <section class="below-fold-section border-b border-border bg-surface pb-16 pt-20 md:pb-20 md:pt-24">
       <div class="container mx-auto px-4">
-        <NuxtLink
-          to="/attractions"
-          class="group block max-w-3xl mx-auto rounded-2xl border border-border bg-light px-5 py-6 md:px-8 md:py-7 shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-        >
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-8">
-            <div class="min-w-0 flex-1 border-l-4 border-primary pl-4 sm:pl-5 -ml-px">
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                  {{ $t('home.attractionsCta.tagline') }}
-                </span>
-                <span class="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-text-body">
-                  {{ $t('home.attractionsCta.accessibility') }}
-                </span>
-              </div>
-              <h2 class="text-lg md:text-xl font-heading font-bold text-text-main leading-snug">
-                {{ $t('home.attractionsCta.title') }}
-              </h2>
-              <p class="mt-2 text-sm text-text-body leading-relaxed">
-                {{ $t('home.attractionsCta.subtitle') }}
-              </p>
-            </div>
-            <div class="shrink-0 flex sm:flex-col sm:items-end justify-start sm:pt-1">
-              <span class="inline-flex items-center gap-1.5 rounded-full border border-primary bg-transparent px-4 py-2.5 text-sm font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-text-inverse">
-                {{ $t('home.attractionsCta.button') }}
-                <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
+        <div class="showcase-panel mx-auto max-w-5xl">
+          <div class="showcase-panel__accent" aria-hidden="true" />
+
+          <div class="relative z-10 text-center">
+            <div class="mb-5 flex flex-wrap items-center justify-center gap-2">
+              <span class="showcase-tag">
+                {{ $t('home.attractionsCta.tagline') }}
+              </span>
+              <span class="showcase-badge">
+                {{ $t('home.attractionsCta.accessibility') }}
               </span>
             </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </section>
 
-    <!-- Statistics Section -->
-    <section class="below-fold-section py-12 md:py-16 bg-light/50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div class="stat-card flex items-center space-x-4">
-              <div class="stat-circle stat-circle-pink">
-                <span class="stat-number">{{ $t('home.stats.attractions.number') }}</span>
+            <h2 class="showcase-title">
+              {{ $t('home.attractionsCta.title') }}
+            </h2>
+            <p class="showcase-subtitle">
+              {{ $t('home.attractionsCta.subtitle') }}
+            </p>
+
+            <div
+              class="showcase-stats"
+              role="list"
+              :aria-label="$t('home.stats.eyebrow')"
+            >
+              <div class="showcase-stat" role="listitem">
+                <span class="showcase-stat__value showcase-stat__value--primary">
+                  {{ $t('home.stats.attractions.number') }}
+                </span>
+                <span class="showcase-stat__label">
+                  {{ $t('home.stats.attractions.label') }}
+                </span>
               </div>
-              <div class="stat-text">
-                <p class="text-text-main font-medium">{{ $t('home.stats.attractions.label') }}</p>
+
+              <a
+                :href="googleReviewUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="showcase-stat showcase-stat--interactive group"
+                role="listitem"
+                :aria-label="$t('home.stats.rating.linkAria')"
+              >
+                <div class="showcase-stat__rating-row">
+                  <span class="showcase-stat__value showcase-stat__value--accent">
+                    {{ $t('home.stats.rating.number') }}
+                  </span>
+                  <div class="showcase-stat__stars" aria-hidden="true">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                  </div>
+                </div>
+                <span class="showcase-stat__label">
+                  {{ $t('home.stats.rating.label') }}
+                </span>
+                <span class="showcase-stat__cta">
+                  {{ $t('home.stats.rating.cta') }}
+                </span>
+              </a>
+
+              <div class="showcase-stat" role="listitem">
+                <span class="showcase-stat__value showcase-stat__value--secondary">
+                  {{ $t('home.stats.capacity.number') }}
+                </span>
+                <span class="showcase-stat__label">
+                  {{ $t('home.stats.capacity.label') }}
+                </span>
               </div>
             </div>
 
-            <!-- Avaliação (link para Google) -->
-            <a
-              :href="googleReviewUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="stat-card stat-card-rating group flex items-center space-x-4 no-underline text-inherit rounded-xl transition-colors hover:bg-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              :aria-label="$t('home.stats.rating.linkAria')"
-            >
-              <div class="stat-circle stat-circle-yellow">
-                <span class="stat-number">{{ $t('home.stats.rating.number') }}</span>
-              </div>
-              <div class="stat-text min-w-0">
-                <div class="flex items-center gap-0.5 mb-1" aria-hidden="true">
-                  <span class="text-yellow-500 text-lg leading-none">★</span>
-                  <span class="text-yellow-500 text-lg leading-none">★</span>
-                  <span class="text-yellow-500 text-lg leading-none">★</span>
-                  <span class="text-yellow-500 text-lg leading-none">★</span>
-                  <span class="text-yellow-500 text-lg leading-none">★</span>
-                </div>
-                <p class="text-text-main font-medium text-sm">{{ $t('home.stats.rating.label') }}</p>
-                <p class="mt-1 text-sm font-semibold text-primary underline-offset-2 group-hover:underline">
-                  {{ $t('home.stats.rating.cta') }}
-                </p>
-              </div>
-            </a>
-
-            <!-- Capacidade Máxima -->
-            <div class="stat-card flex items-center space-x-4">
-              <div class="stat-circle stat-circle-blue">
-                <span class="stat-number">{{ $t('home.stats.capacity.number') }}</span>
-              </div>
-              <div class="stat-text">
-                <p class="text-text-main font-medium">{{ $t('home.stats.capacity.label') }}</p>
-              </div>
+            <div class="mt-8 md:mt-10">
+              <NuxtLink
+                to="/attractions"
+                class="showcase-cta group"
+              >
+                {{ $t('home.attractionsCta.button') }}
+                <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </NuxtLink>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Event Types Section -->
-    <section class="below-fold-section py-16 md:py-24 bg-highlight">
+    <!-- About Section -->
+    <section
+      id="sobre-pamps"
+      class="below-fold-section border-b border-border bg-highlight py-16 md:py-20"
+    >
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main text-center mb-12">
-          {{ $t('home.eventTypes.title') }}
-        </h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="about-panel mx-auto max-w-5xl">
+          <div class="grid items-start gap-10 lg:grid-cols-5 lg:gap-12">
+            <div class="lg:col-span-3">
+              <p class="section-eyebrow text-center lg:text-left">
+                {{ $t('home.about.eyebrow') }}
+              </p>
+              <h2 class="mb-6 text-center font-heading text-3xl font-bold tracking-tight text-text-main md:text-4xl lg:text-left">
+                {{ $t('home.about.title') }}
+              </h2>
+              <div class="space-y-4 text-base leading-relaxed text-text-body md:text-lg">
+                <p>{{ $t('home.about.paragraph1') }}</p>
+                <p>{{ $t('home.about.paragraph2') }}</p>
+              </div>
+            </div>
+            <aside class="lg:col-span-2">
+              <div class="about-location-card rounded-xl border border-border bg-highlight p-6">
+                <h3 class="mb-3 font-heading text-base font-semibold text-text-main">
+                  {{ $t('home.about.locationTitle') }}
+                </h3>
+                <address class="not-italic text-sm leading-relaxed text-text-body">
+                  {{ $t('contact.addressText') }}
+                </address>
+                <NuxtLink
+                  to="/#mapa-localizacao"
+                  class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-base"
+                >
+                  {{ $t('home.about.mapCta') }}
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </NuxtLink>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Types Section -->
+    <section class="below-fold-section border-b border-border bg-surface py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="section-header">
+          <p class="section-eyebrow">{{ $t('navigation.events') }}</p>
+          <h2 class="section-title">{{ $t('home.eventTypes.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.eventTypes.subtitle') }}</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           <NuxtLink
             to="/events"
-            class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
+            class="group card-event-premium"
           >
-            <div class="w-12 h-12 bg-primary/10 rounded-base flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
@@ -216,16 +284,22 @@
             <h3 class="text-xl font-heading font-semibold text-text-main mb-2">
               {{ $t('home.eventTypes.children.title') }}
             </h3>
-            <p class="text-text-body text-sm">
+            <p class="text-text-body text-sm leading-relaxed flex-1">
               {{ $t('home.eventTypes.children.description') }}
             </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-0.5">
+              {{ $t('home.eventTypes.learnMore') }}
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </NuxtLink>
 
           <NuxtLink
             to="/events"
-            class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
+            class="group card-event-premium"
           >
-            <div class="w-12 h-12 bg-secondary/20 rounded-base flex items-center justify-center mb-4 group-hover:bg-secondary/30 transition-colors">
+            <div class="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary/30 transition-colors">
               <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -233,16 +307,22 @@
             <h3 class="text-xl font-heading font-semibold text-text-main mb-2">
               {{ $t('home.eventTypes.adult.title') }}
             </h3>
-            <p class="text-text-body text-sm">
+            <p class="text-text-body text-sm leading-relaxed flex-1">
               {{ $t('home.eventTypes.adult.description') }}
             </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-0.5">
+              {{ $t('home.eventTypes.learnMore') }}
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </NuxtLink>
 
           <NuxtLink
             to="/events"
-            class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
+            class="group card-event-premium"
           >
-            <div class="w-12 h-12 bg-accent/20 rounded-base flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
+            <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
               <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -250,16 +330,22 @@
             <h3 class="text-xl font-heading font-semibold text-text-main mb-2">
               {{ $t('home.eventTypes.corporate.title') }}
             </h3>
-            <p class="text-text-body text-sm">
+            <p class="text-text-body text-sm leading-relaxed flex-1">
               {{ $t('home.eventTypes.corporate.description') }}
             </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-0.5">
+              {{ $t('home.eventTypes.learnMore') }}
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </NuxtLink>
 
           <NuxtLink
             to="/events"
-            class="group card-event bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border hover:border-accent"
+            class="group card-event-premium"
           >
-            <div class="w-12 h-12 bg-primary/10 rounded-base flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
               </svg>
@@ -267,84 +353,92 @@
             <h3 class="text-xl font-heading font-semibold text-text-main mb-2">
               {{ $t('home.eventTypes.themed.title') }}
             </h3>
-            <p class="text-text-body text-sm">
+            <p class="text-text-body text-sm leading-relaxed flex-1">
               {{ $t('home.eventTypes.themed.description') }}
             </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-0.5">
+              {{ $t('home.eventTypes.learnMore') }}
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </NuxtLink>
         </div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section class="below-fold-section py-16 md:py-24">
+    <section class="below-fold-section border-b border-border bg-highlight py-16 md:py-24">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main text-center mb-12">
-          {{ $t('home.features.title') }}
-        </h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="section-header">
+          <p class="section-eyebrow">{{ $t('home.features.eyebrow') }}</p>
+          <h2 class="section-title">{{ $t('home.features.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.features.subtitle') }}</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.climate') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.climate') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.playground') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.playground') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.parking') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.parking') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.reception') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.reception') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('attractions.main.ledSlide.title') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('attractions.main.ledSlide.title') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.accessibility') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.accessibility') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.capacity') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.capacity') }}</p>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-primary/10 rounded-base flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="feature-card">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
-            <p class="text-text-body">{{ $t('home.features.licensed') }}</p>
+            <p class="text-text-main font-medium leading-snug">{{ $t('home.features.licensed') }}</p>
           </div>
         </div>
       </div>
@@ -353,17 +447,19 @@
     <!-- Secondary CTA Section -->
     <section class="below-fold-section py-16 md:py-24 bg-highlight">
       <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main mb-4">
+        <div class="max-w-3xl mx-auto cta-panel text-center">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-main mb-4 tracking-tight">
             {{ $t('home.ctaSecondary.title') }}
           </h2>
-          <p class="text-lg text-text-body mb-8">
+          <p class="text-lg text-text-body mb-3 leading-relaxed">
             {{ $t('home.ctaSecondary.subtitle') }}
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <p class="text-sm font-medium text-primary mb-8">
+            {{ $t('home.ctaSecondary.trust') }}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 items-center justify-center">
             <WhatsappLink
-              class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-primary text-text-inverse font-body font-semibold text-base rounded-base shadow-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-xl"
+              class="btn-primary-lg w-full sm:w-auto text-base"
               :aria-label="$t('cta.whatsappLabel')"
             >
               <svg
@@ -381,18 +477,13 @@
             <button
               type="button"
               @click="openCalculator"
-              class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-base rounded-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
+              class="calculator-cta-button group relative w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 font-body font-semibold text-base rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 overflow-hidden"
               :aria-label="$t('calculator.cta.open')"
             >
-              <!-- Animated gradient background -->
-              <div class="absolute inset-0 calculator-gradient-bg"></div>
-              
-              <!-- Shine effect -->
-              <div class="absolute inset-0 calculator-shine"></div>
-              
-              <!-- Content -->
+              <div class="absolute inset-0 calculator-gradient-bg" aria-hidden="true" />
+              <div class="absolute inset-0 calculator-shine" aria-hidden="true" />
               <div class="relative z-10 flex items-center space-x-2">
-                <svg class="w-5 h-5 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span class="text-white drop-shadow-md">{{ $t('calculator.cta.open') }}</span>
@@ -400,11 +491,10 @@
             </button>
             <NuxtLink
               to="/contact"
-              class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-surface text-text-main font-body font-semibold text-base rounded-base border-2 border-primary shadow-base hover:bg-primary hover:text-text-inverse focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300"
+              class="btn-outline w-full sm:w-auto"
             >
               <span>{{ $t('cta.scheduleVisit') }}</span>
             </NuxtLink>
-          </div>
           </div>
         </div>
       </div>
@@ -416,11 +506,10 @@
       class="below-fold-section scroll-mt-24 py-12 outline-none focus:outline-none md:scroll-mt-28 md:py-16 bg-surface border-t border-border"
     >
       <div class="container mx-auto px-4">
-        <div class="mx-auto max-w-5xl text-center mb-6 md:mb-8">
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-text-main">
-            {{ $t('home.map.title') }}
-          </h2>
-          <p class="mt-2 text-sm md:text-base text-text-body">
+        <div class="mx-auto max-w-5xl text-center mb-8 md:mb-10">
+          <p class="section-eyebrow">{{ $t('navigation.contact') }}</p>
+          <h2 class="section-title">{{ $t('home.map.title') }}</h2>
+          <p class="section-subtitle">
             {{ $t('home.map.subtitle') }}
           </p>
         </div>
@@ -441,6 +530,7 @@
 <script setup lang="ts">
 import { computed, ref, defineAsyncComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { heroGallerySlides } from '~/config/gallery'
 
 const CalculatorModal = defineAsyncComponent(
   () => import('~/components/CalculatorModal.vue')
@@ -457,6 +547,12 @@ const openCalculator = () => {
   isCalculatorOpen.value = true
 }
 
+const firstHeroSlideWebp = computed(() => {
+  const src = heroGallerySlides[0]?.src
+  if (!src) return null
+  return src.replace(/\.(jpe?g|png)$/i, '.webp')
+})
+
 useHead({
   title: computed(() => t('brand.pageTitle')),
   meta: [
@@ -464,19 +560,24 @@ useHead({
       name: 'description',
       content: computed(() => t('home.hero.subheadline'))
     }
-  ]
+  ],
+  link: computed(() => {
+    const href = firstHeroSlideWebp.value
+    if (!href) return []
+    return [
+      {
+        rel: 'preload',
+        as: 'image',
+        href,
+        type: 'image/webp',
+        fetchpriority: 'high'
+      }
+    ]
+  })
 })
 </script>
 
 <style scoped>
-.card-event {
-  transition: transform 0.3s ease;
-}
-
-.card-event:hover {
-  transform: translateY(-4px);
-}
-
 .hero-animation {
   z-index: 0;
   contain: layout paint;
@@ -579,17 +680,15 @@ useHead({
   position: relative;
   padding: 12px;
   background: var(--color-light);
-  border-radius: var(--radius-lg);
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-hero);
   transform: rotate(-1deg);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-image-container:hover {
   transform: rotate(0deg) scale(1.02);
+  box-shadow: var(--shadow-2xl);
 }
 
 .capybara-mascot {
@@ -747,56 +846,96 @@ useHead({
   }
 }
 
-/* Statistics Section */
-.stat-card {
-  @apply p-4 rounded-lg;
+/* Showcase: atrações + prova social */
+.showcase-panel {
+  @apply relative overflow-hidden rounded-3xl border border-border bg-light px-6 py-10 md:px-12 md:py-14;
+  box-shadow: var(--shadow-elevated);
 }
 
-.stat-circle {
-  @apply w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 shadow-md;
+.showcase-panel__accent {
+  @apply pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-40;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 35%, transparent) 0%, transparent 70%);
 }
 
-.stat-circle-pink {
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+.showcase-tag {
+  @apply inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-primary;
+  background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-light));
 }
 
-.stat-circle-yellow {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+.showcase-badge {
+  @apply inline-flex items-center gap-1 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-text-body backdrop-blur-sm;
+  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
 }
 
-.stat-circle-blue {
-  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+.showcase-title {
+  @apply font-heading text-2xl font-bold tracking-tight text-text-main md:text-4xl;
 }
 
-.stat-number {
-  @apply text-2xl font-heading font-bold text-text-main;
+.showcase-subtitle {
+  @apply mx-auto mt-3 max-w-2xl text-base leading-relaxed text-text-body md:text-lg;
 }
 
-.stat-text {
-  @apply flex-1;
+.showcase-stats {
+  @apply mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border md:mt-10 md:grid-cols-3;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .floating-shape,
-  .hero-gradient-overlay,
-  .ball,
-  .capybara-mascot,
-  .calculator-gradient-bg,
-  .calculator-shine,
-  .calculator-icon {
-    animation: none;
-  }
-  
-  .hero-image-container {
-    transform: none;
-  }
-  
-  .hero-image-container:hover {
-    transform: none;
-  }
+.showcase-stat {
+  @apply flex flex-col items-center justify-center gap-1 bg-light px-5 py-6 text-center md:py-7;
 }
 
-/* Calculator CTA Button Styles */
+.showcase-stat--interactive {
+  @apply no-underline text-inherit transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary;
+}
+
+.showcase-stat--interactive:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-light));
+}
+
+.showcase-stat__value {
+  @apply font-heading text-3xl font-bold leading-none md:text-4xl;
+}
+
+.showcase-stat__value--primary {
+  color: var(--color-primary-dark);
+}
+
+.showcase-stat__value--accent {
+  color: var(--color-accent-dark);
+}
+
+.showcase-stat__value--secondary {
+  color: var(--color-secondary-dark);
+}
+
+.showcase-stat__rating-row {
+  @apply flex items-center gap-2;
+}
+
+.showcase-stat__stars {
+  @apply flex gap-0.5 text-base leading-none text-accent md:text-lg;
+}
+
+.showcase-stat__label {
+  @apply text-sm font-semibold text-text-main;
+}
+
+.showcase-stat__cta {
+  @apply mt-0.5 text-xs font-semibold text-primary underline-offset-2 transition-all group-hover:underline;
+}
+
+.showcase-cta {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-text-inverse shadow-lg transition-all duration-300 hover:bg-primary-hover hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+}
+
+/* About */
+.about-panel {
+  @apply rounded-3xl border border-border bg-light px-6 py-10 shadow-sm md:px-10 md:py-12;
+}
+
+.about-location-card {
+  box-shadow: var(--shadow-sm);
+}
+
 .calculator-cta-button {
   position: relative;
   transform: translateY(0);
@@ -887,5 +1026,25 @@ useHead({
   ring: 4px;
   ring-color: rgba(247, 159, 31, 0.5);
   ring-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-shape,
+  .hero-gradient-overlay,
+  .ball,
+  .capybara-mascot,
+  .calculator-gradient-bg,
+  .calculator-shine,
+  .calculator-icon {
+    animation: none;
+  }
+  
+  .hero-image-container {
+    transform: none;
+  }
+  
+  .hero-image-container:hover {
+    transform: none;
+  }
 }
 </style>

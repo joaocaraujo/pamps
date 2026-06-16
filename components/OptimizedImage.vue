@@ -1,5 +1,5 @@
 <template>
-  <picture>
+  <picture :class="pictureClass">
     <source :srcset="webpSrc" type="image/webp" />
     <img
       :src="fallbackSrc"
@@ -25,11 +25,13 @@ const props = withDefaults(
     decoding?: 'async' | 'auto' | 'sync'
     fetchpriority?: 'high' | 'low' | 'auto'
     imgClass?: string
+    pictureClass?: string
   }>(),
   {
     loading: 'lazy',
     decoding: 'async',
-    fetchpriority: 'auto'
+    fetchpriority: 'auto',
+    pictureClass: ''
   }
 )
 

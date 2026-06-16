@@ -118,15 +118,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'pt-BR'
       },
-      link: [
-        {
-          rel: 'preload',
-          as: 'image',
-          href: '/hero-image.webp',
-          type: 'image/webp',
-          fetchpriority: 'high'
-        }
-      ]
+      link: []
     }
   }
 })

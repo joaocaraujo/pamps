@@ -37,18 +37,26 @@
   },
   "home": {
     "hero": {
+      "eyebrow": "Casa & Espaço de Eventos · Pampulha, BH",
       "headline": "A festa dos sonhos do seu filho começa aqui",
       "subheadline": "Um espaço com tudo que você precisa pra uma festa inesquecível! Espaço climatizado com buffet completo e uma festa do jeitinho que o seu filho merece!",
       "ctaPrimary": "Falar com o Pamps",
+      "trustRating": "5.0 no Google",
+      "trustCapacity": "Até 120 convidados",
       "imageAlt": "Espaço Pamps - Casa & Espaço de Eventos para festas infantis"
     },
     "about": {
+      "eyebrow": "Quem somos",
       "title": "Especialistas em Festas Infantis",
       "paragraph1": "A Pamps é um espaço de eventos localizado na Av. Antônio Abrahão Caram, 420 - Belo Horizonte - MG, especializado em festas infantis inesquecíveis. Com brinquedão fixo, recreação e estrutura completa, criamos momentos mágicos para as crianças.",
-      "paragraph2": "Também realizamos eventos adultos, sociais e confraternizações. Nosso espaço possui estrutura completa, climatizada por dezenas de aparelhos, ambiente fechado, seguro e recém-reformado, com capacidade para até 120 pessoas."
+      "paragraph2": "Também realizamos eventos adultos, sociais e confraternizações. Nosso espaço possui estrutura completa, climatizada por dezenas de aparelhos, ambiente fechado, seguro e recém-reformado, com capacidade para até 120 pessoas.",
+      "locationTitle": "Onde estamos",
+      "mapCta": "Ver no mapa"
     },
     "eventTypes": {
       "title": "Nossos Eventos",
+      "subtitle": "Do aniversário infantil à confraternização corporativa — estrutura completa para cada ocasião.",
+      "learnMore": "Saiba mais",
       "children": {
         "title": "Festa Infantil",
         "description": "Nossa especialidade! Espaço completo com brinquedão fixo, recreação e toda estrutura para uma festa inesquecível"
@@ -67,6 +75,7 @@
       }
     },
     "stats": {
+      "eyebrow": "Números que contam",
       "attractions": {
         "number": "10",
         "label": "Atrações fixas no espaço"
@@ -83,7 +92,9 @@
       }
     },
     "features": {
+      "eyebrow": "Por que a Pamps",
       "title": "Nossos Diferenciais",
+      "subtitle": "Tudo pensado para você organizar com tranquilidade e os convidados se divertirem.",
       "climate": "Climatização completa",
       "playground": "Mega brinquedão",
       "parking": "Garagem com 10 vagas",
@@ -94,7 +105,8 @@
     },
     "ctaSecondary": {
       "title": "Pronto para a festa dos sonhos?",
-      "subtitle": "Entre em contato e descubra como podemos tornar a festa do seu filho inesquecível. Também realizamos eventos adultos e sociais."
+      "subtitle": "Entre em contato e descubra como podemos tornar a festa do seu filho inesquecível. Também realizamos eventos adultos e sociais.",
+      "trust": "Resposta rápida · Atendimento personalizado"
     },
     "attractionsCta": {
       "tagline": "Torne seu evento inesquecível!",

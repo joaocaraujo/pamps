@@ -121,6 +121,8 @@ export default {
         xl: 'var(--shadow-xl)',
         '2xl': 'var(--shadow-2xl)',
         inner: 'var(--shadow-inner)',
+        elevated: 'var(--shadow-elevated)',
+        hero: 'var(--shadow-hero)',
       },
       
       // Transitions

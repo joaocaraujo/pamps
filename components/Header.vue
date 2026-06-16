@@ -2,8 +2,10 @@
   <header
     ref="headerRef"
     :class="[
-      'fixed top-0 left-0 right-0 z-fixed bg-light transition-all duration-300',
-      isScrolled ? 'shadow-base py-2.5 md:py-3' : 'shadow-sm py-3 md:py-4'
+      'fixed top-0 left-0 right-0 z-fixed transition-all duration-300',
+      isScrolled
+        ? 'border-b border-border/60 bg-light/95 py-2.5 shadow-base backdrop-blur-md md:py-3'
+        : 'bg-light py-3 shadow-sm md:py-4'
     ]"
     style="background-color: var(--color-light) !important;"
     role="banner"
@@ -75,7 +77,7 @@
             </svg>
           </NuxtLink>
           <WhatsappLink
-            class="btn-whatsapp inline-flex items-center space-x-2 px-6 py-3 bg-primary text-text-inverse font-body font-semibold text-base rounded-base shadow-base hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:shadow-md"
+            class="btn-whatsapp inline-flex items-center space-x-2 rounded-lg bg-primary px-6 py-3 font-body text-base font-semibold text-text-inverse shadow-md transition-all duration-300 hover:bg-primary-hover hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             :aria-label="$t('cta.whatsappLabel')"
           >
             <svg
