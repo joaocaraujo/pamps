@@ -3,7 +3,7 @@
     <Transition name="modal">
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4"
         @click.self="close"
       >
         <!-- Backdrop -->
@@ -11,7 +11,7 @@
 
         <!-- Modal Content -->
         <div
-          class="relative w-full sm:max-w-xl max-h-[92dvh] sm:max-h-[90vh] bg-light rounded-t-2xl sm:rounded-lg shadow-2xl overflow-hidden flex flex-col"
+          class="relative w-full max-w-xl max-h-[90dvh] bg-light rounded-lg shadow-2xl overflow-hidden flex flex-col"
           role="dialog"
           aria-modal="true"
           aria-labelledby="calculator-title"
@@ -33,7 +33,7 @@
           </div>
 
           <!-- Calculator Content -->
-          <div class="flex-1 px-3 pb-3 pt-1 overflow-hidden flex flex-col min-h-0 sm:p-3">
+          <div class="flex-1 px-3 pt-1 overflow-hidden flex flex-col min-h-0 sm:p-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0px))]">
             <EventCalculator v-if="isOpen" @close="close" />
           </div>
         </div>
@@ -97,16 +97,8 @@ watch(() => props.isOpen, (isOpen) => {
 
 .modal-enter-from .relative,
 .modal-leave-to .relative {
-  transform: translateY(100%);
+  transform: scale(0.95);
   opacity: 0;
-}
-
-@media (min-width: 640px) {
-  .modal-enter-from .relative,
-  .modal-leave-to .relative {
-    transform: scale(0.95);
-    opacity: 0;
-  }
 }
 </style>
 

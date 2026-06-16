@@ -28,8 +28,8 @@
 
     <form class="flex-1 flex flex-col space-y-3 min-h-0" @submit.prevent="handleSubmit">
       <!-- Passo 1: convidados, dia, tipo de festa -->
-      <div v-show="currentStep === 1" class="step-content">
-        <div class="calculator-section">
+      <div v-show="currentStep === 1" class="step-content step-content-scroll">
+        <div class="calculator-section calculator-section-scroll">
           <div class="section-header">
             <div class="section-icon">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <div class="step-navigation">
+        <div class="step-navigation step-navigation-sticky">
           <span />
           <button
             type="button"
@@ -220,8 +220,8 @@
       </div>
 
       <!-- Passo 3: resultado -->
-      <div v-show="currentStep === 3" class="step-content">
-        <div v-if="result" class="calculator-section result-section">
+      <div v-show="currentStep === 3" class="step-content step-content-scroll">
+        <div v-if="result" class="calculator-section calculator-section-scroll result-section">
           <div class="result-header">
             <div class="result-icon">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,7 +282,7 @@
           </WhatsappLink>
         </div>
 
-        <div class="step-navigation">
+        <div class="step-navigation step-navigation-sticky">
           <button type="button" class="step-btn step-btn-secondary" @click="prevStep">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -648,6 +648,12 @@ const whatsappLink = computed(() => {
   @apply overflow-hidden;
 }
 
+.calculator-section-scroll {
+  @apply flex-1 min-h-0 overflow-y-auto overflow-x-hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
 .step-navigation {
   @apply flex justify-between items-center gap-2 pt-3 border-t border-border mt-auto flex-shrink-0;
 }
@@ -669,7 +675,7 @@ const whatsappLink = computed(() => {
 }
 
 .calculator-section {
-  @apply rounded-lg p-3 shadow-lg border flex-shrink-0;
+  @apply rounded-lg p-3 shadow-lg border;
   border-color: rgba(224, 214, 204, 0.5);
   background: linear-gradient(to bottom right, var(--color-light), var(--color-surface));
 }
@@ -818,7 +824,8 @@ const whatsappLink = computed(() => {
 }
 
 .step-navigation-sticky {
-  @apply mt-auto bg-light pt-3;
+  @apply mt-auto bg-light pt-3 -mx-3 px-3;
+  padding-bottom: max(0.25rem, env(safe-area-inset-bottom, 0px));
 }
 
 @media (min-width: 640px) {
