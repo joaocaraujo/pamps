@@ -5,6 +5,10 @@
       <div class="container relative z-[2] mx-auto px-4">
         <div class="relative max-w-6xl mx-auto">
           <!-- Title -->
+          <Breadcrumb :items="[
+            { name: $t('navigation.home'), url: '/' },
+            { name: $t('navigation.contact'), url: '/contact' }
+          ]" />
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-main mb-12 text-center">
             {{ $t('navigation.contact') }}
           </h1>
@@ -162,4 +166,13 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/contact` }] : [])
 })
+
+// JSON-LD: LocalBusiness
+injectSchema(useLocalBusinessSchema())
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.contact'), url: '/contact' },
+]))
 </script>

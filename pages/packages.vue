@@ -2,6 +2,16 @@
   <div class="min-h-screen bg-surface pt-24">
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
+        <Breadcrumb :items="[
+          { name: $t('navigation.home'), url: '/' },
+          { name: $t('navigation.packages'), url: '/packages' }
+        ]" />
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-main mb-4 text-center">
+          {{ $t('packages.pageTitle') }}
+        </h1>
+        <p class="text-text-body text-center max-w-2xl mx-auto mb-12">
+          {{ $t('packages.subtitle') }}
+        </p>
         <div class="max-w-6xl mx-auto space-y-8">
           <article class="relative overflow-visible rounded-2xl border-2 border-primary bg-light shadow-xl">
             <div class="relative z-[1] lg:grid lg:grid-cols-12 lg:gap-8 p-6 md:p-8">
@@ -36,7 +46,7 @@
                       {{ $t('packages.festaLanche.investmentLabel') }}
                     </p>
                     <p class="font-semibold text-text-main leading-snug">
-                      {{ festaLanchePrice }}
+                      {{ $t('packages.festaLanche.ctaPhrase') }}
                     </p>
                   </div>
                 </div>
@@ -131,23 +141,13 @@
                 </div>
               </div>
 
-              <div v-if="selectedDayPrices.length" class="mt-4 rounded-xl border border-border bg-surface/40 p-4 md:p-5">
+              <div v-if="selectedDay" class="mt-4 rounded-xl border border-border bg-surface/40 p-4 md:p-5">
                 <h3 class="text-base font-heading font-semibold text-text-main mb-3">
                   {{ $t('packages.complete.daySelector.pricingTitle') }}
                 </h3>
-                <p class="text-sm font-semibold text-primary mb-3">
-                  {{ $t(`packages.complete.days.${selectedDay}`) }}
+                <p class="text-sm text-text-body mb-3">
+                  {{ $t(`packages.complete.days.${selectedDay}`) }} — {{ $t('packages.complete.ctaPhrase') }}
                 </p>
-                <ul class="space-y-2 text-sm text-text-body">
-                  <li
-                    v-for="row in selectedDayPrices"
-                    :key="row.guests"
-                    class="flex items-center justify-between gap-4 border-b border-border/60 pb-2 last:border-0 last:pb-0"
-                  >
-                    <span>{{ row.guests }} {{ $t('packages.common.guests') }}</span>
-                    <span class="font-semibold text-text-main tabular-nums">{{ row.formatted }}</span>
-                  </li>
-                </ul>
               </div>
 
               <div v-if="selectedDayData" class="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4 md:p-5">
@@ -188,22 +188,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import {
-  COMPLETA_GUEST_TIERS,
-  COMPLETA_PRICES,
-  FESTA_LANCHE_BASE_PRICE,
-  type CalculatorDayType
-} from '~/config/calculator'
 
 const { t, locale } = useI18n()
 const { whatsappLink: baseWhatsappLink, siteUrl } = useContact()
 
 const festaLancheCol1 = ['duration3h30', 'guestsFestaLanche', 'salgadosLivre', 'bebidasLivre', 'doces5']
 const festaLancheCol2 = ['boloCorte', 'pratoQuente', 'miniDecoracao', 'discountVista', 'card3x']
-
-const festaLanchePrice = computed(() =>
-  new Intl.NumberFormat(locale.value, { style: 'currency', currency: 'BRL' }).format(FESTA_LANCHE_BASE_PRICE)
-)
 
 const completeSections = [
   { key: 'decoration', items: ['themedScene', 'balloonArch', 'balloonCeiling', 'balloonCenterpiece'], note: 'decorationOptional' },
@@ -238,24 +228,9 @@ const completeSections = [
 
 const dayOptions = [{ key: 'monThu' },{ key: 'friSun' },{ key: 'saturday' }] as const
 const dayDetails = { monThu: { condition: 'default' }, friSun: { condition: 'default' }, saturday: { condition: 'premiumDay' } }
-const dayToCalculatorDay: Record<keyof typeof dayDetails, CalculatorDayType> = {
-  monThu: 'weekday',
-  friSun: 'friSunHoliday',
-  saturday: 'saturday'
-}
 const paymentItems = ['cash10', 'pix7', 'reserve30', 'card3x']
 const selectedDay = ref<keyof typeof dayDetails>('monThu')
 const selectedDayData = computed(() => dayDetails[selectedDay.value])
-const selectedDayPrices = computed(() => {
-  const day = dayToCalculatorDay[selectedDay.value]
-
-  return COMPLETA_GUEST_TIERS.map((guests) => ({
-    guests,
-    formatted: new Intl.NumberFormat(locale.value, { style: 'currency', currency: 'BRL' }).format(
-      COMPLETA_PRICES[day][guests]
-    )
-  }))
-})
 const selectDay = (day: keyof typeof dayDetails) => { selectedDay.value = day }
 
 const whatsappLink = (packageName: string) => {
@@ -264,9 +239,9 @@ const whatsappLink = (packageName: string) => {
 }
 
 useSeoMeta({
-  title: computed(() => `${t('packages.title')} - ${t('brand.pageTitle')}`),
+  title: computed(() => t('packages.pageTitle')),
   description: computed(() => t('packages.subtitle')),
-  ogTitle: computed(() => `${t('packages.title')} - ${t('brand.pageTitle')}`),
+  ogTitle: computed(() => t('packages.pageTitle')),
   ogDescription: computed(() => t('packages.subtitle')),
   ogImage: '/hero-image.jpg',
   ogType: 'website',
@@ -276,4 +251,10 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/packages` }] : [])
 })
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.packages'), url: '/packages' },
+]))
 </script>

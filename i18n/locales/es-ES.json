@@ -28,14 +28,15 @@
   },
   "brand": {
     "name": "Pamps",
-    "fullName": "Pamps - Casa y Espacio de Eventos",
-    "pageTitle": "Pamps"
+    "fullName": "Pamps Fiesta Infantil - Casa y Espacio de Eventos",
+    "pageTitle": "Pamps Fiesta Infantil - Fiestas en Pampulha, BH"
   },
   "colorMode": {
     "switchToLight": "Cambiar a modo claro",
     "switchToDark": "Cambiar a modo oscuro"
   },
   "home": {
+    "metaDescription": "Pamps Fiesta Infantil en Pampulha, BH — Espacio climatizado con buffet completo para fiestas de hasta 120 invitados. Calificación 5.0 en Google. ¡Contáctanos!",
     "hero": {
       "eyebrow": "Casa y Espacio de Eventos · Pampulha, BH",
       "headline": "La fiesta de los sueños de tu hijo comienza aquí",
@@ -215,7 +216,8 @@
       "eyebrow": "Paquete especial",
       "sideBlurb": "Formato pensado para entre semana: tiempo claro, menú definido y condiciones transparentes.",
       "includesLabel": "Qué incluye",
-      "investmentLabel": "Inversión"
+      "investmentLabel": "Inversión",
+      "ctaPhrase": "Consulta precios"
     },
     "tags": {
       "bestSeller": "Más Vendido",
@@ -376,8 +378,9 @@
       },
       "daySelector": {
         "title": "Seleccione el dia de la fiesta",
-        "pricingTitle": "Tabla de valores (4 horas)"
+        "pricingTitle": "Precios bajo consulta"
       },
+      "ctaPhrase": "Valores y condiciones disponibles por WhatsApp. ¡Habla con el equipo Pamps!",
       "days": {
         "monThu": "Lunes a Jueves",
         "friSun": "Viernes, Domingo y Feriados",
@@ -438,6 +441,8 @@
     },
     "result": {
       "estimated": "Total estimado",
+      "title": "Tu evento personalizado",
+      "ctaPhrase": "¡Cada fiesta es única! Habla con nuestro equipo por WhatsApp para armar el paquete ideal y recibir un presupuesto personalizado.",
       "perPerson": "Por invitado",
       "base": "Paquete (base)",
       "optional": "@:calculator.steps.optional",

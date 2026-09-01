@@ -444,6 +444,33 @@
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="below-fold-section border-b border-border bg-surface py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-3xl">
+          <div class="section-header">
+            <p class="section-eyebrow">Perguntas Frequentes</p>
+            <h2 class="section-title">Dúvidas sobre o Pamps</h2>
+          </div>
+          <div class="space-y-4 mt-8">
+            <details
+              v-for="(faq, i) in faqs"
+              :key="i"
+              class="group rounded-xl border border-border bg-light p-5 md:p-6"
+            >
+              <summary class="flex cursor-pointer items-center justify-between gap-4 font-heading font-semibold text-text-main list-none">
+                {{ faq.q }}
+                <svg class="h-5 w-5 shrink-0 text-text-light transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-3 text-text-body leading-relaxed">{{ faq.a }}</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Secondary CTA Section -->
     <section class="below-fold-section py-16 md:py-24 bg-highlight">
       <div class="container mx-auto px-4">
@@ -557,9 +584,9 @@ const { siteUrl } = useContact()
 
 useSeoMeta({
   title: computed(() => t('brand.pageTitle')),
-  description: computed(() => t('home.hero.subheadline')),
+  description: computed(() => t('home.metaDescription')),
   ogTitle: computed(() => t('brand.pageTitle')),
-  ogDescription: computed(() => t('home.hero.subheadline')),
+  ogDescription: computed(() => t('home.metaDescription')),
   ogImage: '/hero-image.jpg',
   ogType: 'website',
   ogLocale: 'pt_BR',
@@ -583,32 +610,17 @@ useHead({
 })
 
 // JSON-LD: LocalBusiness
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'LocalBusiness',
-        name: 'Pamps - Casa & Espaço de Eventos',
-        description: t('home.hero.subheadline'),
-        image: '/hero-image.jpg',
-        url: siteUrl.value || 'https://pampsbh.com.br',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Belo Horizonte',
-          addressRegion: 'MG',
-          addressCountry: 'BR'
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5.0',
-          reviewCount: '1'
-        }
-      })
-    }
-  ]
-})
+injectSchema(useLocalBusinessSchema())
+
+// JSON-LD: FAQ
+const faqs = [
+  { q: 'Quantos convidados o Pamps comporta?', a: 'O Pamps comporta até 120 convidados em seu espaço climatizado.' },
+  { q: 'O buffet está incluso nos pacotes?', a: 'Sim, oferecemos buffet completo com cardápio variado em todos os pacotes.' },
+  { q: 'Como agendar uma visita ao espaço?', a: 'Pelo WhatsApp (31) 98565-0550 ou através do formulário na página de contato.' },
+  { q: 'Vocês fazem festas temáticas?', a: 'Sim! Montamos a festa do jeito que a criança sonha, com decoração e brincadeiras temáticas.' },
+  { q: 'O espaço é climatizado?', a: 'Sim, nosso espaço é totalmente climatizado por dezenas de aparelhos de ar-condicionado.' },
+]
+injectSchema(useFAQSchema(faqs))
 </script>
 
 <style scoped>

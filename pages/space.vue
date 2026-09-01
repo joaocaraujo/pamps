@@ -14,6 +14,10 @@
           </div>
 
           <!-- Title -->
+          <Breadcrumb :items="[
+            { name: $t('navigation.home'), url: '/' },
+            { name: $t('navigation.space'), url: '/space' }
+          ]" />
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-main mb-8 text-center">
             {{ $t('space.title') }}
           </h1>
@@ -95,6 +99,12 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/space` }] : [])
 })
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.space'), url: '/space' },
+]))
 </script>
 
 <style scoped>

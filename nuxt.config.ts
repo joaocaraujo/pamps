@@ -128,13 +128,13 @@ export default defineNuxtConfig({
       const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://pampsbh.com.br'
       return [
         { loc: `${siteUrl}/`, changefreq: 'weekly', priority: 1.0 },
-        { loc: `${siteUrl}/space`, changefreq: 'monthly', priority: 0.8 },
+        { loc: `${siteUrl}/events`, changefreq: 'weekly', priority: 0.9 },
+        { loc: `${siteUrl}/packages`, changefreq: 'monthly', priority: 0.9 },
         { loc: `${siteUrl}/buffet`, changefreq: 'monthly', priority: 0.8 },
-        { loc: `${siteUrl}/packages`, changefreq: 'monthly', priority: 0.7 },
-        { loc: `${siteUrl}/attractions`, changefreq: 'monthly', priority: 0.7 },
-        { loc: `${siteUrl}/gallery`, changefreq: 'monthly', priority: 0.6 },
-        { loc: `${siteUrl}/events`, changefreq: 'weekly', priority: 0.7 },
-        { loc: `${siteUrl}/contact`, changefreq: 'monthly', priority: 0.9 }
+        { loc: `${siteUrl}/space`, changefreq: 'monthly', priority: 0.7 },
+        { loc: `${siteUrl}/contact`, changefreq: 'monthly', priority: 0.7 },
+        { loc: `${siteUrl}/gallery`, changefreq: 'monthly', priority: 0.7 },
+        { loc: `${siteUrl}/attractions`, changefreq: 'monthly', priority: 0.7 }
       ]
     }
   }

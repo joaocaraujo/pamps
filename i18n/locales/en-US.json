@@ -28,14 +28,15 @@
   },
   "brand": {
     "name": "Pamps",
-    "fullName": "Pamps - House & Event Space",
-    "pageTitle": "Pamps"
+    "fullName": "Pamps Children's Party Venue - House & Event Space",
+    "pageTitle": "Pamps Children's Party Venue - Parties in Pampulha, BH"
   },
   "colorMode": {
     "switchToLight": "Switch to light mode",
     "switchToDark": "Switch to dark mode"
   },
   "home": {
+    "metaDescription": "Pamps Children's Party Venue in Pampulha, BH — Climate-controlled space with full buffet for parties up to 120 guests. 5.0 rating on Google. Contact us!",
     "hero": {
       "eyebrow": "House & Event Space · Pampulha, BH",
       "headline": "Your child's dream party starts here",
@@ -215,7 +216,8 @@
       "eyebrow": "Special package",
       "sideBlurb": "A weekday-friendly format: clear timing, defined menu and straightforward conditions.",
       "includesLabel": "What's included",
-      "investmentLabel": "Investment"
+      "investmentLabel": "Investment",
+      "ctaPhrase": "Ask for pricing"
     },
     "tags": {
       "bestSeller": "Best Seller",
@@ -376,8 +378,9 @@
       },
       "daySelector": {
         "title": "Select party day",
-        "pricingTitle": "Price table (4 hours)"
+        "pricingTitle": "Pricing on request"
       },
+      "ctaPhrase": "Prices and conditions available via WhatsApp. Talk to the Pamps team!",
       "days": {
         "monThu": "Monday to Thursday",
         "friSun": "Friday, Sunday and holidays",
@@ -438,6 +441,8 @@
     },
     "result": {
       "estimated": "Estimated total",
+      "title": "Your personalized event",
+      "ctaPhrase": "Every party is unique! Talk to our team on WhatsApp to build the ideal package and get a personalized quote.",
       "perPerson": "Per guest",
       "base": "Package (base)",
       "optional": "Optionals",

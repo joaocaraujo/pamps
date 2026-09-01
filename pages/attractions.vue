@@ -7,6 +7,10 @@
             <div class="absolute -top-20 -right-16 w-56 h-56 rounded-full bg-primary/20 blur-3xl"></div>
             <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-accent/20 blur-3xl"></div>
             <div class="relative z-10 text-center">
+              <Breadcrumb :items="[
+                { name: $t('navigation.home'), url: '/' },
+                { name: $t('navigation.attractions'), url: '/attractions' }
+              ]" />
               <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-primary mb-2">
                 {{ $t('attractions.eyebrow') }}
               </p>
@@ -227,6 +231,12 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/attractions` }] : [])
 })
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.attractions'), url: '/attractions' },
+]))
 </script>
 
 <style scoped>

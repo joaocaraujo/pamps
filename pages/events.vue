@@ -3,6 +3,16 @@
     <!-- Event Types Grid -->
     <section class="relative py-16 md:py-24">
       <div class="container relative z-[2] mx-auto px-4">
+        <Breadcrumb :items="[
+          { name: $t('navigation.home'), url: '/' },
+          { name: $t('navigation.events'), url: '/events' }
+        ]" />
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-main mb-4 text-center">
+          {{ $t('events.pageTitle') }}
+        </h1>
+        <p class="text-text-body text-center max-w-2xl mx-auto mb-12">
+          {{ $t('events.subtitle') }}
+        </p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <!-- Festas Infantis -->
           <div class="event-card bg-light rounded-lg p-6 shadow-base hover:shadow-lg transition-all duration-300 border border-border">
@@ -305,10 +315,10 @@ const whatsappLink = (eventType: string) => {
 }
 
 useSeoMeta({
-  title: computed(() => `${t('home.eventTypes.title')} - ${t('brand.pageTitle')}`),
-  description: computed(() => t('events.subtitle')),
-  ogTitle: computed(() => `${t('home.eventTypes.title')} - ${t('brand.pageTitle')}`),
-  ogDescription: computed(() => t('events.subtitle')),
+  title: computed(() => t('events.pageTitle')),
+  description: computed(() => t('events.metaDescription')),
+  ogTitle: computed(() => t('events.pageTitle')),
+  ogDescription: computed(() => t('events.metaDescription')),
   ogImage: '/hero-image.jpg',
   ogType: 'website',
   ogLocale: 'pt_BR'
@@ -317,6 +327,12 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/events` }] : [])
 })
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.events'), url: '/events' },
+]))
 </script>
 
 <style scoped>

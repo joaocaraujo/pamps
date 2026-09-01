@@ -3,6 +3,10 @@
     <section class="relative py-12 md:py-16">
       <div class="container relative z-[2] mx-auto px-4">
         <div class="mx-auto max-w-4xl text-center">
+          <Breadcrumb :items="[
+            { name: $t('navigation.home'), url: '/' },
+            { name: $t('navigation.gallery'), url: '/gallery' }
+          ]" />
           <p class="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-primary md:text-sm">
             {{ $t('gallery.eyebrow') }}
           </p>
@@ -89,4 +93,17 @@ useSeoMeta({
 useHead({
   link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/gallery` }] : [])
 })
+
+// JSON-LD: BreadcrumbList
+injectSchema(useBreadcrumbSchema([
+  { name: t('navigation.home'), url: '/' },
+  { name: t('navigation.gallery'), url: '/gallery' },
+]))
+
+// JSON-LD: ImageGallery
+injectSchema(useImageGallerySchema(
+  t('gallery.title'),
+  t('gallery.subtitle'),
+  '/gallery'
+))
 </script>

@@ -22,20 +22,21 @@
   "cta": {
     "whatsapp": "WhatsApp",
     "whatsappLabel": "Falar no WhatsApp com o Pamps",
-    "whatsappMessage": "Olá! Gostaria de saber mais sobre os eventos da Pamps.",
+    "whatsappMessage": "Olá! Eu vim do site do PAMPS e gostaria de informações!",
     "speakWhatsApp": "Falar no WhatsApp",
     "scheduleVisit": "Agendar uma visita"
   },
   "brand": {
     "name": "Pamps",
-    "fullName": "Pamps - Casa & Espaço de Eventos",
-    "pageTitle": "Pamps"
+    "fullName": "Pamps Buffet Infantil - Casa & Espaço de Eventos",
+    "pageTitle": "Pamps Buffet Infantil - Festas na Pampulha, BH"
   },
   "colorMode": {
     "switchToLight": "Alternar para modo claro",
     "switchToDark": "Alternar para modo escuro"
   },
   "home": {
+    "metaDescription": "Pamps Buffet Infantil na Pampulha, BH — Espaço climatizado com buffet completo para festas de até 120 convidados. Avaliação 5.0 no Google. Fale com a gente!",
     "hero": {
       "eyebrow": "Casa & Espaço de Eventos · Pampulha, BH",
       "headline": "A festa dos sonhos do seu filho começa aqui",
@@ -188,6 +189,7 @@
     "terms": "Termos de Uso"
   },
   "packages": {
+    "pageTitle": "Pacotes de Festa Infantil em BH | Pamps Buffet",
     "title": "Nossos Pacotes",
     "subtitle": "Escolha o pacote ideal para tornar sua festa inesquecível",
     "common": {
@@ -215,7 +217,8 @@
       "eyebrow": "Pacote especial",
       "sideBlurb": "Formato enxuto para segunda a quinta: festa deliciosa, tempo definido e condições claras no cardápio.",
       "includesLabel": "O que está incluso",
-      "investmentLabel": "Investimento"
+      "investmentLabel": "Investimento",
+      "ctaPhrase": "Consulte valores"
     },
     "tags": {
       "bestSeller": "Mais Vendido",
@@ -399,8 +402,9 @@
       },
       "daySelector": {
         "title": "Selecione o dia da festa",
-        "pricingTitle": "Tabela de valores (4 horas)"
+        "pricingTitle": "Valores sob consulta"
       },
+      "ctaPhrase": "Valores e condições disponíveis via WhatsApp. Fale com a equipe Pamps!",
       "days": {
         "monThu": "Segunda a Quinta",
         "friSun": "Sexta, Domingo e Feriados",
@@ -461,6 +465,8 @@
     },
     "result": {
       "estimated": "Total estimado",
+      "title": "Seu evento personalizado",
+      "ctaPhrase": "Cada festa é única! Fale com nossa equipe pelo WhatsApp para montar o pacote ideal e receber um orçamento personalizado.",
       "perPerson": "Por convidado",
       "base": "Pacote (base)",
       "optional": "@:calculator.steps.optional",
@@ -497,6 +503,8 @@
     "imageAlt": "{event} — foto {index}"
   },
   "events": {
+    "pageTitle": "Espaço para Festas e Eventos em BH | Pamps Pampulha",
+    "metaDescription": "Espaço completo e climatizado para festas infantis, chá de bebê, confraternizações e eventos corporativos em Belo Horizonte. Avaliação 5.0 no Google.",
     "subtitle": "Espaço completo e climatizado para todos os tipos de eventos. Da festa infantil dos sonhos até confraternizações corporativas.",
     "children": {
       "title": "Festas Infantis",

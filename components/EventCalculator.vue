@@ -229,36 +229,15 @@
               </svg>
             </div>
             <div>
-              <p class="result-label">{{ $t('calculator.result.estimated') }}</p>
-              <p class="result-value">
-                <span class="estimate-amount estimate-amount--large">
-                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
-                  <span class="estimate-value">{{ formatCurrency(result.total) }}</span>
-                </span>
+              <p class="result-label">{{ $t('calculator.result.title') }}</p>
+              <p class="result-value text-base">
+                {{ $t('calculator.result.ctaPhrase') }}
               </p>
             </div>
           </div>
 
-          <div class="result-grid">
-            <div class="result-item">
-              <p class="result-item-label">{{ $t('calculator.result.perPerson') }}</p>
-              <p class="result-item-value">
-                <span class="estimate-amount estimate-amount--item">
-                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
-                  <span class="estimate-value">{{ formatCurrency(result.perPerson) }}</span>
-                </span>
-              </p>
-            </div>
-            <div class="result-item">
-              <p class="result-item-label">{{ $t('calculator.result.base') }}</p>
-              <p class="result-item-value">
-                <span class="estimate-amount estimate-amount--item">
-                  <span class="estimate-from">{{ $t('calculator.fromPrice') }}</span>
-                  <span class="estimate-value">{{ formatCurrency(result.base) }}</span>
-                </span>
-              </p>
-            </div>
-            <div v-if="selectedOptionalsCount > 0" class="result-item result-item-optional">
+          <div v-if="selectedOptionalsCount > 0" class="result-grid">
+            <div class="result-item result-item-optional">
               <p class="result-item-label">{{ $t('calculator.result.optional') }}</p>
               <p class="result-item-value">
                 <span class="optional-result-list">{{ selectedOptionalsLabels }}</span>
