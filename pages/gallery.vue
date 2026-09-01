@@ -74,13 +74,19 @@ const selectedEvent = computed(() =>
   galleryEvents.find((event) => event.slug === selectedSlug.value)
 )
 
-useHead({
+const { siteUrl } = useContact()
+
+useSeoMeta({
   title: computed(() => `${t('gallery.pageTitle')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('gallery.subtitle'))
-    }
-  ]
+  description: computed(() => t('gallery.subtitle')),
+  ogTitle: computed(() => `${t('gallery.pageTitle')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('gallery.subtitle')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
+
+useHead({
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/gallery` }] : [])
 })
 </script>

@@ -151,6 +151,7 @@
 import { computed, ref } from 'vue'
 
 const { t } = useI18n()
+const { siteUrl } = useContact()
 
 const fallbackImage = '/logo.webp'
 
@@ -213,14 +214,18 @@ const onImageError = (event: Event) => {
   }
 }
 
-useHead({
+useSeoMeta({
   title: computed(() => `${t('attractions.title')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('attractions.subtitle'))
-    }
-  ]
+  description: computed(() => t('attractions.subtitle')),
+  ogTitle: computed(() => `${t('attractions.title')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('attractions.subtitle')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
+
+useHead({
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/attractions` }] : [])
 })
 </script>
 

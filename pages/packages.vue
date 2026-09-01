@@ -196,7 +196,7 @@ import {
 } from '~/config/calculator'
 
 const { t, locale } = useI18n()
-const { whatsappLink: baseWhatsappLink } = useContact()
+const { whatsappLink: baseWhatsappLink, siteUrl } = useContact()
 
 const festaLancheCol1 = ['duration3h30', 'guestsFestaLanche', 'salgadosLivre', 'bebidasLivre', 'doces5']
 const festaLancheCol2 = ['boloCorte', 'pratoQuente', 'miniDecoracao', 'discountVista', 'card3x']
@@ -263,8 +263,17 @@ const whatsappLink = (packageName: string) => {
   return baseWhatsappLink(message)
 }
 
-useHead({
+useSeoMeta({
   title: computed(() => `${t('packages.title')} - ${t('brand.pageTitle')}`),
-  meta: [{ name: 'description', content: computed(() => t('packages.subtitle')) }]
+  description: computed(() => t('packages.subtitle')),
+  ogTitle: computed(() => `${t('packages.title')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('packages.subtitle')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
+
+useHead({
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/packages` }] : [])
 })
 </script>

@@ -80,14 +80,20 @@
 import { computed } from 'vue'
 
 const { t } = useI18n()
-useHead({
+const { siteUrl } = useContact()
+
+useSeoMeta({
   title: computed(() => `${t('space.title')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('space.message'))
-    }
-  ]
+  description: computed(() => t('space.message')),
+  ogTitle: computed(() => `${t('space.title')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('space.message')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
+
+useHead({
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/space` }] : [])
 })
 </script>
 

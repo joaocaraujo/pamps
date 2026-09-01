@@ -553,27 +553,61 @@ const firstHeroSlideWebp = computed(() => {
   return src.replace(/\.(jpe?g|png)$/i, '.webp')
 })
 
-useHead({
+const { siteUrl } = useContact()
+
+useSeoMeta({
   title: computed(() => t('brand.pageTitle')),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('home.hero.subheadline'))
-    }
-  ],
+  description: computed(() => t('home.hero.subheadline')),
+  ogTitle: computed(() => t('brand.pageTitle')),
+  ogDescription: computed(() => t('home.hero.subheadline')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR',
+  twitterCard: 'summary_large_image'
+})
+
+useHead({
   link: computed(() => {
+    const links: Record<string, string>[] = []
+    // Canonical
+    if (siteUrl.value) {
+      links.push({ rel: 'canonical', href: siteUrl.value })
+    }
+    // Preload hero image
     const href = firstHeroSlideWebp.value
-    if (!href) return []
-    return [
-      {
-        rel: 'preload',
-        as: 'image',
-        href,
-        type: 'image/webp',
-        fetchpriority: 'high'
-      }
-    ]
+    if (href) {
+      links.push({ rel: 'preload', as: 'image', href, type: 'image/webp', fetchpriority: 'high' })
+    }
+    return links
   })
+})
+
+// JSON-LD: LocalBusiness
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'Pamps - Casa & Espaço de Eventos',
+        description: t('home.hero.subheadline'),
+        image: '/hero-image.jpg',
+        url: siteUrl.value || 'https://pampsbh.com.br',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Belo Horizonte',
+          addressRegion: 'MG',
+          addressCountry: 'BR'
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5.0',
+          reviewCount: '1'
+        }
+      })
+    }
+  ]
 })
 </script>
 

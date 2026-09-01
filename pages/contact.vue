@@ -147,15 +147,19 @@
 import { computed } from 'vue'
 
 const { t } = useI18n()
-const { phoneDisplay, contactEmail } = useContact()
+const { phoneDisplay, contactEmail, siteUrl } = useContact()
+
+useSeoMeta({
+  title: computed(() => `${t('navigation.contact')} - ${t('brand.pageTitle')}`),
+  description: computed(() => t('contact.metaDescription')),
+  ogTitle: computed(() => `${t('navigation.contact')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('contact.metaDescription')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
 
 useHead({
-  title: computed(() => `${t('navigation.contact')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('contact.metaDescription'))
-    }
-  ]
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/contact` }] : [])
 })
 </script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pampsbh.com.br/sitemap.xml

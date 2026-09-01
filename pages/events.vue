@@ -297,21 +297,25 @@ import { computed } from 'vue'
 
 const { t } = useI18n()
 
-const { whatsappLink: baseWhatsappLink } = useContact()
+const { whatsappLink: baseWhatsappLink, siteUrl } = useContact()
 
 const whatsappLink = (eventType: string) => {
   const message = `Olá! Gostaria de saber mais sobre ${eventType} na Pamps.`
   return baseWhatsappLink(message)
 }
 
-useHead({
+useSeoMeta({
   title: computed(() => `${t('home.eventTypes.title')} - ${t('brand.pageTitle')}`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => t('events.subtitle'))
-    }
-  ]
+  description: computed(() => t('events.subtitle')),
+  ogTitle: computed(() => `${t('home.eventTypes.title')} - ${t('brand.pageTitle')}`),
+  ogDescription: computed(() => t('events.subtitle')),
+  ogImage: '/hero-image.jpg',
+  ogType: 'website',
+  ogLocale: 'pt_BR'
+})
+
+useHead({
+  link: computed(() => siteUrl.value ? [{ rel: 'canonical', href: `${siteUrl.value}/events` }] : [])
 })
 </script>
 
