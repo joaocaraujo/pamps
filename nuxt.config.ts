@@ -119,7 +119,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'pt-BR'
       },
-      link: []
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/logo.png' },
+        { rel: 'apple-touch-icon', type: 'image/png', href: '/logo.png' }
+      ]
     }
   },
 
