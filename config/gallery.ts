@@ -59,8 +59,7 @@ export const galleryEvents: GalleryEvent[] = [
       '/images/gallery/aniversario-renata-2026/10.jpeg',
       '/images/gallery/aniversario-renata-2026/11.jpeg',
       '/images/gallery/aniversario-renata-2026/12.jpeg',
-      '/images/gallery/aniversario-renata-2026/13.jpeg',
-      '/images/gallery/aniversario-renata-2026/14.jpeg'
+      '/images/gallery/aniversario-renata-2026/13.jpeg'
     ]
   },
   {
