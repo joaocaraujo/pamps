@@ -43,20 +43,6 @@ export const galleryEvents: GalleryEvent[] = [
       '/images/gallery/aniversario-luisa-2026/06.jpeg'
     ]
   },
-  // {
-  //   slug: '30-anos-ronan-2026',
-  //   title: '30 anos do Ronan',
-  //   images: [
-  //     '/images/gallery/30-anos-ronan-2026/01.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/02.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/03.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/04.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/05.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/06.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/07.jpeg',
-  //     '/images/gallery/30-anos-ronan-2026/08.jpeg'
-  //   ]
-  // },
   {
     slug: 'aniversario-renata-2026',
     title: 'Aniversário da Renata',
@@ -75,6 +61,78 @@ export const galleryEvents: GalleryEvent[] = [
       '/images/gallery/aniversario-renata-2026/12.jpeg',
       '/images/gallery/aniversario-renata-2026/13.jpeg',
       '/images/gallery/aniversario-renata-2026/14.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-antonella-2026',
+    title: 'Aniversário da Antonella',
+    images: [
+      '/images/gallery/aniversario-antonella-2026/01.jpeg',
+      '/images/gallery/aniversario-antonella-2026/02.jpeg',
+      '/images/gallery/aniversario-antonella-2026/03.jpeg',
+      '/images/gallery/aniversario-antonella-2026/04.jpeg',
+      '/images/gallery/aniversario-antonella-2026/05.jpeg',
+      '/images/gallery/aniversario-antonella-2026/06.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-antonio-2026',
+    title: 'Aniversário do Antônio',
+    images: [
+      '/images/gallery/aniversario-antonio-2026/01.jpeg',
+      '/images/gallery/aniversario-antonio-2026/02.jpeg',
+      '/images/gallery/aniversario-antonio-2026/03.jpeg',
+      '/images/gallery/aniversario-antonio-2026/04.jpeg',
+      '/images/gallery/aniversario-antonio-2026/05.jpeg',
+      '/images/gallery/aniversario-antonio-2026/06.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-isis-2026',
+    title: 'Aniversário da Isis',
+    images: [
+      '/images/gallery/aniversario-isis-2026/01.jpeg',
+      '/images/gallery/aniversario-isis-2026/02.jpeg',
+      '/images/gallery/aniversario-isis-2026/03.jpeg',
+      '/images/gallery/aniversario-isis-2026/04.jpeg',
+      '/images/gallery/aniversario-isis-2026/05.jpeg',
+      '/images/gallery/aniversario-isis-2026/06.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-joao-2026',
+    title: 'Aniversário do João',
+    images: [
+      '/images/gallery/aniversario-joao-2026/01.jpeg',
+      '/images/gallery/aniversario-joao-2026/02.jpeg',
+      '/images/gallery/aniversario-joao-2026/03.jpeg',
+      '/images/gallery/aniversario-joao-2026/04.jpeg',
+      '/images/gallery/aniversario-joao-2026/05.jpeg',
+      '/images/gallery/aniversario-joao-2026/06.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-levi-2026',
+    title: 'Aniversário do Levi',
+    images: [
+      '/images/gallery/aniversario-levi-2026/01.jpeg',
+      '/images/gallery/aniversario-levi-2026/02.jpeg',
+      '/images/gallery/aniversario-levi-2026/03.jpeg',
+      '/images/gallery/aniversario-levi-2026/04.jpeg',
+      '/images/gallery/aniversario-levi-2026/05.jpeg',
+      '/images/gallery/aniversario-levi-2026/06.jpeg'
+    ]
+  },
+  {
+    slug: 'aniversario-marina-2026',
+    title: 'Aniversário da Marina',
+    images: [
+      '/images/gallery/aniversario-marina-2026/01.jpeg',
+      '/images/gallery/aniversario-marina-2026/02.jpeg',
+      '/images/gallery/aniversario-marina-2026/03.jpeg',
+      '/images/gallery/aniversario-marina-2026/04.jpeg',
+      '/images/gallery/aniversario-marina-2026/05.jpeg',
+      '/images/gallery/aniversario-marina-2026/06.jpeg'
     ]
   }
 ]
